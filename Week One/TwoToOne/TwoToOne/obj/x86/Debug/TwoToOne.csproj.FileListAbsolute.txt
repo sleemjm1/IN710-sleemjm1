@@ -1,0 +1,7 @@
+H:\OOSD\Week One\TwoToOne\TwoToOne\obj\x86\Debug\TwoToOne.Form1.resources
+H:\OOSD\Week One\TwoToOne\TwoToOne\obj\x86\Debug\TwoToOne.Properties.Resources.resources
+H:\OOSD\Week One\TwoToOne\TwoToOne\obj\x86\Debug\TwoToOne.csproj.GenerateResource.Cache
+H:\OOSD\Week One\TwoToOne\TwoToOne\bin\Debug\TwoToOne.exe
+H:\OOSD\Week One\TwoToOne\TwoToOne\bin\Debug\TwoToOne.pdb
+H:\OOSD\Week One\TwoToOne\TwoToOne\obj\x86\Debug\TwoToOne.exe
+H:\OOSD\Week One\TwoToOne\TwoToOne\obj\x86\Debug\TwoToOne.pdb
