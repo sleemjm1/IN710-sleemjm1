@@ -18,7 +18,9 @@ namespace TestVS2015
 
      
         public void PrintDeal(ListBox displayBox, List<Hand> hands)
-        {   
+        {
+            hands.Sort();
+            //hands.Reverse();
             foreach (Hand h in hands)
             {
                 PrintHand(displayBox, h);
@@ -35,6 +37,8 @@ namespace TestVS2015
 
             // Remember the ShortRank data member in the Card class?
             // Here's where we use it...
+            handToPrint.CardsInHand.Sort();
+            handToPrint.CardsInHand.Reverse();
             foreach(Card c in handToPrint.CardsInHand)
             {
                 switch(c.Suit)

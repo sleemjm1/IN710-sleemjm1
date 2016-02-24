@@ -9,3 +9,12 @@ H:\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.Properties.R
 H:\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\BasicBridgeDealer2016.csproj.GenerateResource.Cache
 H:\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.exe
 H:\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.pdb
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\bin\Debug\TestVS2015.exe.config
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.exe
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.pdb
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\BasicBridgeDealer2016.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.Form1.resources
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\TestVS2015.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\obj\Debug\BasicBridgeDealer2016.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\bin\Debug\TestVS2015.exe
+\\vmware-host\Shared Folders\Documents\School\OOSD\Week Two\InterfacePractical\TestVS2015\bin\Debug\TestVS2015.pdb

@@ -28,7 +28,8 @@ namespace TestVS2015
         // Each hand populated randomly, without duplication (i.e. no card appears twice)
         public List<Hand> Deal(int handCount, int handLength)
         {
-            // What error checking is missing here?
+            // What error checking is missing here? Make sure it is possible to deal the deck
+            // Less than 52 cards
 
             List<Hand> dealtHands = new List<Hand>();
 
