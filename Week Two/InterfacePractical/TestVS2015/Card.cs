@@ -114,8 +114,8 @@ namespace TestVS2015
                 else if (Rank < otherCard.Rank) return 1;
                 else return 0;
             }
-            else if (Suit > otherCard.Suit) return -1; //else we compare suits
-            else return 1;
+            else if (Suit > otherCard.Suit) return 1; //else we compare suits
+            else return -1;
         }
     }
 }
