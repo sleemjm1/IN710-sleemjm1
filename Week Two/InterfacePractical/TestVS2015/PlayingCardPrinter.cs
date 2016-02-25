@@ -38,7 +38,7 @@ namespace TestVS2015
             // Remember the ShortRank data member in the Card class?
             // Here's where we use it...
             handToPrint.CardsInHand.Sort();
-            handToPrint.CardsInHand.Reverse();
+            //handToPrint.CardsInHand.Reverse();
             foreach(Card c in handToPrint.CardsInHand)
             {
                 switch(c.Suit)

@@ -108,7 +108,10 @@ namespace TestVS2015
         public int CompareTo(object obj)
         {
             Card otherCard = obj as Card;
-            return this.Rank.CompareTo(otherCard.Rank);
+            int returnCode = this.Rank.CompareTo(otherCard.Rank);
+            if (returnCode == -1) return 1;
+            else if (returnCode == 1) return -1;
+            else return 0;
         }
     }
 }
