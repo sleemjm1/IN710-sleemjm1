@@ -34,10 +34,8 @@ namespace TestVS2015
         public int CompareTo(object obj)
         {
             Hand otherHand = obj as Hand;
-            //return this.TotalHCP.CompareTo(otherHand.TotalHCP);
-            int returnCode = this.TotalHCP.CompareTo(otherHand.TotalHCP);
-            if (returnCode == -1) return 1;
-            else if (returnCode == 1) return -1;
+            if (TotalHCP > otherHand.TotalHCP) return -1;
+            else if (TotalHCP < otherHand.TotalHCP) return 1;
             else return 0;
         }
     }
