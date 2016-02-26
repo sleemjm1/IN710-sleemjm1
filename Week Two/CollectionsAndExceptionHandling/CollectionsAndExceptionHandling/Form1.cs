@@ -16,5 +16,17 @@ namespace CollectionsAndExceptionHandling
         {
             InitializeComponent();
         }
+
+        private void btnAddMovie_Click(object sender, EventArgs e)
+        {
+            int movieYear = Int32.Parse(tbAddYear.Text);
+            string movieTitle = tbAddTitle.Text;
+            string movieDirector = tbAddDirector.Text;
+
+            Movie movieToAdd = new Movie(movieYear, movieTitle, movieDirector);
+
+            MovieDB movieDB = new MovieDB();
+            movieDB.AddMovieToDB(movieToAdd);
+        }
     }
 }
