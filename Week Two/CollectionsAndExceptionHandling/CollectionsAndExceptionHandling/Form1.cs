@@ -12,21 +12,103 @@ namespace CollectionsAndExceptionHandling
 {
     public partial class Form1 : Form
     {
+        MovieDB movieDB = new MovieDB();
         public Form1()
         {
             InitializeComponent();
+            movieDB.PopulateMovieDB();
+        }
+
+        private void ClearAllInputControls()
+        {
+            tbAddDirector.Clear();
+            tbAddTitle.Clear();
+            tbAddYear.Clear();
+            tbSearchDelete.Clear();
+        }
+
+        private bool TestForInteger(string stringToTest) //returns true if string is an integer
+        {
+            int outInt;
+            bool result = Int32.TryParse(stringToTest, out outInt);
+            return result;
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
-            int movieYear = Int32.Parse(tbAddYear.Text);
-            string movieTitle = tbAddTitle.Text;
-            string movieDirector = tbAddDirector.Text;
+            string movieTitle; 
+            string movieDirector; 
+            int movieYear;
+            if (tbAddTitle.Text != "" && tbAddDirector.Text != "") //If these two text boxes aren't empty
+            {
+                movieTitle = tbAddTitle.Text;
+                movieDirector = tbAddDirector.Text;
+                bool result = Int32.TryParse(tbAddYear.Text, out movieYear);    //use TryParse so that we don't need to catch 
+                if (result)                                                     //an exception -- maybe change later =\
+                {
+                    Movie movieToAdd = new Movie(movieYear, movieTitle, movieDirector);
+                    try
+                    {
+                        movieDB.AddMovieToDB(movieToAdd);
+                        MessageBox.Show("Movie added successfully");
+                    }
+                    catch (ArgumentException)   //we already have a movie with that key in our DB
+                    {
+                        MessageBox.Show(movieYear + " is already taken by another movie");
+                    }
+                    finally
+                    {
+                        ClearAllInputControls();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Movie year must be numeric");
+                    ClearAllInputControls();
+                }
+            } // end text box check
+            else
+            {
+                MessageBox.Show("Please fill out all required fields");
+            }
+        }
 
-            Movie movieToAdd = new Movie(movieYear, movieTitle, movieDirector);
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            listAllMovies.Items.Clear();
+            movieDB.ShowAllMovies(listAllMovies);
+        }
 
-            MovieDB movieDB = new MovieDB();
-            movieDB.AddMovieToDB(movieToAdd);
+        private void btnDeleteMovie_Click(object sender, EventArgs e)
+        {
+            if (TestForInteger(tbSearchDelete.Text))
+            {
+                int key = Int32.Parse(tbSearchDelete.Text);
+                try
+                {
+                    movieDB.DeleteMovieFromDB(key);
+                    MessageBox.Show("Movie from the year " + key + " was deleted");
+                }
+                catch (KeyNotFoundException)
+                {
+                    MessageBox.Show("No movie from that year available for deletion");
+                }
+                listAllMovies.Items.Clear();
+                movieDB.ShowAllMovies(listAllMovies);
+                
+            }
+            else MessageBox.Show("Please enter numeric value");
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            listAllMovies.Items.Clear();
+            if (TestForInteger(tbSearchDelete.Text))
+            {
+                int key = Int32.Parse(tbSearchDelete.Text.ToString());
+                movieDB.SearchMovies(listAllMovies, key);
+            }
+            else MessageBox.Show("Please enter numeric value");            
         }
     }
 }

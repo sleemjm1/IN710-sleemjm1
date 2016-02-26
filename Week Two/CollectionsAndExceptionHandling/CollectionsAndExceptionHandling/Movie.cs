@@ -21,7 +21,7 @@ namespace CollectionsAndExceptionHandling
 
         public override string ToString()
         {
-            return Year + "," + Title + ", " + Director;
+            return Year + ", " + Title + ", " + Director;
         }
     }
 }
