@@ -22,27 +22,15 @@ namespace CollectionsAndExceptionHandling
             MovieListKeys.Add(movie.Year);
         }
 
-        public void DeleteMovieFromDB(int key)
+        public bool DeleteMovieFromDB(int key)
         {
-            //if (MovieListKeys.Any(item => item == key)) //if there is any value same as key in our MovieListKeys
-            //try 
-            //{
-                MovieListKeys.Remove(key);
+
+            if (MovieListKeys.Remove(key))
+            {
                 movieTable.Remove(key);
-            //}
-            //catch(KeyNotFoundException e)
-            //{
-            //    throw new KeyNotFoundException(@"Key not in dictionary.",e);
-            //}
-            //foreach (int i in MovieListKeys)
-            //{
-            //   if (i == key)
-            //   {
-            //       MovieListKeys.Remove(i);
-            //       movieTable.Remove(key);
-            //   }
-            //}
-            //else it's not in our list
+                return true;
+            }
+            else return false;
         }
 
         public void SearchMovies(ListBox listBox, int key)

@@ -13,6 +13,8 @@ namespace CollectionsAndExceptionHandling
     public partial class Form1 : Form
     {
         MovieDB movieDB = new MovieDB();
+        int maxYear = 2016;
+        int minYear = 1000;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace CollectionsAndExceptionHandling
             int outInt;
             bool result = Int32.TryParse(stringToTest, out outInt);
             return result;
+            
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)
@@ -43,8 +46,8 @@ namespace CollectionsAndExceptionHandling
             {
                 movieTitle = tbAddTitle.Text;
                 movieDirector = tbAddDirector.Text;
-                bool result = Int32.TryParse(tbAddYear.Text, out movieYear);    //use TryParse so that we don't need to catch 
-                if (result)                                                     //an exception -- maybe change later =\
+                bool result = Int32.TryParse(tbAddYear.Text, out movieYear);    //use TryParse so that we don't need to catch an exception
+                if (result && movieYear <= maxYear && movieYear >= minYear)     
                 {
                     Movie movieToAdd = new Movie(movieYear, movieTitle, movieDirector);
                     try
@@ -63,7 +66,7 @@ namespace CollectionsAndExceptionHandling
                 }
                 else
                 {
-                    MessageBox.Show("Movie year must be numeric");
+                    MessageBox.Show("Movie year must be numeric and between " + minYear + " and " + maxYear);
                     ClearAllInputControls();
                 }
             } // end text box check
@@ -84,15 +87,12 @@ namespace CollectionsAndExceptionHandling
             if (TestForInteger(tbSearchDelete.Text))
             {
                 int key = Int32.Parse(tbSearchDelete.Text);
-                try
+
+                if (movieDB.DeleteMovieFromDB(key))
                 {
-                    movieDB.DeleteMovieFromDB(key);
                     MessageBox.Show("Movie from the year " + key + " was deleted");
                 }
-                catch (KeyNotFoundException)
-                {
-                    MessageBox.Show("No movie from that year available for deletion");
-                }
+                else MessageBox.Show("Unable to find a movie for " + key);
                 listAllMovies.Items.Clear();
                 movieDB.ShowAllMovies(listAllMovies);
                 
