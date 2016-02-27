@@ -52,15 +52,21 @@ namespace CollectionsAndExceptionHandling
 
         public void PopulateMovieDB()
         {
-            Movie MovieOne = new Movie(1975, "Joe's Movie", "Joe Sleeman");
-            Movie MovieTwo = new Movie(1983, "Thomas' Movie", "Thomas Weilly");
-            Movie MovieThree = new Movie(1992, "Ben's Movie", "Ben Gordon Munro");
-            Movie MovieFour = new Movie(1991, "Emma's Movie", "Emma Whyte");
+            Movie MovieOne = new Movie(2014, "Night at the Museum 3", "Shawn Levy");
+            Movie MovieTwo = new Movie(1993, "Jurassic Park", "Steven Spielberg");
+            Movie MovieThree = new Movie(1994, "The Shawshank Redemption", "Frank Darabont");
+            Movie MovieFour = new Movie(2004, "Man On Fire", "Tony Scott");
+            Movie MovieFive = new Movie(2007, "American Gangster", "Ridley Scott");
+            Movie MovieSix = new Movie(1997, "Titanic", "James Cameron" );
+            Movie MovieSeven = new Movie(2015, "Legend", "Brian Helgeland");
 
             AddMovieToDB(MovieOne);
             AddMovieToDB(MovieTwo);
             AddMovieToDB(MovieThree);
             AddMovieToDB(MovieFour);
+            AddMovieToDB(MovieFive);
+            AddMovieToDB(MovieSix);
+            AddMovieToDB(MovieSeven);
         }
 
         public void sortMovies(ListBox listBox)
