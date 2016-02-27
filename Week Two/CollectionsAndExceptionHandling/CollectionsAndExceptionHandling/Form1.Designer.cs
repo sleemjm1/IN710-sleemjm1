@@ -174,6 +174,7 @@
             this.btnSort.TabIndex = 16;
             this.btnSort.Text = "Sort Movis";
             this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // Form1
             // 

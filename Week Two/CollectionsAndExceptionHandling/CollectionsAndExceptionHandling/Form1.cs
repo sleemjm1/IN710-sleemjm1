@@ -110,5 +110,11 @@ namespace CollectionsAndExceptionHandling
             }
             else MessageBox.Show("Please enter numeric value");            
         }
+
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            listAllMovies.Items.Clear();
+            movieDB.sortMovies(listAllMovies);
+        }
     }
 }

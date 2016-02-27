@@ -54,13 +54,23 @@ namespace CollectionsAndExceptionHandling
         {
             Movie MovieOne = new Movie(1975, "Joe's Movie", "Joe Sleeman");
             Movie MovieTwo = new Movie(1983, "Thomas' Movie", "Thomas Weilly");
-            Movie MovieThree = new Movie(1992, "Ben's Movie", "Ben Munroe");
+            Movie MovieThree = new Movie(1992, "Ben's Movie", "Ben Gordon Munro");
             Movie MovieFour = new Movie(1991, "Emma's Movie", "Emma Whyte");
 
             AddMovieToDB(MovieOne);
             AddMovieToDB(MovieTwo);
             AddMovieToDB(MovieThree);
             AddMovieToDB(MovieFour);
+        }
+
+        public void sortMovies(ListBox listBox)
+        {
+            var list = movieTable.Keys.ToList();
+            list.Sort();            // will sort ascending, hand-out doesn't seem to specify sort order
+            foreach (var key in list)
+            {
+                listBox.Items.Add(movieTable[key]);
+            }
         }
     }
 }
