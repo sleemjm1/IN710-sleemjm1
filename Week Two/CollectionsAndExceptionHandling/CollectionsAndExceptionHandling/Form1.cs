@@ -13,8 +13,6 @@ namespace CollectionsAndExceptionHandling
     public partial class Form1 : Form
     {
         MovieDB movieDB = new MovieDB();
-        int maxYear = 2016;
-        int minYear = 1000;
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +45,7 @@ namespace CollectionsAndExceptionHandling
                 movieTitle = tbAddTitle.Text;
                 movieDirector = tbAddDirector.Text;
                 bool result = Int32.TryParse(tbAddYear.Text, out movieYear);    //use TryParse so that we don't need to catch an exception
-                if (result && movieYear <= maxYear && movieYear >= minYear)     
+                if (result)     
                 {
                     Movie movieToAdd = new Movie(movieYear, movieTitle, movieDirector);
                     try
@@ -59,6 +57,10 @@ namespace CollectionsAndExceptionHandling
                     {
                         MessageBox.Show(movieYear + " is already taken by another movie");
                     }
+                    catch (IndexOutOfRangeException ex) //movie.Year below 1000 or above 2016
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                     finally
                     {
                         ClearAllInputControls();
@@ -66,7 +68,7 @@ namespace CollectionsAndExceptionHandling
                 }
                 else
                 {
-                    MessageBox.Show("Movie year must be numeric and between " + minYear + " and " + maxYear);
+                    MessageBox.Show("Movie year must be numeric");
                     ClearAllInputControls();
                 }
             } // end text box check

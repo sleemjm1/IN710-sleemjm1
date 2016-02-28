@@ -18,8 +18,14 @@ namespace CollectionsAndExceptionHandling
 
         public void AddMovieToDB(Movie movie)
         {
-            movieTable.Add(movie.Year, movie); //Arguement Exception
-            MovieListKeys.Add(movie.Year);
+            int minYear = 1000;
+            int maxYear = 2016;
+            if (movie.Year > minYear && movie.Year <= maxYear)
+            {
+                movieTable.Add(movie.Year, movie); //Arguement Exception
+                MovieListKeys.Add(movie.Year);
+            }
+            else throw new System.IndexOutOfRangeException("Movie must between " + minYear + " and " + maxYear);
         }
 
         public bool DeleteMovieFromDB(int key)
