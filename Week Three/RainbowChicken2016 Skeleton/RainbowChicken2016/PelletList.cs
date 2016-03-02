@@ -26,7 +26,16 @@ namespace RainbowChicken2016
         //==============================================================================
         public void addPellet(Pellet newPellet)
         {
-            throw new NotImplementedException();
+            if (headPointer == null)
+            {
+                headPointer = newPellet;
+                tailPointer = newPellet;
+            }
+            else 
+            {
+                tailPointer.Next = newPellet;
+                tailPointer = newPellet;
+            }
         }
 
         //==============================================================================
@@ -34,7 +43,15 @@ namespace RainbowChicken2016
         //==============================================================================
         public int Count()
         {
-            throw new NotImplementedException();
+            int count = 0;
+            Pellet pelletWalker = headPointer;
+            while (pelletWalker != null)
+            {
+                count++;
+                pelletWalker = pelletWalker.Next;
+            }
+
+            return count;
         }
 
         //==============================================================================
@@ -42,7 +59,12 @@ namespace RainbowChicken2016
         //==============================================================================
         public void Move()
         {
-            throw new NotImplementedException();
+            Pellet pelletWalker = headPointer;
+            while (pelletWalker != null)
+            {
+                pelletWalker.Move();
+                pelletWalker = pelletWalker.Next;
+            }
         }
 
         //==============================================================================
@@ -51,7 +73,15 @@ namespace RainbowChicken2016
         //==============================================================================
         public void KillOutOfBounds()
         {
-            throw new NotImplementedException();
+            Pellet pelletWalker = headPointer;
+            while (pelletWalker != null)
+            {
+                if (pelletWalker.TestOutOfBounds(boundsRectangle))
+                {
+                    pelletWalker.IsAlive = false;
+                }
+                pelletWalker = pelletWalker.Next;
+            }
         }
 
         //==============================================================================
@@ -61,7 +91,37 @@ namespace RainbowChicken2016
         //==============================================================================
         public void DeleteOne(Pellet pelletToDelete)
         {
-            throw new NotImplementedException();
+            Pellet pelletWalker = headPointer;
+            if (pelletToDelete == headPointer)
+            {
+                if (pelletToDelete == tailPointer)
+                {
+                    headPointer = null;
+                    tailPointer = null;
+                }
+                else
+                {
+                    headPointer = headPointer.Next;
+                }
+            }
+            else
+            {
+                while (pelletWalker != null)
+                {
+                    if (pelletWalker.Next == pelletToDelete)
+                    {
+                        if (pelletToDelete == tailPointer)  //if we are going to delete last pellet in the list
+                        {
+                            tailPointer = pelletWalker;     //point tailpointer at previous pellet
+                        }
+                        else                                //we're on a normal pellet
+                        {
+                            pelletWalker.Next = pelletToDelete.Next;
+                        }
+                    }
+                    pelletWalker = pelletWalker.Next;
+                }
+            }
         }
 
         //==============================================================================
@@ -69,7 +129,15 @@ namespace RainbowChicken2016
         //==============================================================================
         public void DeleteNotAlive()
         {
-            throw new NotImplementedException();
+            Pellet pelletWalker = headPointer;
+            while (pelletWalker != null)
+            {
+                if (pelletWalker.IsAlive == false)
+                {
+                    DeleteOne(pelletWalker);
+                }
+                pelletWalker = pelletWalker.Next;
+            }
         }
 
         //==============================================================================
@@ -77,7 +145,13 @@ namespace RainbowChicken2016
         //==============================================================================
         public void Draw()
         {
-            throw new NotImplementedException();
+            Pellet pelletWalker = headPointer;
+            while (pelletWalker != null)
+            {
+                pelletWalker.Draw();
+                pelletWalker = pelletWalker.Next;
+            }
+            
         }
     }
 }
