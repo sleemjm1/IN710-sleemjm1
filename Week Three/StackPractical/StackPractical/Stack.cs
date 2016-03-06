@@ -8,12 +8,13 @@ namespace StackPractical
 {
     class Stack
     {
-        Node head = null;
-        Node tail = null;
-
-        public void Stack()
+        Node head;
+        Node tail;
+        
+        public Stack()
         {
-            throw new NotImplementedException();
+            head = null;
+            tail = null;
         }
 
         public void Push(Node newNode) //Adds a new string to the stack
@@ -26,44 +27,25 @@ namespace StackPractical
             else
             {
                 tail.Next = newNode;
+                tail.Previous = tail;
                 tail = newNode;
             }
         }
 
-        public string Pop(Node nodeToDelete) // Returns + deletes most recently added node
+        public string Pop() // Returns + deletes most recently added node
         {
+            string returnString = tail.String;
+
             Node nodeWalker = head;
-            if (nodeToDelete == head)
+            while(nodeWalker != null)
             {
-                if (nodeToDelete == tail)
+                if(nodeWalker.Next == tail)
                 {
-                    head = null;
-                    tail = null;
+                    tail = nodeWalker;
                 }
-                else
-                {
-                    head = head.Next;
-                }
+                nodeWalker = nodeWalker.Next;
             }
-            else
-            {
-                while (nodeWalker != null)
-                {
-                    if (nodeWalker.Next == nodeToDelete)
-                    {
-                        if (nodeToDelete == tail)  //if we are going to delete last node in the list
-                        {
-                            tail = nodeWalker;     //point tail at previous node
-                        }
-                        else                                //we're on a normal node
-                        {
-                            nodeWalker.Next = nodeToDelete.Next;
-                        }
-                    }
-                    nodeWalker = nodeWalker.Next;
-                }
-            }
-            return nodeToDelete.String;
+            return returnString;
         }
 
         public string Peek() // Returns most recently added string

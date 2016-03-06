@@ -15,8 +15,11 @@ namespace StackPractical
         public Node(string newString)
         {
             String = newString;
-            Next = null;
-            Previous = null;
+        }
+
+        public string ToString()
+        {
+            return String;
         }
     }
 }
