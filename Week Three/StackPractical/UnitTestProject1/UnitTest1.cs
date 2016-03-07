@@ -51,5 +51,17 @@ namespace UnitTestProject1
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Peek_OnPopulatedStack_ReturnString()
+        {
+            Node testNode = new Node("test");
+            Stack testStack = new Stack();
+            testStack.Push(testNode);
+            string expected = "test";
+            string actual = testStack.Peek();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

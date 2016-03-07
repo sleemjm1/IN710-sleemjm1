@@ -39,7 +39,7 @@ namespace StackPractical
                 string returnString = tail.String; // This is the string we want to show -- Top of stack
 
                 Node nodeWalker = head; // walk the list
-                if (nodeWalker.Next != null)
+                if (nodeWalker != tail)
                 {
                     while (nodeWalker != null)
                     {
