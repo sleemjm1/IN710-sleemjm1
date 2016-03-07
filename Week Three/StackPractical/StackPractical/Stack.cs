@@ -45,9 +45,11 @@ namespace StackPractical
                     {
                         if (nodeWalker.Next == tail) // If the next node is the tail
                         {
+                            nodeWalker.Next = null;     //nodeWalker is tail, so nodeWalker.Next is null
                             tail = nodeWalker;      // Tail is now previous node
                         }
                         nodeWalker = nodeWalker.Next;
+                        
                     }
                 }
                 else
@@ -59,6 +61,7 @@ namespace StackPractical
             }
             else return ("Stack is empty.");
         }
+
 
         public string Peek() // Returns most recently added string
         {

@@ -30,6 +30,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void IsEmpty_OnStackWithTwoStrings_ReturnFalse()
+        {
+            Node testNode = new Node("Test");
+            Node testNode2 = new Node("Test2");
+            Stack testStack = new Stack();
+            testStack.Push(testNode);
+            testStack.Push(testNode2);
+            bool expected = false;
+            bool actual = testStack.IsEmpty();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void IsEmpty_OnNewlyEmptyStack_ReturnTrue()
         {
             Node testNode = new Node("Test");

@@ -45,6 +45,7 @@ namespace StackPractical
 
         private void btnCount_Click(object sender, EventArgs e)
         {
+            txtCount.Clear();
             txtCount.Text = stack.Count().ToString(); 
         }
 
