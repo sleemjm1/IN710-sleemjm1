@@ -16,5 +16,28 @@ namespace UnitTestProject1
 
             Assert.AreEqual(expected, actual);
         }
+
+        public void IsEmpty_OnStackWithOneString_ReturnFalse()
+        {
+            Node testNode = new Node("Test");
+            Stack testStack = new Stack();
+            testStack.Push(testNode);
+            bool expected = false;
+            bool actual = testStack.IsEmpty();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void IsEmpty_OnNewlyEmptyStack_ReturnTrue()
+        {
+            Node testNode = new Node("Test");
+            Stack testStack = new Stack();
+            testStack.Push(testNode);
+            testStack.Pop();
+            bool expected = true;
+            bool actual = testStack.IsEmpty();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

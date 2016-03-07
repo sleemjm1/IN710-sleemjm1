@@ -50,7 +50,7 @@ namespace StackPractical
 
         public string Peek() // Returns most recently added string
         {
-            return tail.String;
+            return tail.String; //null reference
         }
 
         public int Count() // Returns count of stack

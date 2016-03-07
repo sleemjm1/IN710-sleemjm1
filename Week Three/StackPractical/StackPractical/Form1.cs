@@ -29,7 +29,21 @@ namespace StackPractical
         private void btnPop_Click(object sender, EventArgs e)
         {
             string poppedString = stack.Pop();
-            txtPush.Text = poppedString;
+            txtPop.Text = poppedString;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string peekedString;
+            try
+            {
+                peekedString = stack.Peek();
+            }
+            catch (NullReferenceException)
+            {
+                peekedString = "No strings on the stack.";
+            }
+                txtPeek.Text = peekedString;
         }
     }
 }

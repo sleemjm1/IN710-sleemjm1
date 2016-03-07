@@ -31,7 +31,9 @@
             this.txtPush = new System.Windows.Forms.TextBox();
             this.btnPush = new System.Windows.Forms.Button();
             this.btnPop = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtPop = new System.Windows.Forms.TextBox();
+            this.txtPeek = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPush
@@ -61,21 +63,38 @@
             this.btnPop.UseVisualStyleBackColor = true;
             this.btnPop.Click += new System.EventHandler(this.btnPop_Click);
             // 
-            // listBox1
+            // txtPop
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(203, 109);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(220, 308);
-            this.listBox1.TabIndex = 4;
+            this.txtPop.Location = new System.Drawing.Point(200, 77);
+            this.txtPop.Name = "txtPop";
+            this.txtPop.Size = new System.Drawing.Size(224, 22);
+            this.txtPop.TabIndex = 4;
+            // 
+            // txtPeek
+            // 
+            this.txtPeek.Location = new System.Drawing.Point(200, 118);
+            this.txtPeek.Name = "txtPeek";
+            this.txtPeek.Size = new System.Drawing.Size(224, 22);
+            this.txtPeek.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(455, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Peek";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 526);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtPeek);
+            this.Controls.Add(this.txtPop);
             this.Controls.Add(this.btnPop);
             this.Controls.Add(this.btnPush);
             this.Controls.Add(this.txtPush);
@@ -91,7 +110,9 @@
         private System.Windows.Forms.TextBox txtPush;
         private System.Windows.Forms.Button btnPush;
         private System.Windows.Forms.Button btnPop;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox txtPop;
+        private System.Windows.Forms.TextBox txtPeek;
+        private System.Windows.Forms.Button button1;
     }
 }
 
