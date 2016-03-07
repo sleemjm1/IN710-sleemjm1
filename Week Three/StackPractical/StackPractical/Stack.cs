@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackPractical
 {
-    class Stack
+    public class Stack
     {
         Node head;
         Node tail;
@@ -27,21 +27,21 @@ namespace StackPractical
             else
             {
                 tail.Next = newNode;
-                tail.Previous = tail;
+                //tail.Previous = tail;
                 tail = newNode;
             }
         }
 
         public string Pop() // Returns + deletes most recently added node
         {
-            string returnString = tail.String;
+            string returnString = tail.String; // This is the string we want to show -- Top of stack
 
-            Node nodeWalker = head;
+            Node nodeWalker = head; // walk the list 
             while(nodeWalker != null)
             {
-                if(nodeWalker.Next == tail)
+                if(nodeWalker.Next == tail) // If the next node is the tail
                 {
-                    tail = nodeWalker;
+                    tail = nodeWalker;      // Tail is now previous node
                 }
                 nodeWalker = nodeWalker.Next;
             }
