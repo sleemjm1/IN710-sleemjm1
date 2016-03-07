@@ -22,8 +22,12 @@ namespace StackPractical
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            Node newNode = new Node(txtPush.Text);
-            stack.Push(newNode);
+            if (txtPush.Text != "")
+            {
+                Node newNode = new Node(txtPush.Text);
+                stack.Push(newNode);
+            }
+            else MessageBox.Show("Cannot enter empty string.");
         }
 
         private void btnPop_Click(object sender, EventArgs e)
@@ -35,15 +39,9 @@ namespace StackPractical
         private void button1_Click(object sender, EventArgs e)
         {
             string peekedString;
-            try
-            {
-                peekedString = stack.Peek();
-            }
-            catch (NullReferenceException)
-            {
-                peekedString = "No strings on the stack.";
-            }
-                txtPeek.Text = peekedString;
+            peekedString = stack.Peek();
+            txtPeek.Text = peekedString;
         }
+        
     }
 }

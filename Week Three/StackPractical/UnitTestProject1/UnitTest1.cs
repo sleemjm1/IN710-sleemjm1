@@ -17,6 +17,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void IsEmpty_OnStackWithOneString_ReturnFalse()
         {
             Node testNode = new Node("Test");
@@ -28,6 +29,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void IsEmpty_OnNewlyEmptyStack_ReturnTrue()
         {
             Node testNode = new Node("Test");
@@ -36,6 +38,16 @@ namespace UnitTestProject1
             testStack.Pop();
             bool expected = true;
             bool actual = testStack.IsEmpty();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Peek_OnEmptyStack_ReturnExceptionMessage()
+        {
+            Stack testStack = new Stack();
+            string expected = "Stack is empty.";
+            string actual = testStack.Peek();
 
             Assert.AreEqual(expected, actual);
         }

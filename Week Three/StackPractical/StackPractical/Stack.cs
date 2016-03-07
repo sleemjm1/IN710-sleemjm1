@@ -34,23 +34,34 @@ namespace StackPractical
 
         public string Pop() // Returns + deletes most recently added node
         {
-            string returnString = tail.String; // This is the string we want to show -- Top of stack
-
-            Node nodeWalker = head; // walk the list 
-            while(nodeWalker != null)
+            if (tail != null)
             {
-                if(nodeWalker.Next == tail) // If the next node is the tail
+                string returnString = tail.String; // This is the string we want to show -- Top of stack
+
+                Node nodeWalker = head; // walk the list 
+                while (nodeWalker != null)
                 {
-                    tail = nodeWalker;      // Tail is now previous node
+                    if (nodeWalker.Next == tail) // If the next node is the tail
+                    {
+                        tail = nodeWalker;      // Tail is now previous node
+                    }
+                    nodeWalker = nodeWalker.Next;
                 }
-                nodeWalker = nodeWalker.Next;
+                return returnString;
             }
-            return returnString;
+            else return ("Stack is empty.");
         }
 
         public string Peek() // Returns most recently added string
         {
-            return tail.String; //null reference
+            if (tail != null)
+            {
+                return tail.String; //null reference
+            }
+            else
+            {
+                return "Stack is empty.";
+            }
         }
 
         public int Count() // Returns count of stack
