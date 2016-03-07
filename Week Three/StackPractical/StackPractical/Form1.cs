@@ -36,11 +36,21 @@ namespace StackPractical
             txtPop.Text = poppedString;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPeek_Click(object sender, EventArgs e)
         {
             string peekedString;
             peekedString = stack.Peek();
             txtPeek.Text = peekedString;
+        }
+
+        private void btnCount_Click(object sender, EventArgs e)
+        {
+            txtCount.Text = stack.Count().ToString(); 
+        }
+
+        private void btnIsEmpty_Click(object sender, EventArgs e)
+        {
+            txtIsEmpty.Text = stack.IsEmpty().ToString();
         }
         
     }

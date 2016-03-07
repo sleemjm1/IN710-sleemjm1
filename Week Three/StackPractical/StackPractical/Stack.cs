@@ -38,14 +38,22 @@ namespace StackPractical
             {
                 string returnString = tail.String; // This is the string we want to show -- Top of stack
 
-                Node nodeWalker = head; // walk the list 
-                while (nodeWalker != null)
+                Node nodeWalker = head; // walk the list
+                if (nodeWalker.Next != null)
                 {
-                    if (nodeWalker.Next == tail) // If the next node is the tail
+                    while (nodeWalker != null)
                     {
-                        tail = nodeWalker;      // Tail is now previous node
+                        if (nodeWalker.Next == tail) // If the next node is the tail
+                        {
+                            tail = nodeWalker;      // Tail is now previous node
+                        }
+                        nodeWalker = nodeWalker.Next;
                     }
-                    nodeWalker = nodeWalker.Next;
+                }
+                else
+                {
+                    head = null;
+                    tail = null;
                 }
                 return returnString;
             }

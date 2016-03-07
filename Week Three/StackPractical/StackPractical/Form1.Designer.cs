@@ -33,8 +33,11 @@
             this.btnPop = new System.Windows.Forms.Button();
             this.txtPop = new System.Windows.Forms.TextBox();
             this.txtPeek = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPeek = new System.Windows.Forms.Button();
+            this.btnCount = new System.Windows.Forms.Button();
+            this.txtCount = new System.Windows.Forms.TextBox();
+            this.btnIsEmpty = new System.Windows.Forms.Button();
+            this.txtIsEmpty = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtPush
@@ -78,32 +81,60 @@
             this.txtPeek.Size = new System.Drawing.Size(224, 22);
             this.txtPeek.TabIndex = 5;
             // 
-            // button1
+            // btnPeek
             // 
-            this.button1.Location = new System.Drawing.Point(455, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Peek";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPeek.Location = new System.Drawing.Point(455, 117);
+            this.btnPeek.Name = "btnPeek";
+            this.btnPeek.Size = new System.Drawing.Size(75, 23);
+            this.btnPeek.TabIndex = 6;
+            this.btnPeek.Text = "Peek";
+            this.btnPeek.UseVisualStyleBackColor = true;
+            this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
             // 
-            // button2
+            // btnCount
             // 
-            this.button2.Location = new System.Drawing.Point(285, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Peek";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCount.Location = new System.Drawing.Point(455, 158);
+            this.btnCount.Name = "btnCount";
+            this.btnCount.Size = new System.Drawing.Size(75, 23);
+            this.btnCount.TabIndex = 7;
+            this.btnCount.Text = "Count";
+            this.btnCount.UseVisualStyleBackColor = true;
+            this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(200, 159);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(224, 22);
+            this.txtCount.TabIndex = 8;
+            // 
+            // btnIsEmpty
+            // 
+            this.btnIsEmpty.Location = new System.Drawing.Point(455, 199);
+            this.btnIsEmpty.Name = "btnIsEmpty";
+            this.btnIsEmpty.Size = new System.Drawing.Size(75, 23);
+            this.btnIsEmpty.TabIndex = 9;
+            this.btnIsEmpty.Text = "IsEmpty";
+            this.btnIsEmpty.UseVisualStyleBackColor = true;
+            this.btnIsEmpty.Click += new System.EventHandler(this.btnIsEmpty_Click);
+            // 
+            // txtIsEmpty
+            // 
+            this.txtIsEmpty.Location = new System.Drawing.Point(200, 200);
+            this.txtIsEmpty.Name = "txtIsEmpty";
+            this.txtIsEmpty.Size = new System.Drawing.Size(224, 22);
+            this.txtIsEmpty.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 526);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtIsEmpty);
+            this.Controls.Add(this.btnIsEmpty);
+            this.Controls.Add(this.txtCount);
+            this.Controls.Add(this.btnCount);
+            this.Controls.Add(this.btnPeek);
             this.Controls.Add(this.txtPeek);
             this.Controls.Add(this.txtPop);
             this.Controls.Add(this.btnPop);
@@ -123,8 +154,11 @@
         private System.Windows.Forms.Button btnPop;
         private System.Windows.Forms.TextBox txtPop;
         private System.Windows.Forms.TextBox txtPeek;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPeek;
+        private System.Windows.Forms.Button btnCount;
+        private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.Button btnIsEmpty;
+        private System.Windows.Forms.TextBox txtIsEmpty;
     }
 }
 
