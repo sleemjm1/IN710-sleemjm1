@@ -12,9 +12,23 @@ namespace Game_Character
 {
     public partial class Form1 : Form
     {
+        List<Character> characterList = new List<Character>();
         public Form1()
         {
             InitializeComponent();
+
+            characterList.Add(new Knight(listBox1, "Stewie"));
+        }
+
+        private void btnAddCharacter_Click(object sender, EventArgs e)
+        {
+            
+
+            //testing
+            foreach (Character c in characterList)
+            {
+                c.Speak();
+            }
         }
     }
 }

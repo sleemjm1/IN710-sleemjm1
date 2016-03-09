@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Game Character with Strategy Pattern";
-
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -69,7 +65,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.btnAddCharacter);
-            this.panel1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(16, 9);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -79,11 +75,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 101);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 27);
+            this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Name";
             // 
@@ -93,7 +89,7 @@
             this.groupBox1.Controls.Add(this.rdKnight);
             this.groupBox1.Controls.Add(this.rdQueen);
             this.groupBox1.Controls.Add(this.rdKing);
-            this.groupBox1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(363, 22);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -106,11 +102,11 @@
             // rdTroll
             // 
             this.rdTroll.AutoSize = true;
-            this.rdTroll.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdTroll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdTroll.Location = new System.Drawing.Point(17, 127);
             this.rdTroll.Margin = new System.Windows.Forms.Padding(4);
             this.rdTroll.Name = "rdTroll";
-            this.rdTroll.Size = new System.Drawing.Size(84, 31);
+            this.rdTroll.Size = new System.Drawing.Size(71, 29);
             this.rdTroll.TabIndex = 3;
             this.rdTroll.TabStop = true;
             this.rdTroll.Text = "Troll";
@@ -119,11 +115,11 @@
             // rdKnight
             // 
             this.rdKnight.AutoSize = true;
-            this.rdKnight.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdKnight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdKnight.Location = new System.Drawing.Point(17, 96);
             this.rdKnight.Margin = new System.Windows.Forms.Padding(4);
             this.rdKnight.Name = "rdKnight";
-            this.rdKnight.Size = new System.Drawing.Size(109, 31);
+            this.rdKnight.Size = new System.Drawing.Size(89, 29);
             this.rdKnight.TabIndex = 2;
             this.rdKnight.TabStop = true;
             this.rdKnight.Text = "Knight";
@@ -132,11 +128,11 @@
             // rdQueen
             // 
             this.rdQueen.AutoSize = true;
-            this.rdQueen.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdQueen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdQueen.Location = new System.Drawing.Point(17, 65);
             this.rdQueen.Margin = new System.Windows.Forms.Padding(4);
             this.rdQueen.Name = "rdQueen";
-            this.rdQueen.Size = new System.Drawing.Size(98, 31);
+            this.rdQueen.Size = new System.Drawing.Size(93, 29);
             this.rdQueen.TabIndex = 1;
             this.rdQueen.TabStop = true;
             this.rdQueen.Text = "Queen";
@@ -145,11 +141,11 @@
             // rdKing
             // 
             this.rdKing.AutoSize = true;
-            this.rdKing.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdKing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdKing.Location = new System.Drawing.Point(17, 34);
             this.rdKing.Margin = new System.Windows.Forms.Padding(4);
             this.rdKing.Name = "rdKing";
-            this.rdKing.Size = new System.Drawing.Size(87, 31);
+            this.rdKing.Size = new System.Drawing.Size(73, 29);
             this.rdKing.TabIndex = 0;
             this.rdKing.TabStop = true;
             this.rdKing.Text = "King";
@@ -157,16 +153,16 @@
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(97, 97);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(217, 35);
+            this.txtName.Size = new System.Drawing.Size(217, 30);
             this.txtName.TabIndex = 9;
             // 
             // btnAddCharacter
             // 
-            this.btnAddCharacter.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCharacter.Location = new System.Drawing.Point(27, 22);
             this.btnAddCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCharacter.Name = "btnAddCharacter";
@@ -174,7 +170,7 @@
             this.btnAddCharacter.TabIndex = 8;
             this.btnAddCharacter.Text = "Create New Character";
             this.btnAddCharacter.UseVisualStyleBackColor = true;
-
+            this.btnAddCharacter.Click += new System.EventHandler(this.btnAddCharacter_Click);
             // 
             // panel2
             // 
@@ -192,26 +188,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(82, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 27);
+            this.label3.Size = new System.Drawing.Size(90, 25);
             this.label3.TabIndex = 24;
             this.label3.Text = "To Battle";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(267, 27);
+            this.label2.Size = new System.Drawing.Size(235, 25);
             this.label2.TabIndex = 23;
             this.label2.Text = "Choose Two Combatants";
             // 
             // btnBattle
             // 
-            this.btnBattle.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBattle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBattle.Location = new System.Drawing.Point(296, 42);
             this.btnBattle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBattle.Name = "btnBattle";
@@ -219,11 +215,10 @@
             this.btnBattle.TabIndex = 22;
             this.btnBattle.Text = "Battle!";
             this.btnBattle.UseVisualStyleBackColor = true;
-
             // 
             // checkedListBox1
             // 
-            this.checkedListBox1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(15, 98);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -233,13 +228,13 @@
             // 
             // listBox1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 27;
+            this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(296, 99);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(295, 301);
+            this.listBox1.Size = new System.Drawing.Size(295, 279);
             this.listBox1.TabIndex = 20;
             // 
             // panel3
@@ -259,7 +254,7 @@
             this.groupBox2.Controls.Add(this.rdBow);
             this.groupBox2.Controls.Add(this.rdKnife);
             this.groupBox2.Controls.Add(this.rdSword);
-            this.groupBox2.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(22, 411);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -272,11 +267,11 @@
             // rdBow
             // 
             this.rdBow.AutoSize = true;
-            this.rdBow.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdBow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdBow.Location = new System.Drawing.Point(17, 96);
             this.rdBow.Margin = new System.Windows.Forms.Padding(4);
             this.rdBow.Name = "rdBow";
-            this.rdBow.Size = new System.Drawing.Size(80, 31);
+            this.rdBow.Size = new System.Drawing.Size(71, 29);
             this.rdBow.TabIndex = 2;
             this.rdBow.TabStop = true;
             this.rdBow.Text = "Bow";
@@ -285,11 +280,11 @@
             // rdKnife
             // 
             this.rdKnife.AutoSize = true;
-            this.rdKnife.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdKnife.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdKnife.Location = new System.Drawing.Point(17, 65);
             this.rdKnife.Margin = new System.Windows.Forms.Padding(4);
             this.rdKnife.Name = "rdKnife";
-            this.rdKnife.Size = new System.Drawing.Size(94, 31);
+            this.rdKnife.Size = new System.Drawing.Size(78, 29);
             this.rdKnife.TabIndex = 1;
             this.rdKnife.TabStop = true;
             this.rdKnife.Text = "Knife";
@@ -298,11 +293,11 @@
             // rdSword
             // 
             this.rdSword.AutoSize = true;
-            this.rdSword.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdSword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdSword.Location = new System.Drawing.Point(17, 34);
             this.rdSword.Margin = new System.Windows.Forms.Padding(4);
             this.rdSword.Name = "rdSword";
-            this.rdSword.Size = new System.Drawing.Size(100, 31);
+            this.rdSword.Size = new System.Drawing.Size(89, 29);
             this.rdSword.TabIndex = 0;
             this.rdSword.TabStop = true;
             this.rdSword.Text = "Sword";
@@ -310,7 +305,7 @@
             // 
             // checkedListBox2
             // 
-            this.checkedListBox2.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Location = new System.Drawing.Point(22, 54);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -320,7 +315,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(22, 589);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
@@ -328,15 +323,14 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Change Weapon";
             this.button1.UseVisualStyleBackColor = true;
-
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 27);
+            this.label4.Size = new System.Drawing.Size(98, 25);
             this.label4.TabIndex = 25;
             this.label4.Text = "Character";
             // 
@@ -362,6 +356,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

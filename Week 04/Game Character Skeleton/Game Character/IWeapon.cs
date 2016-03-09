@@ -8,6 +8,6 @@ namespace Game_Character
 {
     public interface IWeapon
     {
-        protected String UseWeapon();
+        String UseWeapon();
     }
 }

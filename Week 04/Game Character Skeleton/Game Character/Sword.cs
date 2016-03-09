@@ -8,10 +8,9 @@ namespace Game_Character
 {
     public class Sword : IWeapon 
     {
-        String UseWeapon()
+        string IWeapon.UseWeapon()
         {
-            return "I Slice my sword.";
+            return "I slice my sword";
         }
-        
     }
 }
