@@ -28,6 +28,7 @@ namespace Game_Character
             foreach (Character c in characterList)
             {
                 c.Speak();
+                c.SayName();
             }
         }
     }

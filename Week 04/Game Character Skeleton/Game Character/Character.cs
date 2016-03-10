@@ -11,11 +11,21 @@ namespace Game_Character
     {
         protected ListBox listBox;
         protected String Name;
-        IWeapon Weapon;
+        protected IWeapon Weapon;
+
+        protected Character(ListBox myListBox, String myName)
+        {
+            Name = myName;
+            listBox = myListBox;
+        }
+
         public abstract void Speak();
         
-        
-        
+        public void SayName()
+        {
+            listBox.Items.Add("My name is " + Name);
+            listBox.Items.Add(Weapon.UseWeapon());
+        }
     }
 
     

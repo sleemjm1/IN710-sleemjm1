@@ -9,14 +9,12 @@ namespace Game_Character
 {
     class Knight : Character
     {
-        public Knight(ListBox listBox, String Name)
+        public Knight(ListBox listBox, String myName): base(listBox, myName)
         {
-            base.Name = Name;
-            base.listBox = listBox;
+            Weapon = new Sword();
         }
         public override void Speak()
         {
-            base.listBox.Items.Add(Name);
             base.listBox.Items.Add("I am a Knight");      
         }
     }

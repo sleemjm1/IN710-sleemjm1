@@ -7,17 +7,15 @@ using System.Windows.Forms;
 
 namespace Game_Character
 {
-    class Troll : Character
+    class Queen : Character
     {
-        public Troll(ListBox listBox, String Name)
+        public Queen(ListBox listBox, String myName): base(listBox, myName)
         {
-            base.Name = Name;
-            base.listBox = listBox;
+            Weapon = new Sword();
         }
         public override void Speak()
         {
-            base.listBox.Items.Add(Name);
-            base.listBox.Items.Add("I am a Knight");
+            base.listBox.Items.Add("I am a Queen");      
         }
     }
 }
