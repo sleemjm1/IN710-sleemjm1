@@ -19,7 +19,22 @@ namespace EncryptionTool
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
+            if (rbReverse.Checked)
+            {
+                IEncrypt iEncrypt = new Reverse();
+                String stringToConvert = txtInput.Text;
 
+                String convertedString = iEncrypt.PerformEncryption(stringToConvert);
+                txtOutput.Text = convertedString;
+            }
+            else if (rbRot13.Checked)
+            {
+                IEncrypt iEncrypt = new Rot();
+                String stringToConvert = txtInput.Text;
+
+                String convertedString = iEncrypt.PerformEncryption(stringToConvert);
+                txtOutput.Text = convertedString;
+            }
         }
     }
 }
