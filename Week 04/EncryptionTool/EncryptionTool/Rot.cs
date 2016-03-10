@@ -13,24 +13,26 @@ namespace EncryptionTool
             char[] charArray = stringToEncrypt.ToCharArray();
             int max = charArray.Length;
 
+            // dotnetperls.com/rot13 -- Algorithm origins
+
             for (int i = 0; i < max; i++)
             {
-                int charNum = (int)charArray[i]; // Cast to int
+                int charNum = (int)charArray[i];            // Cast to int
                 //              97                122
-                if (charNum >= 'a' && charNum <= 'z')   // if our number is between 97-122 then it is lowercase
+                if (charNum >= 'a' && charNum <= 'z')       // if our number is between 97-122 then it is lowercase
                 {
-                    if (charNum > 'm') charNum -= 13;   // charNum > 109 then we will decrement by 13 to get to our conversion 
-                    else charNum += 13;                 // else we need to add 13 to get to our conversion
+                    if (charNum > 'm') charNum -= 13;       // charNum > 109 then we will decrement by 13 to get to our conversion 
+                    else charNum += 13;                     // else we need to add 13 to get to our conversion
                 }
-                else if (charNum >= 'A' && charNum <= 'Z') // same thing for uppercase 
+                //                  65                90
+                else if (charNum >= 'A' && charNum <= 'Z')  // same thing for uppercase 
                 {
                     if (charNum > 'M') charNum -= 13;
                     else charNum += 13;
                 }
-                charArray[i] = (char)charNum;    // Cast back
-
+                charArray[i] = (char)charNum;               // Cast back
             }
-            string returnString = new string(charArray); // Wow this is great
+            string returnString = new string(charArray);    // Wow this is great
             return returnString;
         }
     }
