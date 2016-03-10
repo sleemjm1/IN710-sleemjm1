@@ -34,6 +34,7 @@
             this.rbDigital = new System.Windows.Forms.RadioButton();
             this.rbAnalogue = new System.Windows.Forms.RadioButton();
             this.analogClock1 = new AnalogClockControl.AnalogClock();
+            this.lblDigital = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +101,22 @@
             this.analogClock1.TabIndex = 3;
             this.analogClock1.TicksColor = System.Drawing.Color.Black;
             // 
+            // lblDigital
+            // 
+            this.lblDigital.AutoSize = true;
+            this.lblDigital.Location = new System.Drawing.Point(45, 201);
+            this.lblDigital.Name = "lblDigital";
+            this.lblDigital.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDigital.Size = new System.Drawing.Size(35, 13);
+            this.lblDigital.TabIndex = 4;
+            this.lblDigital.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 604);
+            this.Controls.Add(this.lblDigital);
             this.Controls.Add(this.analogClock1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStop);
@@ -114,6 +126,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,6 +138,7 @@
         private System.Windows.Forms.RadioButton rbAnalogue;
         private System.Windows.Forms.RadioButton rbDigital;
         private AnalogClockControl.AnalogClock analogClock1;
+        private System.Windows.Forms.Label lblDigital;
     }
 }
 
