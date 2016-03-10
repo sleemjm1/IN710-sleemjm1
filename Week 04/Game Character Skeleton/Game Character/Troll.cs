@@ -7,15 +7,15 @@ using System.Windows.Forms;
 
 namespace Game_Character
 {
-    class Knight : Character
+    class Troll : Character
     {
-        public Knight(ListBox listBox, String myName): base(listBox, myName)
+        public Troll(ListBox listBox, String myName): base(listBox, myName)
         {
-            Weapon = new Knife();
+            Weapon = new Bow();
         }
         public override void Speak()
         {
-            base.listBox.Items.Add("I am a chivalrous Knight!");      
+            base.listBox.Items.Add("Trolls don't have time to chat!");      
         }
     }
 }
