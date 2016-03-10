@@ -27,8 +27,9 @@ namespace Game_Character
             //testing
             foreach (Character c in characterList)
             {
-                c.Speak();
                 c.SayName();
+                c.Speak();
+                c.Attack();
             }
         }
     }
