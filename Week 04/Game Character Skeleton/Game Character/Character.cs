@@ -31,6 +31,12 @@ namespace Game_Character
         public void Attack()
         {
             listBox.Items.Add(Weapon.UseWeapon());
+            listBox.Items.Add("");
+        }
+
+        public void ChangeWeapon(IWeapon newWeapon)
+        {
+            Weapon = newWeapon;
         }
 
     }
