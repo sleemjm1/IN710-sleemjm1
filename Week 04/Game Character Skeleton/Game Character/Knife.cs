@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    public class Sword : IWeapon 
+    class Knife : IWeapon
     {
-        string IWeapon.UseWeapon()
+        public string UseWeapon()
         {
-            return "I slice my sword!";
+            return "I lunge with my knife!";
         }
     }
 }

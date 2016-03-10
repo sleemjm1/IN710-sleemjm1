@@ -17,7 +17,8 @@ namespace Game_Character
         {
             InitializeComponent();
 
-            characterList.Add(new Knight(listBox1, "Stewie"));
+            characterList.Add(new Knight(listBox1, "Tuco"));
+            characterList.Add(new Queen(listBox1, "Emma"));
         }
 
         private void btnAddCharacter_Click(object sender, EventArgs e)
