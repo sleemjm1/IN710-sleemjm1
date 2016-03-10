@@ -8,29 +8,32 @@ namespace Clocks
 {
     class AnalogueClock : IClock
     {
+        AnalogueClock clock;
         public void On()
         {
-            throw new NotImplementedException();
+            ShowClock();
+            clock.On();
         }
 
         public void Off()
         {
-            throw new NotImplementedException();
+            HideClock();
+            clock.Off();
         }
 
         public void UpdateTimeDisplay()
         {
-            throw new NotImplementedException();
+            clock.UpdateTimeDisplay();
         }
 
         public void ShowClock()
         {
-            throw new NotImplementedException();
+            clock.ShowClock();
         }
 
         public void HideClock()
         {
-            throw new NotImplementedException();
+            clock.HideClock();
         }
     }
 }

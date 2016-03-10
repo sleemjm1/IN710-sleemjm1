@@ -31,8 +31,8 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbDigital = new System.Windows.Forms.RadioButton();
             this.rbAnalogue = new System.Windows.Forms.RadioButton();
+            this.rbDigital = new System.Windows.Forms.RadioButton();
             this.analogClock1 = new AnalogClockControl.AnalogClock();
             this.lblDigital = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -46,6 +46,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
@@ -66,17 +67,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // rbDigital
-            // 
-            this.rbDigital.AutoSize = true;
-            this.rbDigital.Location = new System.Drawing.Point(22, 39);
-            this.rbDigital.Name = "rbDigital";
-            this.rbDigital.Size = new System.Drawing.Size(54, 17);
-            this.rbDigital.TabIndex = 0;
-            this.rbDigital.TabStop = true;
-            this.rbDigital.Text = "Digital";
-            this.rbDigital.UseVisualStyleBackColor = true;
-            // 
             // rbAnalogue
             // 
             this.rbAnalogue.AutoSize = true;
@@ -87,6 +77,17 @@
             this.rbAnalogue.TabStop = true;
             this.rbAnalogue.Text = "Analogue";
             this.rbAnalogue.UseVisualStyleBackColor = true;
+            // 
+            // rbDigital
+            // 
+            this.rbDigital.AutoSize = true;
+            this.rbDigital.Location = new System.Drawing.Point(22, 39);
+            this.rbDigital.Name = "rbDigital";
+            this.rbDigital.Size = new System.Drawing.Size(54, 17);
+            this.rbDigital.TabIndex = 0;
+            this.rbDigital.TabStop = true;
+            this.rbDigital.Text = "Digital";
+            this.rbDigital.UseVisualStyleBackColor = true;
             // 
             // analogClock1
             // 
