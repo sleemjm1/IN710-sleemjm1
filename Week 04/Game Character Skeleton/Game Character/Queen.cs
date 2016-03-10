@@ -17,7 +17,7 @@ namespace Game_Character
         }
         public override void Speak()
         {
-            base.listBox.Items.Add("I am a Queen");      
+            base.listBox.Items.Add("I am the powerful Queen!");      
         }
     }
 }
