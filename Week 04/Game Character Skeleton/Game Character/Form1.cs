@@ -19,19 +19,37 @@ namespace Game_Character
 
             characterList.Add(new Knight(listBox1, "Tuco"));
             characterList.Add(new Queen(listBox1, "Emma"));
+
+            foreach (Character c in characterList)
+            {
+                checkedListBox1.Items.Add(c.Name);
+                checkedListBox2.Items.Add(c.Name);
+            }
         }
 
         private void btnAddCharacter_Click(object sender, EventArgs e)
         {
-            
+            string newName = txtName.Text;
 
-            //testing
-            foreach (Character c in characterList)
+            // long ass if/else
+            if (rdKing.Checked)
             {
-                c.SayName();
-                c.Speak();
-                c.Attack();
+                characterList.Add(new King(listBox1, newName));
             }
+            else if (rdQueen.Checked)
+            {
+                characterList.Add(new Queen(listBox1, newName));
+            }
+            else if (rdTroll.Checked)
+            {
+                characterList.Add(new Troll(listBox1, newName));
+            }
+            else if (rdKnight.Checked)
+            {
+                characterList.Add(new Knight(listBox1, newName));
+            }
+            checkedListBox1.Items.Add(newName);
+            checkedListBox2.Items.Add(newName);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Game_Character
     // Will control all of the things which Characters MUST have -- Constructor, SayName, UseWeapon...
     {
         protected ListBox listBox;
-        protected String Name;
+        public String Name;
         protected IWeapon Weapon;
 
         protected Character(ListBox myListBox, String myName)
