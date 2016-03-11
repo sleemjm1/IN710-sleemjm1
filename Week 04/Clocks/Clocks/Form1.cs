@@ -51,5 +51,11 @@ namespace Clocks
             mainClock = new AnalogClock(analogClock1);
             mainClock.ShowClock();
         }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            mainClock.Off();
+            timer1.Stop();
+        }
     }
 }

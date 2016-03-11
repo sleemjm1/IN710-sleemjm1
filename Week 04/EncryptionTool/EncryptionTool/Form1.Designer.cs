@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbRot13 = new System.Windows.Forms.RadioButton();
             this.rbReverse = new System.Windows.Forms.RadioButton();
+            this.rbRot13 = new System.Windows.Forms.RadioButton();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.btnEncrypt = new System.Windows.Forms.Button();
@@ -48,17 +48,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ENCRYPTION";
             // 
-            // rbRot13
-            // 
-            this.rbRot13.AutoSize = true;
-            this.rbRot13.Location = new System.Drawing.Point(25, 41);
-            this.rbRot13.Name = "rbRot13";
-            this.rbRot13.Size = new System.Drawing.Size(75, 21);
-            this.rbRot13.TabIndex = 0;
-            this.rbRot13.TabStop = true;
-            this.rbRot13.Text = "ROT13";
-            this.rbRot13.UseVisualStyleBackColor = true;
-            // 
             // rbReverse
             // 
             this.rbReverse.AutoSize = true;
@@ -69,6 +58,17 @@
             this.rbReverse.TabStop = true;
             this.rbReverse.Text = "Reverse";
             this.rbReverse.UseVisualStyleBackColor = true;
+            // 
+            // rbRot13
+            // 
+            this.rbRot13.AutoSize = true;
+            this.rbRot13.Location = new System.Drawing.Point(25, 41);
+            this.rbRot13.Name = "rbRot13";
+            this.rbRot13.Size = new System.Drawing.Size(75, 21);
+            this.rbRot13.TabIndex = 0;
+            this.rbRot13.TabStop = true;
+            this.rbRot13.Text = "ROT13";
+            this.rbRot13.UseVisualStyleBackColor = true;
             // 
             // txtInput
             // 
