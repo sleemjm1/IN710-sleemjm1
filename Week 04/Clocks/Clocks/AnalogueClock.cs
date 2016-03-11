@@ -3,37 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Clocks
 {
-    class AnalogueClock : IClock
+    class AnalogClock : IClock
     {
-        AnalogueClock clock;
+        AnalogClockControl.AnalogClock clock;
+
+        public AnalogClock(AnalogClockControl.AnalogClock analogClock)
+        {
+            clock = analogClock;
+        }
         public void On()
         {
-            ShowClock();
-            clock.On();
+            clock.Start();
         }
 
         public void Off()
         {
-            HideClock();
-            clock.Off();
+            clock.Stop();
         }
 
         public void UpdateTimeDisplay()
         {
-            clock.UpdateTimeDisplay();
+            // He just goes
         }
 
         public void ShowClock()
         {
-            clock.ShowClock();
+            clock.Visible = true;
         }
 
         public void HideClock()
         {
-            clock.HideClock();
+            clock.Visible = false;   
         }
     }
 }

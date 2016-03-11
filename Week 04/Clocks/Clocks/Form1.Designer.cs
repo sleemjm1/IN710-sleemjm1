@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -35,6 +36,7 @@
             this.rbDigital = new System.Windows.Forms.RadioButton();
             this.analogClock1 = new AnalogClockControl.AnalogClock();
             this.lblDigital = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +79,7 @@
             this.rbAnalogue.TabStop = true;
             this.rbAnalogue.Text = "Analogue";
             this.rbAnalogue.UseVisualStyleBackColor = true;
+            this.rbAnalogue.CheckedChanged += new System.EventHandler(this.rbAnalogue_CheckedChanged);
             // 
             // rbDigital
             // 
@@ -88,13 +91,14 @@
             this.rbDigital.TabStop = true;
             this.rbDigital.Text = "Digital";
             this.rbDigital.UseVisualStyleBackColor = true;
+            this.rbDigital.CheckedChanged += new System.EventHandler(this.rbDigital_CheckedChanged);
             // 
             // analogClock1
             // 
             this.analogClock1.Draw1MinuteTicks = true;
             this.analogClock1.Draw5MinuteTicks = true;
             this.analogClock1.HourHandColor = System.Drawing.Color.DarkMagenta;
-            this.analogClock1.Location = new System.Drawing.Point(45, 238);
+            this.analogClock1.Location = new System.Drawing.Point(92, 203);
             this.analogClock1.MinuteHandColor = System.Drawing.Color.Green;
             this.analogClock1.Name = "analogClock1";
             this.analogClock1.SecondHandColor = System.Drawing.Color.Red;
@@ -105,12 +109,18 @@
             // lblDigital
             // 
             this.lblDigital.AutoSize = true;
-            this.lblDigital.Location = new System.Drawing.Point(45, 201);
+            this.lblDigital.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigital.Location = new System.Drawing.Point(94, 296);
+            this.lblDigital.MaximumSize = new System.Drawing.Size(5000, 5000);
             this.lblDigital.Name = "lblDigital";
             this.lblDigital.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblDigital.Size = new System.Drawing.Size(35, 13);
+            this.lblDigital.Size = new System.Drawing.Size(284, 73);
             this.lblDigital.TabIndex = 4;
-            this.lblDigital.Text = "label1";
+            this.lblDigital.Text = "00:00:00";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -140,6 +150,7 @@
         private System.Windows.Forms.RadioButton rbDigital;
         private AnalogClockControl.AnalogClock analogClock1;
         private System.Windows.Forms.Label lblDigital;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -4,18 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
 
 namespace Clocks
 {
     class DigitalClock : IClock
     {
-        Label digiLabel;
-        System.Timers.Timer timer;
+        Label label;
+        Timer timer;
+
+        public DigitalClock(Label digiLabel, Timer digiTimer)
+        {
+            label = digiLabel;
+            timer = digiTimer;
+        }
 
         public void On()
         {
-            timer = new System.Timers.Timer(1000);
+            timer.Enabled = true;
+            timer.Start();           
         }
 
         public void Off()
@@ -26,17 +32,17 @@ namespace Clocks
 
         public void UpdateTimeDisplay()
         {
-            digiLabel.Text = DateTime.Now.ToShortTimeString();
+            label.Text = DateTime.Now.ToString("hh:mm:ss");
         }
 
         public void ShowClock()
         {
-            digiLabel.Show();
+            label.Show();
         }
 
         public void HideClock()
         {
-            digiLabel.Hide();
+            label.Hide();
         }
     }
 }
