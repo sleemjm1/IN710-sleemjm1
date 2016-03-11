@@ -9,5 +9,6 @@ namespace EncryptionTool
     interface IEncrypt
     {
         String PerformEncryption(String stringToEncrypt);
+        String PerformDecryption(String stringToDecrypt);
     }
 }

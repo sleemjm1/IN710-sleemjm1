@@ -25,5 +25,12 @@ namespace EncryptionTool
             else iEncrypt = new Rot();            
             txtOutput.Text = iEncrypt.PerformEncryption(txtInput.Text);
         }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            if (rbReverse.Checked) iEncrypt = new Reverse();
+            else iEncrypt = new Rot();
+            txtOutput.Text = iEncrypt.PerformDecryption(txtInput.Text);
+        }
     }
 }

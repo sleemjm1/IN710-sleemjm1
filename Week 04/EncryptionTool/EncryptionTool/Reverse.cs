@@ -22,5 +22,11 @@ namespace EncryptionTool
             }
             return returnString;    // Return our fully built string
         }
+
+
+        public string PerformDecryption(string stringToDecrypt)
+        {
+            return PerformEncryption(stringToDecrypt);  // Reversing a reversed string 
+        }
     }
 }
