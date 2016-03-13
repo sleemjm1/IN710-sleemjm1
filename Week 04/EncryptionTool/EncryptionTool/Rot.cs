@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EncryptionTool
 {
-    class Rot : IEncrypt
+    public class Rot : IEncrypt
     {
         public string PerformEncryption(string stringToEncrypt)
         {
