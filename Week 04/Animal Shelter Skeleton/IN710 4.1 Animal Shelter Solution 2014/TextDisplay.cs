@@ -10,7 +10,10 @@ namespace IN710_4._1_Animal_Shelter_Solution_2014
     {
         public void displayCritterList(List<Critter> critterList)
         {
-            throw new NotImplementedException();
+            foreach (Critter c in critterList)
+            {
+                
+            }
         }
 
         public void clearDisplay()
