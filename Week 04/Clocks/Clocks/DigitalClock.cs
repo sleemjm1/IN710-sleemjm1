@@ -32,7 +32,7 @@ namespace Clocks
 
         public void UpdateTimeDisplay()
         {
-            label.Text = DateTime.Now.ToString("hh:mm:ss");
+            label.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         public void ShowClock()

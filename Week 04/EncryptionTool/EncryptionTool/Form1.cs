@@ -12,29 +12,25 @@ namespace EncryptionTool
 {
     public partial class Form1 : Form
     {
+        IEncrypt iEncrypt;
         public Form1()
         {
+            iEncrypt = new Rot();
             InitializeComponent();
         }
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            if (rbReverse.Checked)
-            {
-                IEncrypt iEncrypt = new Reverse();
-                String stringToConvert = txtInput.Text;
+            if (rbReverse.Checked) iEncrypt = new Reverse();
+            else iEncrypt = new Rot();            
+            txtOutput.Text = iEncrypt.PerformEncryption(txtInput.Text);
+        }
 
-                String convertedString = iEncrypt.PerformEncryption(stringToConvert);
-                txtOutput.Text = convertedString;
-            }
-            else if (rbRot13.Checked)
-            {
-                IEncrypt iEncrypt = new Rot();
-                String stringToConvert = txtInput.Text;
-
-                String convertedString = iEncrypt.PerformEncryption(stringToConvert);
-                txtOutput.Text = convertedString;
-            }
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            if (rbReverse.Checked) iEncrypt = new Reverse();
+            else iEncrypt = new Rot();
+            txtOutput.Text = iEncrypt.PerformDecryption(txtInput.Text);
         }
     }
 }

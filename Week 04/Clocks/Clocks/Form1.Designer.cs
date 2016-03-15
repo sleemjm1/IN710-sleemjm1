@@ -42,9 +42,10 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(45, 49);
+            this.btnStart.Location = new System.Drawing.Point(60, 60);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(194, 57);
+            this.btnStart.Size = new System.Drawing.Size(259, 70);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -52,29 +53,34 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(45, 125);
+            this.btnStop.Location = new System.Drawing.Point(60, 154);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(194, 57);
+            this.btnStop.Size = new System.Drawing.Size(259, 70);
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbAnalogue);
             this.groupBox1.Controls.Add(this.rbDigital);
-            this.groupBox1.Location = new System.Drawing.Point(289, 49);
+            this.groupBox1.Location = new System.Drawing.Point(385, 60);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(152, 133);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(203, 164);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
             // rbAnalogue
             // 
             this.rbAnalogue.AutoSize = true;
-            this.rbAnalogue.Location = new System.Drawing.Point(22, 76);
+            this.rbAnalogue.Location = new System.Drawing.Point(29, 94);
+            this.rbAnalogue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbAnalogue.Name = "rbAnalogue";
-            this.rbAnalogue.Size = new System.Drawing.Size(70, 17);
+            this.rbAnalogue.Size = new System.Drawing.Size(89, 21);
             this.rbAnalogue.TabIndex = 1;
             this.rbAnalogue.TabStop = true;
             this.rbAnalogue.Text = "Analogue";
@@ -84,9 +90,10 @@
             // rbDigital
             // 
             this.rbDigital.AutoSize = true;
-            this.rbDigital.Location = new System.Drawing.Point(22, 39);
+            this.rbDigital.Location = new System.Drawing.Point(29, 48);
+            this.rbDigital.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDigital.Name = "rbDigital";
-            this.rbDigital.Size = new System.Drawing.Size(54, 17);
+            this.rbDigital.Size = new System.Drawing.Size(68, 21);
             this.rbDigital.TabIndex = 0;
             this.rbDigital.TabStop = true;
             this.rbDigital.Text = "Digital";
@@ -98,11 +105,12 @@
             this.analogClock1.Draw1MinuteTicks = true;
             this.analogClock1.Draw5MinuteTicks = true;
             this.analogClock1.HourHandColor = System.Drawing.Color.DarkMagenta;
-            this.analogClock1.Location = new System.Drawing.Point(92, 203);
+            this.analogClock1.Location = new System.Drawing.Point(123, 250);
+            this.analogClock1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.analogClock1.MinuteHandColor = System.Drawing.Color.Green;
             this.analogClock1.Name = "analogClock1";
             this.analogClock1.SecondHandColor = System.Drawing.Color.Red;
-            this.analogClock1.Size = new System.Drawing.Size(273, 273);
+            this.analogClock1.Size = new System.Drawing.Size(336, 336);
             this.analogClock1.TabIndex = 3;
             this.analogClock1.TicksColor = System.Drawing.Color.Black;
             // 
@@ -110,11 +118,12 @@
             // 
             this.lblDigital.AutoSize = true;
             this.lblDigital.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigital.Location = new System.Drawing.Point(94, 296);
-            this.lblDigital.MaximumSize = new System.Drawing.Size(5000, 5000);
+            this.lblDigital.Location = new System.Drawing.Point(125, 364);
+            this.lblDigital.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDigital.MaximumSize = new System.Drawing.Size(6667, 6154);
             this.lblDigital.Name = "lblDigital";
             this.lblDigital.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblDigital.Size = new System.Drawing.Size(284, 73);
+            this.lblDigital.Size = new System.Drawing.Size(347, 91);
             this.lblDigital.TabIndex = 4;
             this.lblDigital.Text = "00:00:00";
             // 
@@ -124,14 +133,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 604);
+            this.ClientSize = new System.Drawing.Size(637, 743);
             this.Controls.Add(this.lblDigital);
             this.Controls.Add(this.analogClock1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Clocks";
             this.groupBox1.ResumeLayout(false);

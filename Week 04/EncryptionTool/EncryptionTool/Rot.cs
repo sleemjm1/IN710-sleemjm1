@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace EncryptionTool
 {
-    class Rot : IEncrypt
+    public class Rot : IEncrypt
     {
         public string PerformEncryption(string stringToEncrypt)
         {
             char[] charArray = stringToEncrypt.ToCharArray();
             int max = charArray.Length;
 
-            // dotnetperls.com/rot13 -- Algorithm origins
+            // dotnetperls.com/rot13 -- Algorithm source
 
             for (int i = 0; i < max; i++)
             {
@@ -34,6 +34,11 @@ namespace EncryptionTool
             }
             string returnString = new string(charArray);    // Wow this is great
             return returnString;
+        }
+
+        public String PerformDecryption(String stringToDecrypt)
+        {
+            return PerformEncryption(stringToDecrypt);      // Can use the same method to decrypt a message 
         }
     }
 }

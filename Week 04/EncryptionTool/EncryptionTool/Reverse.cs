@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EncryptionTool
 {
-    class Reverse : IEncrypt
+    public class Reverse : IEncrypt
     {
         public string PerformEncryption(String stringToEncrypt)
         {
@@ -21,6 +21,12 @@ namespace EncryptionTool
                 count++;
             }
             return returnString;    // Return our fully built string
+        }
+
+
+        public string PerformDecryption(string stringToDecrypt)
+        {
+            return PerformEncryption(stringToDecrypt);  // Reversing a reversed string 
         }
     }
 }
