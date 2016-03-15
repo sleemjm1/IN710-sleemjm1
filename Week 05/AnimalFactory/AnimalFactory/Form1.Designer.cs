@@ -31,6 +31,7 @@
             this.listDisplay = new System.Windows.Forms.ListBox();
             this.btnNorthAmerica = new System.Windows.Forms.Button();
             this.btnAustralia = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // listDisplay
@@ -49,6 +50,7 @@
             this.btnNorthAmerica.TabIndex = 1;
             this.btnNorthAmerica.Text = "North America";
             this.btnNorthAmerica.UseVisualStyleBackColor = true;
+            this.btnNorthAmerica.Click += new System.EventHandler(this.btnNorthAmerica_Click);
             // 
             // btnAustralia
             // 
@@ -78,6 +80,7 @@
         private System.Windows.Forms.ListBox listDisplay;
         private System.Windows.Forms.Button btnNorthAmerica;
         private System.Windows.Forms.Button btnAustralia;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
