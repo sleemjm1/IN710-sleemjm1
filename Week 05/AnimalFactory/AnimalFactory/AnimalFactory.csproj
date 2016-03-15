@@ -45,7 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs" />
+    <Compile Include="Australia.cs" />
+    <Compile Include="AustralianAnimalFactory.cs" />
     <Compile Include="Bison.cs" />
+    <Compile Include="Continent.cs" />
+    <Compile Include="Crocodile.cs" />
     <Compile Include="Eagle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -54,6 +58,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IAnimalFactory.cs" />
+    <Compile Include="Kangaroo.cs" />
+    <Compile Include="Koala.cs" />
+    <Compile Include="NorthAmerica.cs" />
     <Compile Include="NorthAmericanAnimalFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
