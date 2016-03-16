@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalFactory
 {
-    interface IAnimalFactory
+    public interface IAnimalFactory
     {
         Animal createAnimal(int animalCode);
     }

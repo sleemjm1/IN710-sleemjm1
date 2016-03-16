@@ -30,7 +30,7 @@ namespace AnimalFactory
         {
             Animal currentAnimal;
 
-            for (int i = 0; i < ANIMAL_SIM_COUNT; i++)
+            for (int i = 0; i < ANIMAL_SIM_COUNT-1; i++)
             {
                 // Randomly select animal type
                 int animalChoice = rGen.Next(nAnimalTypes);
