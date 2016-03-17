@@ -22,9 +22,15 @@ namespace AnimalFactory
             rGen = new Random();
         }
 
+        public void ClearControls()
+        {
+            mainCanvas.Clear(SystemColors.Control);
+            listDisplay.Items.Clear();
+        }
+
         private void btnNorthAmerica_Click(object sender, EventArgs e)
         {
-            mainCanvas.Clear(Color.Gray);
+            ClearControls();
             mainContinent = new NorthAmerica(listDisplay, rGen, 3, mainCanvas);
             mainContinent.runSimulation();
         }
