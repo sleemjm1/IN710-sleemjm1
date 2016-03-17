@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalFactory
 {
-    class AustralianAnimalFactory : IAnimalFactory
+    class NewZealandAnimalFactory : IAnimalFactory
     {
         public Animal createAnimal(int animalCode)
         {
@@ -15,13 +15,16 @@ namespace AnimalFactory
             switch (animalCode)
             {
                 case 0:
-                    newAnimal = new Koala();
+                    newAnimal = new Kiwi();
                     break;
                 case 1:
-                    newAnimal = new Crocodile();
+                    newAnimal = new YellowEyedPenguin();
                     break;
                 case 2:
-                    newAnimal = new Kangaroo();
+                    newAnimal = new RoyalAlbatross();
+                    break;
+                case 3:
+                    newAnimal = new Moa();
                     break;
             }
             return newAnimal;

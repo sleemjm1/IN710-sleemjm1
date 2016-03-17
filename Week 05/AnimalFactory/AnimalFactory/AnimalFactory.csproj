@@ -44,27 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Australia.cs" />
-    <Compile Include="AustralianAnimalFactory.cs" />
-    <Compile Include="Bison.cs" />
-    <Compile Include="Continent.cs" />
-    <Compile Include="Crocodile.cs" />
-    <Compile Include="Eagle.cs" />
+    <Compile Include="Animals\North America\Bear.cs" />
+    <Compile Include="Animals\New Zealand\Kiwi.cs" />
+    <Compile Include="Classes Interfaces\Animal.cs" />
+    <Compile Include="Continents\Australia.cs" />
+    <Compile Include="Classes Interfaces\AustralianAnimalFactory.cs" />
+    <Compile Include="Animals\North America\Bison.cs" />
+    <Compile Include="Classes Interfaces\Continent.cs" />
+    <Compile Include="Animals\Australia\Crocodile.cs" />
+    <Compile Include="Animals\North America\Eagle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IAnimalFactory.cs" />
-    <Compile Include="Kangaroo.cs" />
-    <Compile Include="Koala.cs" />
-    <Compile Include="NorthAmerica.cs" />
-    <Compile Include="NorthAmericanAnimalFactory.cs" />
+    <Compile Include="Classes Interfaces\IAnimalFactory.cs" />
+    <Compile Include="Animals\Australia\Kangaroo.cs" />
+    <Compile Include="Animals\Australia\Koala.cs" />
+    <Compile Include="Continents\NorthAmerica.cs" />
+    <Compile Include="Classes Interfaces\NorthAmericanAnimalFactory.cs" />
+    <Compile Include="Continents\NewZealand.cs" />
+    <Compile Include="Classes Interfaces\NewZealandAnimalFactory.cs" />
+    <Compile Include="Animals\New Zealand\Moa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wolf.cs" />
+    <Compile Include="Animals\North America\Wolf.cs" />
+    <Compile Include="Animals\Australia\Wombat.cs" />
+    <Compile Include="Animals\New Zealand\YellowEyedPenguin.cs" />
+    <Compile Include="Animals\New Zealand\RoyalAlbatross.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +98,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

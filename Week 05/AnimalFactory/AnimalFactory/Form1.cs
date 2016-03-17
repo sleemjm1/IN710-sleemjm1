@@ -15,6 +15,10 @@ namespace AnimalFactory
         Graphics mainCanvas;
         Continent mainContinent;
         Random rGen;
+        const int NUM_NA_ANIMALS = 4;       // number of American animal classes we have
+        const int NUM_AUS_ANIMALS = 4;      // number of Australian animal classes we have
+        const int NUM_NZ_ANIMALS = 4;       // number of New Zeland animal classes we have
+        // These are all the same at the moment, but would change if we had a different number of animals in each class
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +26,7 @@ namespace AnimalFactory
             rGen = new Random();
         }
 
-        public void ClearControls()
+        public void ClearControls() // used to tidy up form controls
         {
             mainCanvas.Clear(SystemColors.Control);
             listDisplay.Items.Clear();
@@ -31,7 +35,21 @@ namespace AnimalFactory
         private void btnNorthAmerica_Click(object sender, EventArgs e)
         {
             ClearControls();
-            mainContinent = new NorthAmerica(listDisplay, rGen, 3, mainCanvas);
+            mainContinent = new NorthAmerica(listDisplay, rGen, NUM_NA_ANIMALS, mainCanvas);
+            mainContinent.runSimulation();
+        }
+
+        private void btnAustralia_Click(object sender, EventArgs e)
+        {
+            ClearControls();
+            mainContinent = new Australia(listDisplay, rGen, NUM_AUS_ANIMALS, mainCanvas);
+            mainContinent.runSimulation();
+        }
+
+        private void btnNewZealand_Click(object sender, EventArgs e)
+        {
+            ClearControls();
+            mainContinent = new NewZealand(listDisplay, rGen, NUM_NZ_ANIMALS, mainCanvas);
             mainContinent.runSimulation();
         }
     }
