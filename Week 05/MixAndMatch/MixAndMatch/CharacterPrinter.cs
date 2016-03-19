@@ -29,12 +29,6 @@ namespace MixAndMatch
             this.legsPictureBox = legsPictureBox;
         }
 
-        //public void printSpec()
-        //{
-        //    CPU currentCPU = computerMaker.makeCPU();
-        //    RAM currentRAM = computerMaker.makeRAM();
-        //    GraphicsCard currentGraphicsCard = computerMaker.makeGraphicsCard();
-        //listBox.Items.Add(currentCPU.ToString());
         public void PrintCharacter()
         {
             Head currentHead = headMaker.makeHead();
