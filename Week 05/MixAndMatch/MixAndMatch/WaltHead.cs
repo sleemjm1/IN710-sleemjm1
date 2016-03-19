@@ -10,6 +10,7 @@ namespace MixAndMatch
     {
         public WaltHead()
         {
+            Name = "Walter White";
             image = new System.Drawing.Bitmap("walt_head.png");
         }
     }

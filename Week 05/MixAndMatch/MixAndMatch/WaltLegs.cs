@@ -8,6 +8,10 @@ namespace MixAndMatch
 {
     public class WaltLegs : Legs
     {
-        public WaltLegs = new System.Drawing.Image("walt_legs.png")
+        public WaltLegs()
+        {
+            Name = "Walter White";
+            image = new System.Drawing.Bitmap("walt_legs.png");
+        }
     }
 }

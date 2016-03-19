@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MixAndMatch
 {
-    public class WaltBody : Body
+    class WaltHeadFactory : IHeadFactory
     {
-        public WaltBody()
+        public Head makeHead()
         {
-            Name = "Walter White";
-            image = new System.Drawing.Bitmap("walt_body.png");
+            return new WaltHead();
         }
     }
 }

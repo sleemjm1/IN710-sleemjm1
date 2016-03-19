@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixAndMatch
 {
-    class Head : BodyPart
+    public class Head : BodyPart
     {
     }
 }

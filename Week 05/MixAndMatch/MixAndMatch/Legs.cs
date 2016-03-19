@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixAndMatch
 {
-    class Legs : BodyPart
+    public class Legs : BodyPart
     {
     }
 }

@@ -10,6 +10,7 @@ namespace MixAndMatch
     public class BodyPart
     {
         protected Bitmap image;
+        public string Name;
         public Bitmap Image
         {
             get { return image; } // read only

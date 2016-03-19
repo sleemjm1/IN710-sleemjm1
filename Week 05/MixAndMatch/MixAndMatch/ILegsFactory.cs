@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MixAndMatch
 {
-    public class Body : BodyPart
+    public interface ILegsFactory
     {
+        Legs makeLegs();
     }
 }
