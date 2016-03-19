@@ -15,14 +15,17 @@ namespace MixAndMatch
         IHeadFactory currentHeadFactory;
         ITorsoFactory currentTorsoFactory;
         ILegsFactory currentLegsFactory;
+        CharacterPrinter formSetupPrinter;
         public Form1()
         {
             InitializeComponent();
+            formSetupPrinter = new CharacterPrinter(cbHead);
+            formSetupPrinter.PopulateComboBox();
         }
 
         private void btnMakeCharacter_Click(object sender, EventArgs e)
         {
-            currentHeadFactory = new WaltHeadFactory();
+            currentHeadFactory = new MikeHeadFactory();
             currentTorsoFactory = new WaltTorsoFactory();
             currentLegsFactory = new WaltLegsFactory();
 

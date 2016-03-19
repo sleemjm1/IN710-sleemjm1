@@ -58,14 +58,20 @@
     <Compile Include="Factories\ILegsFactory.cs" />
     <Compile Include="Factories\ITorsoFactory.cs" />
     <Compile Include="Classes\Legs.cs" />
+    <Compile Include="Characters\Mike Ehrmantraut\MikeBody.cs" />
+    <Compile Include="Characters\Mike Ehrmantraut\MikeHead.cs" />
+    <Compile Include="Characters\Mike Ehrmantraut\MikeLegs.cs" />
+    <Compile Include="Factories\Mike Ehrmantraut\MikeHeadFactory.cs" />
+    <Compile Include="Factories\Mike Ehrmantraut\MikeLegsFactory.cs" />
+    <Compile Include="Factories\Mike Ehrmantraut\MikeTorsoFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Characters\Walter White\WaltBody.cs" />
     <Compile Include="Characters\Walter White\WaltHead.cs" />
-    <Compile Include="Factories\Head\WaltHeadFactory.cs" />
+    <Compile Include="Factories\Walter White\WaltHeadFactory.cs" />
     <Compile Include="Characters\Walter White\WaltLegs.cs" />
-    <Compile Include="Factories\Legs\WaltLegsFactory.cs" />
-    <Compile Include="Factories\Torso\WaltTorsoFactory.cs" />
+    <Compile Include="Factories\Walter White\WaltLegsFactory.cs" />
+    <Compile Include="Factories\Walter White\WaltTorsoFactory.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

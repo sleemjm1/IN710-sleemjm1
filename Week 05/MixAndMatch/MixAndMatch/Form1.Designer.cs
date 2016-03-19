@@ -66,6 +66,7 @@
             // 
             // cbHead
             // 
+            this.cbHead.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHead.FormattingEnabled = true;
             this.cbHead.Location = new System.Drawing.Point(419, 32);
             this.cbHead.Name = "cbHead";
