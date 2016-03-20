@@ -23,18 +23,20 @@ namespace ComputerMaker
             CPU currentCPU = computerMaker.makeCPU();
             RAM currentRAM = computerMaker.makeRAM();
             GraphicsCard currentGraphicsCard = computerMaker.makeGraphicsCard();
+            Monitor currentMonitor = computerMaker.makeMonitor();
 
-            double totalPrice = currentCPU.Price + currentRAM.Price + currentGraphicsCard.Price;
+            double totalPrice = currentCPU.Price + currentRAM.Price + currentGraphicsCard.Price + currentMonitor.Price;
 
             listBox.Items.Clear();
-            listBox.Items.Add("Price\tComponent");
-            listBox.Items.Add("----------------------------------");
+            listBox.Items.Add("Part\tPrice\tComponent");
+            listBox.Items.Add("------------------------------------------------------------------------------------");
 
-            listBox.Items.Add(currentCPU.ToString());
-            listBox.Items.Add(currentRAM.ToString());
-            listBox.Items.Add(currentGraphicsCard.ToString());
+            listBox.Items.Add("CPU:\t" + currentCPU.ToString());
+            listBox.Items.Add("RAM:\t" + currentRAM.ToString());
+            listBox.Items.Add("Graphics:\t" + currentGraphicsCard.ToString());
+            listBox.Items.Add("Monitor:\t" + currentMonitor.ToString());
 
-            listBox.Items.Add("----------------------------------");
+            listBox.Items.Add("------------------------------------------------------------------------------------");
             listBox.Items.Add("Total Price: $" + totalPrice.ToString());
         }
     }

@@ -13,9 +13,9 @@ namespace ComputerMaker
         public string Name;
         public double Price;
 
-        public string ToString()
+        public override string ToString()
         {
-            return Price + "\t" + Name;
+            return "$" + Price + "\t" + Name;
         }
     }
 }

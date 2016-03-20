@@ -44,8 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\LaptopComputerFactory.cs" />
+    <Compile Include="Parts\GraphicsCard\LaptopGraphicsCard.cs" />
+    <Compile Include="Parts\Monitors\LaptopMonitor.cs" />
+    <Compile Include="Parts\RAM\LaptopRAM.cs" />
+    <Compile Include="Parts\CPU\LaptopCPU.cs" />
+    <Compile Include="Parts\Monitors\GamingMonitor.cs" />
+    <Compile Include="Parts\Monitors\MultimediaMonitor.cs" />
+    <Compile Include="Parts\Monitors\BusinessMonitor.cs" />
     <Compile Include="Factories\BusinessComputerFactory.cs" />
     <Compile Include="MachineSpecPrinter.cs" />
+    <Compile Include="Parts\Monitors\Monitor.cs" />
     <Compile Include="Parts\GraphicsCard\BusinessGraphicsCard.cs" />
     <Compile Include="Factories\GamingComputerFactory.cs" />
     <Compile Include="Factories\IComputerFactory.cs" />

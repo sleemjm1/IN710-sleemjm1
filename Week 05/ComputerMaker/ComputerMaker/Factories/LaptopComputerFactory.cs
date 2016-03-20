@@ -6,27 +6,26 @@ using System.Threading.Tasks;
 
 namespace ComputerMaker
 {
-    class GamingComputerFactory : IComputerFactory
+    class LaptopComputerFactory : IComputerFactory
     {
         public RAM makeRAM()
         {
-            return new GamingRAM();
+            return new LaptopRAM();
         }
 
         public CPU makeCPU()
         {
-            return new GamingCPU();
+            return new LaptopCPU();
         }
 
         public GraphicsCard makeGraphicsCard()
         {
-            return new GamingGraphicsCard();
+            return new LaptopGraphicsCard();
         }
-
 
         public Monitor makeMonitor()
         {
-            return new GamingMonitor();
+            return new LaptopMonitor();
         }
     }
 }

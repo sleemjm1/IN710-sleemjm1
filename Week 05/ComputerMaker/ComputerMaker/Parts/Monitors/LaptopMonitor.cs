@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ComputerMaker
 {
-    public interface IComputerFactory
+    public class LaptopMonitor : Monitor
     {
-        RAM makeRAM();
-        CPU makeCPU();
-        GraphicsCard makeGraphicsCard();
-        Monitor makeMonitor();
+        public LaptopMonitor()
+        {
+            Name = "13 Inch Retina";
+            Price = 400.00;
+        }
     }
 }

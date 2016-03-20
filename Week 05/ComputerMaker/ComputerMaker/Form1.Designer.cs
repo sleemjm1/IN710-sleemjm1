@@ -30,10 +30,11 @@
         {
             this.btnPrintSpec = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbGaming = new System.Windows.Forms.RadioButton();
-            this.rbBusiness = new System.Windows.Forms.RadioButton();
             this.rbMultimedia = new System.Windows.Forms.RadioButton();
+            this.rbBusiness = new System.Windows.Forms.RadioButton();
+            this.rbGaming = new System.Windows.Forms.RadioButton();
             this.listDisplay = new System.Windows.Forms.ListBox();
+            this.rbLaptop = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbLaptop);
             this.groupBox1.Controls.Add(this.rbMultimedia);
             this.groupBox1.Controls.Add(this.rbBusiness);
             this.groupBox1.Controls.Add(this.rbGaming);
@@ -58,6 +60,28 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Machine Type";
+            // 
+            // rbMultimedia
+            // 
+            this.rbMultimedia.AutoSize = true;
+            this.rbMultimedia.Location = new System.Drawing.Point(18, 106);
+            this.rbMultimedia.Name = "rbMultimedia";
+            this.rbMultimedia.Size = new System.Drawing.Size(75, 17);
+            this.rbMultimedia.TabIndex = 2;
+            this.rbMultimedia.TabStop = true;
+            this.rbMultimedia.Text = "Multimedia";
+            this.rbMultimedia.UseVisualStyleBackColor = true;
+            // 
+            // rbBusiness
+            // 
+            this.rbBusiness.AutoSize = true;
+            this.rbBusiness.Location = new System.Drawing.Point(18, 70);
+            this.rbBusiness.Name = "rbBusiness";
+            this.rbBusiness.Size = new System.Drawing.Size(67, 17);
+            this.rbBusiness.TabIndex = 1;
+            this.rbBusiness.TabStop = true;
+            this.rbBusiness.Text = "Business";
+            this.rbBusiness.UseVisualStyleBackColor = true;
             // 
             // rbGaming
             // 
@@ -70,28 +94,6 @@
             this.rbGaming.Text = "Gaming";
             this.rbGaming.UseVisualStyleBackColor = true;
             // 
-            // rbBusiness
-            // 
-            this.rbBusiness.AutoSize = true;
-            this.rbBusiness.Location = new System.Drawing.Point(17, 93);
-            this.rbBusiness.Name = "rbBusiness";
-            this.rbBusiness.Size = new System.Drawing.Size(67, 17);
-            this.rbBusiness.TabIndex = 1;
-            this.rbBusiness.TabStop = true;
-            this.rbBusiness.Text = "Business";
-            this.rbBusiness.UseVisualStyleBackColor = true;
-            // 
-            // rbMultimedia
-            // 
-            this.rbMultimedia.AutoSize = true;
-            this.rbMultimedia.Location = new System.Drawing.Point(17, 150);
-            this.rbMultimedia.Name = "rbMultimedia";
-            this.rbMultimedia.Size = new System.Drawing.Size(75, 17);
-            this.rbMultimedia.TabIndex = 2;
-            this.rbMultimedia.TabStop = true;
-            this.rbMultimedia.Text = "Multimedia";
-            this.rbMultimedia.UseVisualStyleBackColor = true;
-            // 
             // listDisplay
             // 
             this.listDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +103,17 @@
             this.listDisplay.Name = "listDisplay";
             this.listDisplay.Size = new System.Drawing.Size(518, 244);
             this.listDisplay.TabIndex = 2;
+            // 
+            // rbLaptop
+            // 
+            this.rbLaptop.AutoSize = true;
+            this.rbLaptop.Location = new System.Drawing.Point(18, 144);
+            this.rbLaptop.Name = "rbLaptop";
+            this.rbLaptop.Size = new System.Drawing.Size(58, 17);
+            this.rbLaptop.TabIndex = 3;
+            this.rbLaptop.TabStop = true;
+            this.rbLaptop.Text = "Laptop";
+            this.rbLaptop.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -126,6 +139,7 @@
         private System.Windows.Forms.RadioButton rbBusiness;
         private System.Windows.Forms.RadioButton rbGaming;
         private System.Windows.Forms.ListBox listDisplay;
+        private System.Windows.Forms.RadioButton rbLaptop;
     }
 }
 

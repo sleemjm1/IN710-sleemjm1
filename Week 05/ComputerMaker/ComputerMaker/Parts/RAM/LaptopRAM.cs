@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ComputerMaker
 {
-    public interface IComputerFactory
+    public class LaptopRAM : RAM
     {
-        RAM makeRAM();
-        CPU makeCPU();
-        GraphicsCard makeGraphicsCard();
-        Monitor makeMonitor();
+        public LaptopRAM()
+        {
+            Name = "16GB RAM";
+            Price = 600.00;
+        }
     }
 }

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ComputerMaker
 {
-    public interface IComputerFactory
+    class GamingMonitor : Monitor
     {
-        RAM makeRAM();
-        CPU makeCPU();
-        GraphicsCard makeGraphicsCard();
-        Monitor makeMonitor();
+        public GamingMonitor()
+        {
+            Name = "BenQ 24 Inch XL2720T";
+            Price = 500;
+        }
     }
 }

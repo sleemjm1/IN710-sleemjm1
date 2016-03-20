@@ -22,5 +22,9 @@ namespace ComputerMaker
         {
             return new MultimediaGraphicsCard();
         }
+        public Monitor makeMonitor()
+        {
+            return new MultimediaMonitor();
+        }
     }
 }

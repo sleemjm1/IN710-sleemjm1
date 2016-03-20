@@ -16,7 +16,7 @@ namespace ComputerMaker
         public Form1()
         {
             InitializeComponent();
-            rbMultimedia.Checked = true;    // Checked so that we match up with if statement below
+            rbLaptop.Checked = true;    // Checked so that we match up with if statement below
         }
 
         private void btnPrintSpec_Click(object sender, EventArgs e)
@@ -25,8 +25,10 @@ namespace ComputerMaker
                 currentComputerFactory = new GamingComputerFactory();
             else if (rbBusiness.Checked)
                 currentComputerFactory = new BusinessComputerFactory();
-            else
+            else if (rbMultimedia.Checked)
                 currentComputerFactory = new MultimediaComputerFactory();
+            else
+                currentComputerFactory = new LaptopComputerFactory();
 
             MachineSpecPrinter currentSpecPrinter = new MachineSpecPrinter(currentComputerFactory, listDisplay);
             currentSpecPrinter.printSpec();

@@ -22,5 +22,10 @@ namespace ComputerMaker
         {
             return new BusinessGraphicsCard();
         }
+
+        public Monitor makeMonitor()
+        {
+            return new BusinessMonitor();
+        }
     }
 }

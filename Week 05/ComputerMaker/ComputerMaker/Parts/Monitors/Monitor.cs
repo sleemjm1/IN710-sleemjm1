@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ComputerMaker
 {
-    public interface IComputerFactory
+    public class Monitor : Part
     {
-        RAM makeRAM();
-        CPU makeCPU();
-        GraphicsCard makeGraphicsCard();
-        Monitor makeMonitor();
+        // nothing here...
     }
 }
