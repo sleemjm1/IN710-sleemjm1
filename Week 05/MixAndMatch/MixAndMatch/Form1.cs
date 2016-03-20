@@ -19,6 +19,10 @@ namespace MixAndMatch
 
             modelList.Add(new Walt());
             modelList.Add(new Mike());
+            modelList.Add(new Gus());
+            modelList.Add(new Flynn());
+            modelList.Add(new Jesse());
+            modelList.Add(new Saul());
 
             PopulateComboBox(cbHead, modelList);
             PopulateComboBox(cbTorso, modelList);

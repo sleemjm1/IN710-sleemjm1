@@ -20,6 +20,18 @@ namespace MixAndMatch
                 case "Mike Ehrmantraut":
                     newModel = new Mike();
                     break;
+                case "Gustavo Fring":
+                    newModel = new Gus();
+                    break;
+                case "Flynn White":
+                    newModel = new Flynn();
+                    break;
+                case "Jesse Pinkman":
+                    newModel = new Jesse();
+                    break;
+                case "Saul Goodman":
+                    newModel = new Saul();
+                    break;
             }
             return newModel;
         }
