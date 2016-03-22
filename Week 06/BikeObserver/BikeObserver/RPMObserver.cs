@@ -15,7 +15,8 @@ namespace BikeObserver
 
         public override void Update(int data)
         {
-            displayLabel.Text = data.ToString();     
+            double rpm = data;
+            displayLabel.Text = rpm.ToString("F");  // "F" so that 2 DP even with whole numbers     
         }
     }
 }
