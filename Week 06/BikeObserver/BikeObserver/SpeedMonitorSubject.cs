@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BikeObserver
 {
@@ -31,5 +32,20 @@ namespace BikeObserver
             observerList = new List<IObserver>();
             currentRPM = 0;
         }
+
+
+        public void TriggerNotifications(TextBox textBox)
+        {
+            try
+            {
+                currentRPM = Int32.Parse(textBox.Text);
+                NotifyObservers();
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Only numerical values supported");
+            }
+        }
+
     }
 }

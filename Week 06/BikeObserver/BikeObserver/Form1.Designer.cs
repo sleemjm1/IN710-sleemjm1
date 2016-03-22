@@ -30,10 +30,10 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblRPM = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblCaloriesPerHour = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblKMPerHour = new System.Windows.Forms.Label();
             this.tbChangeSpeed = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -47,8 +47,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 81);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Compute";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -60,26 +61,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RPM";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblCaloriesPerHour);
-            this.groupBox2.Location = new System.Drawing.Point(13, 249);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(460, 121);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Calories Per Hour";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lblKMPerHour);
-            this.groupBox3.Location = new System.Drawing.Point(21, 376);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(460, 121);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "KMs per hour";
-            // 
             // lblRPM
             // 
             this.lblRPM.AutoSize = true;
@@ -90,6 +71,16 @@
             this.lblRPM.TabIndex = 0;
             this.lblRPM.Text = "0.0";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblCaloriesPerHour);
+            this.groupBox2.Location = new System.Drawing.Point(13, 249);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(460, 121);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Calories Per Hour";
+            // 
             // lblCaloriesPerHour
             // 
             this.lblCaloriesPerHour.AutoSize = true;
@@ -99,6 +90,16 @@
             this.lblCaloriesPerHour.Size = new System.Drawing.Size(91, 55);
             this.lblCaloriesPerHour.TabIndex = 1;
             this.lblCaloriesPerHour.Text = "0.0";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblKMPerHour);
+            this.groupBox3.Location = new System.Drawing.Point(21, 376);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(460, 121);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "KMs per hour";
             // 
             // lblKMPerHour
             // 

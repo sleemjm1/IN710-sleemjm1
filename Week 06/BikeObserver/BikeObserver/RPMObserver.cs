@@ -11,7 +11,11 @@ namespace BikeObserver
     {
         public RPMObserver(Label label, SpeedMonitorSubject bikeSubject) : base(label, bikeSubject)
         {
+        }
 
+        public override void Update(int data)
+        {
+            displayLabel.Text = data.ToString();     
         }
     }
 }

@@ -8,13 +8,13 @@ using System.Windows.Forms;
 namespace BikeObserver
 {
     // Base class
-    public class BicycleObserver : IObserver
+    public abstract class BicycleObserver : IObserver
     {
         protected int currentRPM;
         protected double currentComputedValue;
         protected Label displayLabel;
         protected SpeedMonitorSubject bikeSubject;
-        public void Update(int data);
+        public abstract void Update(int data);
        
         public void Display()
         {
