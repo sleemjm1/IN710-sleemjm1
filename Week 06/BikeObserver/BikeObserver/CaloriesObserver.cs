@@ -16,8 +16,8 @@ namespace BikeObserver
 
         public override void Update(int data)
         {
-            double calories = data * 5;         // We assume 5 calories burned per 1 RPM
-            displayLabel.Text = calories.ToString("F");
+            currentComputedValue = data * 5;         // We assume 5 calories burned per 1 RPM
+            //displayLabel.Text = calories.ToString("F");
         }
     }
 }

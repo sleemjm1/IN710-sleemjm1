@@ -24,7 +24,10 @@ namespace BikeObserver
         public void NotifyObservers()
         {
             foreach (BicycleObserver currentObserver in observerList)
+            {
                 currentObserver.Update(currentRPM);
+                currentObserver.Display();
+            }
         }
 
         public SpeedMonitorSubject()
@@ -36,7 +39,7 @@ namespace BikeObserver
 
         public void TriggerNotifications(TextBox textBox)
         {
-            try
+            try     // Try and parse the text box, throw exception if parse fails
             {
                 currentRPM = Int32.Parse(textBox.Text);
                 NotifyObservers();
