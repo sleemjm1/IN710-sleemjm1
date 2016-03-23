@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherObserver
 {
-    public interface IObserver
+    public class AverageObserver : WeatherObserver
     {
-        void Update(int temperature, int humidity, int pressure);
-        void Display();
     }
 }

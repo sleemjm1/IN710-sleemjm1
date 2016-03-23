@@ -7,12 +7,13 @@ using System.Windows.Forms;
 
 namespace WeatherObserver
 {
-    class WeatherSubject : ISubject
+    public class WeatherSubject : ISubject
     {
         private List<IObserver> observerList;
         private int currTemperature;
         private int currHumidity;
         private int currPressure;
+
         public void AddObserver(IObserver o)
         {
             observerList.Add(o);
@@ -28,7 +29,16 @@ namespace WeatherObserver
             foreach (WeatherObserver currObserver in observerList)
             {
                 currObserver.Update(currTemperature, currHumidity, currPressure);
+                currObserver.Display();
             }
+        }
+
+        public WeatherSubject()
+        {
+            observerList = new List<IObserver>();
+            currTemperature = 0;
+            currHumidity = 0;
+            currPressure = 0;
         }
 
         public void TriggerNotifications(TextBox tbTemperature, TextBox tbHumidity, TextBox tbPressure)
@@ -38,6 +48,7 @@ namespace WeatherObserver
                 currTemperature = Int32.Parse(tbTemperature.Text);
                 currPressure = Int32.Parse(tbPressure.Text);
                 currHumidity = Int32.Parse(tbHumidity.Text);
+                NotifyObservers();
             }
             catch(FormatException)
             {
