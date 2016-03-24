@@ -14,6 +14,7 @@ namespace WeatherObserver
     {
         WeatherSubject weatherSubject;
         TemperatureObserver temperatureObserver;
+        AverageObserver averageObserver;
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace WeatherObserver
             weatherSubject = new WeatherSubject();
 
             temperatureObserver = new TemperatureObserver(listTemperature, weatherSubject);
+            averageObserver = new AverageObserver(listAverages, weatherSubject);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
