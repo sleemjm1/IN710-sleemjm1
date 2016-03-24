@@ -20,7 +20,7 @@ namespace WeatherObserver
 
         public abstract void Update(int currTemperature, int currHumidity, int currPressure);
 
-        public void Display()
+        public virtual void Display()
         {
             listBox.Items.Clear();
             listBox.Items.Add("Temperature:\t" + currComputedTemperature.ToString("F2"));

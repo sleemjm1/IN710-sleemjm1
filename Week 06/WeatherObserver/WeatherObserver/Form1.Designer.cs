@@ -41,7 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listForecast = new System.Windows.Forms.ListBox();
             this.listAverages = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -143,7 +143,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.listBox3);
+            this.groupBox2.Controls.Add(this.listForecast);
             this.groupBox2.Controls.Add(this.listAverages);
             this.groupBox2.Controls.Add(this.listTemperature);
             this.groupBox2.Location = new System.Drawing.Point(239, 24);
@@ -184,14 +184,14 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Temperature";
             // 
-            // listBox3
+            // listForecast
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(10, 357);
-            this.listBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(267, 82);
-            this.listBox3.TabIndex = 7;
+            this.listForecast.FormattingEnabled = true;
+            this.listForecast.Location = new System.Drawing.Point(10, 357);
+            this.listForecast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listForecast.Name = "listForecast";
+            this.listForecast.Size = new System.Drawing.Size(267, 82);
+            this.listForecast.TabIndex = 7;
             // 
             // listAverages
             // 
@@ -235,7 +235,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listForecast;
         private System.Windows.Forms.ListBox listAverages;
     }
 }
