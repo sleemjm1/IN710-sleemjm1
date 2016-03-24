@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherObserver", "WeatherObserver\WeatherObserver.csproj", "{ECF416EB-B5DD-4513-9252-7D0F53FD143B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{11E3D734-C457-44B8-A76B-5C5D7AB601BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ECF416EB-B5DD-4513-9252-7D0F53FD143B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF416EB-B5DD-4513-9252-7D0F53FD143B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF416EB-B5DD-4513-9252-7D0F53FD143B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E3D734-C457-44B8-A76B-5C5D7AB601BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E3D734-C457-44B8-A76B-5C5D7AB601BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E3D734-C457-44B8-A76B-5C5D7AB601BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E3D734-C457-44B8-A76B-5C5D7AB601BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

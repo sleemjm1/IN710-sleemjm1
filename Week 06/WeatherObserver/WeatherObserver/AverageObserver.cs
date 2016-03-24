@@ -9,12 +9,14 @@ namespace WeatherObserver
 {
     public class AverageObserver : WeatherObserver
     {
+        // We need the below variables so that we can compute averages
         int totalTemperature;
         int totalHumidity;
         int totalPressure;
         int totalRecords; // Amount of times we have run a simulation
         public AverageObserver(ListBox listBox, WeatherSubject weatherSubject) : base(listBox, weatherSubject)
         {
+            // When an AverageObserver is created, values will all be set to 0
             totalTemperature = 0;
             totalHumidity = 0;
             totalPressure = 0;

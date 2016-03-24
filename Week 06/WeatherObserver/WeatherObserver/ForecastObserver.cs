@@ -18,8 +18,9 @@ namespace WeatherObserver
 
         }
 
-
-        public override void Update(int currTemperature, int currHumidity, int currPressure)
+        // In this Update method, instead of writing to currComputedTemperature, etc. In the base class, we will be writing to
+        // Our local variables instead. This is because we will be using them in our overridden Display method below
+        public override void Update(int currTemperature, int currHumidity, int currPressure)    
         {
             if (currTemperature > 30)
                 heat = "Hot";
@@ -38,6 +39,9 @@ namespace WeatherObserver
             pressure = "High";  // I don't know anything about barometric pressure -- revisit
         }
 
+
+        // Overridden Display method. This needs to act differently to the parent's Display method because we are going to be 
+        // displaying strings rather than doubles. We will build our strings using the variables we have set in the Update method
         public override void Display()
         {
             listBox.Items.Clear();

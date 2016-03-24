@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace WeatherObserver
 {
+    // Class for our subject
     public class WeatherSubject : ISubject
     {
         private List<IObserver> observerList;

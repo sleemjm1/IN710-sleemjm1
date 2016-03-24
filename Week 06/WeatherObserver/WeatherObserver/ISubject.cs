@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace WeatherObserver
 {
+    // Interface from which our Subject base class will descend from
     interface ISubject
     {
         void AddObserver(IObserver o);
