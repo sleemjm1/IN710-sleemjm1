@@ -35,6 +35,7 @@ namespace WeatherObserver
 
         public WeatherSubject()
         {
+            // Instantiate variables
             observerList = new List<IObserver>();
             currTemperature = 0;
             currHumidity = 0;
@@ -46,9 +47,13 @@ namespace WeatherObserver
             try
             {
                 currTemperature = Int32.Parse(tbTemperature.Text);
-                currPressure = Int32.Parse(tbPressure.Text);
                 currHumidity = Int32.Parse(tbHumidity.Text);
-                NotifyObservers();
+                currPressure = Int32.Parse(tbPressure.Text);                
+
+                if (currHumidity > 100 || currHumidity < 0) // Percentage values are between 0-100
+                    MessageBox.Show("Please enter a valid percentage");
+                else
+                    NotifyObservers();
             }
             catch(FormatException)
             {
