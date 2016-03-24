@@ -9,38 +9,28 @@ namespace WeatherObserver
 {
     public class AverageObserver : WeatherObserver
     {
-        double? prevTemperatureAvg; // We need nullable doubles so that we can set them to null
-        double? prevHumidityAvg;    // when there are no previous averages to go off of
-        double? prevPressureAvg;
+        int totalTemperature;
+        int totalHumidity;
+        int totalPressure;
+        int totalRecords; // Amount of times we have run a simulation
         public AverageObserver(ListBox listBox, WeatherSubject weatherSubject) : base(listBox, weatherSubject)
         {
-            prevTemperatureAvg = null;
-            prevHumidityAvg = null;
-            prevPressureAvg = null;
+            totalTemperature = 0;
+            totalHumidity = 0;
+            totalPressure = 0;
+            totalRecords = 0;
         }
 
         public override void Update(int currTemperature, int currHumidity, int currPressure)
         {
-            if (prevTemperatureAvg != null) // if we already have a previous average in the system
-            {
-                currComputedTemperature = ((double)prevTemperatureAvg + currTemperature) / 2;
-                currComputedHumidity = ((double)prevHumidityAvg + currHumidity) / 2;
-                currComputedPressure = ((double)prevPressureAvg + currPressure) / 2;
+            totalTemperature += currTemperature;
+            totalHumidity += currHumidity;
+            totalPressure += currPressure;
+            totalRecords += 1;
 
-                prevTemperatureAvg = currComputedTemperature;
-                prevHumidityAvg = currComputedHumidity;
-                prevPressureAvg = currComputedPressure;
-            }
-            else    // Else this is our first time running averages -- just return current values
-            {
-                currComputedTemperature = currTemperature;
-                currComputedHumidity = currHumidity;
-                currComputedPressure = currPressure;
-
-                prevTemperatureAvg = currTemperature;
-                prevHumidityAvg = currHumidity;
-                prevPressureAvg = currHumidity;
-            }
+            currComputedTemperature = totalTemperature / totalRecords;
+            currComputedHumidity = totalHumidity / totalRecords;
+            currComputedPressure = totalPressure / totalRecords;
         }
     }
 }
