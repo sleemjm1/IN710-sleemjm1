@@ -51,8 +51,10 @@ namespace WeatherObserver
                 currHumidity = Int32.Parse(tbHumidity.Text);
                 currPressure = Int32.Parse(tbPressure.Text);                
 
-                if (currHumidity > 100 || currHumidity < 0) // Percentage values are between 0-100
-                    MessageBox.Show("Please enter a valid percentage");
+                if (currHumidity > 100 || currHumidity < 0)             // Percentage values are between 0-100
+                    MessageBox.Show("Please enter a valid percentage (0-100).");
+                else if (currPressure < 80 || currPressure > 120)       // Only allowing pressures between 80-120
+                    MessageBox.Show("Only pressures between 80 and 120 accepted.");
                 else
                     NotifyObservers();
             }

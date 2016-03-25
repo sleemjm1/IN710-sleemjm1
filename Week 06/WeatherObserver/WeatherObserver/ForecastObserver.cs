@@ -15,7 +15,7 @@ namespace WeatherObserver
 
         public ForecastObserver(ListBox listBox, WeatherSubject weatherSubject) : base(listBox, weatherSubject)
         {
-            previousPressure = null;
+            previousPressure = null;    // Set to null the first time we run
         }
 
         // In this Update method, instead of writing to currComputedTemperature, etc. In the base class, we will be writing to
@@ -46,13 +46,13 @@ namespace WeatherObserver
             }
             else
             {
-                int difference = currPressure - (int)previousPressure;  // if this value is negative - we are falling
+                int difference = currPressure - (int)previousPressure;      // if this value is negative - we are falling
 
-                if (difference < 0 && difference > -2)                  // slowly falling 
+                if (difference < 0 && difference > -2)                      // slowly falling 
                     state = "Slowly Falling";
-                else if (difference < -2)                               // rapidly falling
+                else if (difference < -2)                                   // rapidly falling
                     state = "Rapidly Falling";
-                else                                                    // else we must be rising
+                else                                                        // else we must be rising
                     state = "Rising";
 
                 switch (state)
@@ -67,7 +67,7 @@ namespace WeatherObserver
                         break;
                     case "Slowly Falling":
                         if (currPressure > 102)
-                            prediction = "fair weather"; // Fair
+                            prediction = "fair weather";                    // Fair
                         else if (currPressure < 102 && currPressure <100)
                             prediction = "little change expected";          // Little change
                         else
