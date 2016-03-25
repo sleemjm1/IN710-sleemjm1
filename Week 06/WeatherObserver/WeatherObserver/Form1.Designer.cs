@@ -50,7 +50,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(16, 17);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(166, 34);
             this.btnUpdate.TabIndex = 0;
@@ -61,7 +61,7 @@
             // tbTemperature
             // 
             this.tbTemperature.Location = new System.Drawing.Point(16, 106);
-            this.tbTemperature.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTemperature.Margin = new System.Windows.Forms.Padding(2);
             this.tbTemperature.Name = "tbTemperature";
             this.tbTemperature.Size = new System.Drawing.Size(167, 20);
             this.tbTemperature.TabIndex = 1;
@@ -69,7 +69,7 @@
             // tbHumidity
             // 
             this.tbHumidity.Location = new System.Drawing.Point(16, 218);
-            this.tbHumidity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbHumidity.Margin = new System.Windows.Forms.Padding(2);
             this.tbHumidity.Name = "tbHumidity";
             this.tbHumidity.Size = new System.Drawing.Size(167, 20);
             this.tbHumidity.TabIndex = 2;
@@ -77,7 +77,7 @@
             // tbPressure
             // 
             this.tbPressure.Location = new System.Drawing.Point(16, 357);
-            this.tbPressure.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPressure.Margin = new System.Windows.Forms.Padding(2);
             this.tbPressure.Name = "tbPressure";
             this.tbPressure.Size = new System.Drawing.Size(167, 20);
             this.tbPressure.TabIndex = 3;
@@ -92,9 +92,9 @@
             this.groupBox1.Controls.Add(this.tbPressure);
             this.groupBox1.Controls.Add(this.tbHumidity);
             this.groupBox1.Location = new System.Drawing.Point(17, 24);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(199, 448);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -133,7 +133,7 @@
             // 
             this.listTemperature.FormattingEnabled = true;
             this.listTemperature.Location = new System.Drawing.Point(10, 42);
-            this.listTemperature.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listTemperature.Margin = new System.Windows.Forms.Padding(2);
             this.listTemperature.Name = "listTemperature";
             this.listTemperature.Size = new System.Drawing.Size(267, 82);
             this.listTemperature.TabIndex = 5;
@@ -147,9 +147,9 @@
             this.groupBox2.Controls.Add(this.listAverages);
             this.groupBox2.Controls.Add(this.listTemperature);
             this.groupBox2.Location = new System.Drawing.Point(239, 24);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(285, 448);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
@@ -188,7 +188,7 @@
             // 
             this.listForecast.FormattingEnabled = true;
             this.listForecast.Location = new System.Drawing.Point(10, 357);
-            this.listForecast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listForecast.Margin = new System.Windows.Forms.Padding(2);
             this.listForecast.Name = "listForecast";
             this.listForecast.Size = new System.Drawing.Size(267, 82);
             this.listForecast.TabIndex = 7;
@@ -197,7 +197,7 @@
             // 
             this.listAverages.FormattingEnabled = true;
             this.listAverages.Location = new System.Drawing.Point(10, 202);
-            this.listAverages.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listAverages.Margin = new System.Windows.Forms.Padding(2);
             this.listAverages.Name = "listAverages";
             this.listAverages.Size = new System.Drawing.Size(267, 82);
             this.listAverages.TabIndex = 6;
@@ -209,9 +209,9 @@
             this.ClientSize = new System.Drawing.Size(544, 500);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Weather Station";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

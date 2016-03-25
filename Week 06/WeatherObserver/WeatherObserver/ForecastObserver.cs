@@ -82,6 +82,7 @@ namespace WeatherObserver
                             prediction = "stormy weather expected";         // Storm
                         break;
                 }   // end switch
+                previousPressure = currPressure;    // set previous pressure to current pressure for next time
                 
             }
 
