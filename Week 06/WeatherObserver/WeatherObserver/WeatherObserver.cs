@@ -13,7 +13,7 @@ namespace WeatherObserver
         protected int currTemperature;
         protected int currHumidity;
         protected int currPressure;
-        protected double currComputedTemperature;
+        public double currComputedTemperature;
         protected double currComputedHumidity;
         protected double currComputedPressure;
         protected ListBox listBox;
