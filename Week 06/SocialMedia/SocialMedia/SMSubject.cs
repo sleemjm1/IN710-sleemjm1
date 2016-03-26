@@ -11,6 +11,12 @@ namespace SocialMedia
     {
         private List<IObserver> observerList;
         private string currStatus;
+
+        public SMSubject()
+        {
+            observerList = new List<IObserver>();
+        }
+
         public void AddObserver(IObserver o)
         {
             observerList.Add(o);
@@ -37,11 +43,6 @@ namespace SocialMedia
                 NotifyObservers();
             else
                 MessageBox.Show("Add a status before updating");
-        }
-
-        public SMSubject()
-        {
-            observerList = new List<IObserver>();
         }
     }
 }
