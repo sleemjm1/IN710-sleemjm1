@@ -30,9 +30,10 @@ namespace WeatherObserver
             totalPressure += currPressure;
             totalRecords += 1;
 
-            currComputedTemperature = totalTemperature / totalRecords;
-            currComputedHumidity = totalHumidity / totalRecords;
-            currComputedPressure = totalPressure / totalRecords;
+            // We need to cast as a double to ensure we use the double division operator
+            currComputedTemperature = (double)totalTemperature / totalRecords;
+            currComputedHumidity = (double)totalHumidity / totalRecords;
+            currComputedPressure = (double)totalPressure / totalRecords;
         }
     }
 }

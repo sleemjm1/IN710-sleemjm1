@@ -11,7 +11,7 @@ namespace WeatherObserver
     {
         string dryness;
         int? previousPressure;  // nullable int
-        string prediction;
+        public string prediction;
 
         public ForecastObserver(ListBox listBox, WeatherSubject weatherSubject) : base(listBox, weatherSubject)
         {
@@ -42,7 +42,7 @@ namespace WeatherObserver
             {
                 previousPressure = currPressure;
                 // we will make up the forecast as we have no way of telling
-                prediction = "asteriods will hit the earth.";
+                prediction = "asteroids will hit the earth.";
             }
             else
             {
