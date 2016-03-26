@@ -118,10 +118,12 @@
             // 
             // listMainPage
             // 
+            this.listMainPage.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listMainPage.FormattingEnabled = true;
+            this.listMainPage.ItemHeight = 33;
             this.listMainPage.Location = new System.Drawing.Point(46, 36);
             this.listMainPage.Name = "listMainPage";
-            this.listMainPage.Size = new System.Drawing.Size(624, 394);
+            this.listMainPage.Size = new System.Drawing.Size(624, 367);
             this.listMainPage.TabIndex = 0;
             // 
             // tbStatusUpdate

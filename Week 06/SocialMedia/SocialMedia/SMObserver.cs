@@ -31,7 +31,7 @@ namespace SocialMedia
         public virtual void Display()
         {
             DateTime now = DateTime.Now;
-            listBox.Items.Add(now);
+            listBox.Items.Add(now.ToString("ddd dd MMM, yyyy, hh:mm"));
             listBox.Items.Add(currStatus);
         }             
     }
