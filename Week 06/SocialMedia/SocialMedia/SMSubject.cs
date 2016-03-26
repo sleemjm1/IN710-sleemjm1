@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SocialMedia
 {
@@ -32,7 +33,10 @@ namespace SocialMedia
         public void TriggerNotifications(System.Windows.Forms.TextBox tbMessage)
         {
             currStatus = tbMessage.Text;
-            NotifyObservers();
+            if (currStatus != "")
+                NotifyObservers();
+            else
+                MessageBox.Show("Add a status before updating");
         }
 
         public SMSubject()
