@@ -35,7 +35,7 @@
             this.tabFriend3 = new System.Windows.Forms.TabPage();
             this.tabFriend4 = new System.Windows.Forms.TabPage();
             this.listMainPage = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbStatusUpdate = new System.Windows.Forms.TextBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.listFriend1 = new System.Windows.Forms.ListBox();
             this.listFriend2 = new System.Windows.Forms.ListBox();
@@ -66,7 +66,7 @@
             // 
             this.tabMainPage.BackColor = System.Drawing.SystemColors.Control;
             this.tabMainPage.Controls.Add(this.btnUpdateStatus);
-            this.tabMainPage.Controls.Add(this.textBox1);
+            this.tabMainPage.Controls.Add(this.tbStatusUpdate);
             this.tabMainPage.Controls.Add(this.listMainPage);
             this.tabMainPage.Location = new System.Drawing.Point(4, 22);
             this.tabMainPage.Name = "tabMainPage";
@@ -124,12 +124,12 @@
             this.listMainPage.Size = new System.Drawing.Size(624, 394);
             this.listMainPage.TabIndex = 0;
             // 
-            // textBox1
+            // tbStatusUpdate
             // 
-            this.textBox1.Location = new System.Drawing.Point(201, 468);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(469, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbStatusUpdate.Location = new System.Drawing.Point(201, 468);
+            this.tbStatusUpdate.Name = "tbStatusUpdate";
+            this.tbStatusUpdate.Size = new System.Drawing.Size(469, 20);
+            this.tbStatusUpdate.TabIndex = 1;
             // 
             // btnUpdateStatus
             // 
@@ -139,6 +139,7 @@
             this.btnUpdateStatus.TabIndex = 2;
             this.btnUpdateStatus.Text = "Update Status";
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
             // 
             // listFriend1
             // 
@@ -196,7 +197,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabMainPage;
         private System.Windows.Forms.Button btnUpdateStatus;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbStatusUpdate;
         private System.Windows.Forms.ListBox listMainPage;
         private System.Windows.Forms.TabPage tabFriend1;
         private System.Windows.Forms.ListBox listFriend1;
