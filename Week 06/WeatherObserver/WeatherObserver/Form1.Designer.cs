@@ -105,9 +105,9 @@
             this.label3.Location = new System.Drawing.Point(16, 330);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Biometric Pressure";
+            this.label3.Text = "Biometric Pressure (kPa)";
             // 
             // label2
             // 
