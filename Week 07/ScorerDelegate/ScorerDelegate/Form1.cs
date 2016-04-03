@@ -14,7 +14,7 @@ namespace ScorerDelegate
     {
         int correct;
         int incorrect;
-
+        // Create & declare our delegate -- Signature has to match that of our static methods in Scorer class
         public delegate int ScoreDelegate(int correct, int incorrect);
         ScoreDelegate scoreComputer;
 
@@ -35,12 +35,13 @@ namespace ScorerDelegate
                 MessageBox.Show("Please enter valid numerical values in all fields");
             }
 
-            if (rbChildren.Checked)
+            if (rbChildren.Checked)         // We will use ChildrenScore 
                 scoreComputer = new ScoreDelegate(Scorer.ChildrenScore);
-            else
+            else                            // We will use AdultScore
                 scoreComputer = new ScoreDelegate(Scorer.AdultScore);
 
-            lblScore.Text = scoreComputer(correct, incorrect).ToString();
+            // Our delegate will return int -- convert to string for displaying
+            lblScore.Text = scoreComputer(correct, incorrect).ToString();   
 
         }
     }
