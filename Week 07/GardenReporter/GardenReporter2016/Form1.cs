@@ -13,6 +13,8 @@ namespace GardenReporter2016
     public partial class Form1 : Form
     {
         GardenManager gardenManager;
+        public delegate double GardenReportDelegate(Garden garden);
+        GardenReportDelegate gardenReportDelegate;
         public Form1()
         {
             InitializeComponent();
@@ -47,12 +49,14 @@ namespace GardenReporter2016
 
         private void btnArea_Click(object sender, EventArgs e)
         {
-            /* YOUR CODE HERE */
+            gardenReportDelegate = new GardenReportDelegate(Reports.AreaReport);
+            gardenManager.ProcessGardens(gardenReportDelegate, listBox1);
         }
 
         private void btnCharges_Click(object sender, EventArgs e)
         {
-            /* YOUR CODE HERE */
+            gardenReportDelegate = new GardenReportDelegate(Reports.AccountBalanceReport);
+            gardenManager.ProcessGardens(gardenReportDelegate, listBox1);
         }
     }
 }

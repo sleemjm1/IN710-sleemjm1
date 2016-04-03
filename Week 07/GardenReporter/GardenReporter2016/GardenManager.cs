@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace GardenReporter2016
 {
@@ -18,9 +19,16 @@ namespace GardenReporter2016
             gardenList.Add(garden);
         }
 
-        public void ProcessGardens()
+        public void ProcessGardens(GardenReporter2016.Form1.GardenReportDelegate gardenReportDelegate, ListBox listBox1)
         {
-            throw new NotImplementedException;
+            listBox1.Items.Clear();
+            foreach (Garden g in gardenList)
+            {
+                string ownerName = g.OwnerName;
+                string delegateString = gardenReportDelegate(g).ToString();
+                string reportString = String.Format("{0,-14}:{1,8:F2}", ownerName, delegateString);
+                listBox1.Items.Add(reportString);
+            }
         }
     }
 }
