@@ -8,14 +8,20 @@ namespace GardenReporter2016
 {
     public static class Reports
     {
-        public static double AreaReport(Garden garden)
+        public static string AreaReport(Garden garden)
         {
-            return garden.GetArea();
+            string ownerName = garden.OwnerName;
+            string area = garden.GetArea().ToString();
+            string reportString = String.Format("{0,-14}:{1,8:f2}", garden.OwnerName, area);
+            return reportString;
         }
 
-        public static double AccountBalanceReport(Garden garden)
+        public static string AccountBalanceReport(Garden garden)
         {
-            return garden.GetAccountBalance();
+            string ownerName = garden.OwnerName;
+            double charges = garden.GetAccountBalance();
+            string reportString = String.Format("{0,-14}:{1,8:f2}", ownerName, "$" + charges.ToString());
+            return reportString;
         }
     }
 }

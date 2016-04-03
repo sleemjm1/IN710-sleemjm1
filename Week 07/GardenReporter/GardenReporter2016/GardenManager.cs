@@ -24,10 +24,7 @@ namespace GardenReporter2016
             listBox1.Items.Clear();
             foreach (Garden g in gardenList)
             {
-                string ownerName = g.OwnerName;
-                string delegateString = gardenReportDelegate(g).ToString();
-                string reportString = String.Format("{0,-14}:{1,8:F2}", ownerName, delegateString);
-                listBox1.Items.Add(reportString);
+                listBox1.Items.Add(gardenReportDelegate(g));
             }
         }
     }

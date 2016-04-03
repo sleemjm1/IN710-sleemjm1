@@ -13,7 +13,7 @@ namespace GardenReporter2016
     public partial class Form1 : Form
     {
         GardenManager gardenManager;
-        public delegate double GardenReportDelegate(Garden garden);
+        public delegate string GardenReportDelegate(Garden garden);
         GardenReportDelegate gardenReportDelegate;
         public Form1()
         {
