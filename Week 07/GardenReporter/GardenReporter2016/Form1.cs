@@ -13,8 +13,9 @@ namespace GardenReporter2016
     public partial class Form1 : Form
     {
         GardenManager gardenManager;
+        // Declare delegate
         public delegate string GardenReportDelegate(Garden garden);
-        GardenReportDelegate gardenReportDelegate;
+        GardenReportDelegate gardenReportDelegate;  
         public Form1()
         {
             InitializeComponent();
@@ -49,13 +50,17 @@ namespace GardenReporter2016
 
         private void btnArea_Click(object sender, EventArgs e)
         {
-            gardenReportDelegate = new GardenReportDelegate(Reports.AreaReport);
+            // This delegate will use our static method AreaReport
+            gardenReportDelegate = new GardenReportDelegate(Reports.AreaReport); 
+            // Pass in the delegate to our ProcessGardens method
             gardenManager.ProcessGardens(gardenReportDelegate, listBox1);
         }
 
         private void btnCharges_Click(object sender, EventArgs e)
         {
+            // This delegate will use our static method AccountBalanceReport
             gardenReportDelegate = new GardenReportDelegate(Reports.AccountBalanceReport);
+            // Pass in the delegate to our ProcessGardens method
             gardenManager.ProcessGardens(gardenReportDelegate, listBox1);
         }
     }

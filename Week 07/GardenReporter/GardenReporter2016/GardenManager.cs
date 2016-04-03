@@ -22,6 +22,7 @@ namespace GardenReporter2016
         public void ProcessGardens(GardenReporter2016.Form1.GardenReportDelegate gardenReportDelegate, ListBox listBox1)
         {
             listBox1.Items.Clear();
+            // Iterate through gardenList and populate listBox on the form
             foreach (Garden g in gardenList)
             {
                 listBox1.Items.Add(gardenReportDelegate(g));
