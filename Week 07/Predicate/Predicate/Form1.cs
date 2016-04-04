@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Predicate
 {
+    // A predicate is a function that returns true or false. A predicate delegate is a reference to a predicate.
+    // Very useful for filtering lists of values, as we will do in this lab
+
     public partial class Form1 : Form
     {
         List<int> randomList;
@@ -24,7 +27,6 @@ namespace Predicate
             generateRandoms();
         }
 
-      
         private void btnEven_Click(object sender, EventArgs e)
         {
             Predicate<int> isEvenPredicate = new Predicate<int>(isEven);
@@ -33,18 +35,18 @@ namespace Predicate
             else
                 sortList(isEvenPredicate, randomList);
         }
-
         
 
         private void btnLessThanTen_Click(object sender, EventArgs e)
         {
-            Predicate<int> isLessThanTenPredicate = new Predicate<int>(isLessThanTen);
+            //Predicate<int> isLessThanTenPredicate = new Predicate<int>(isLessThanTen);
             if (randomList == null)
                 MessageBox.Show("Please generate numbers before trying to sort");
             else
-                sortList(isLessThanTenPredicate, randomList);
+                sortListLessThanTenLambda(randomList);  // using the lambda method for this one
         }
 
+        // used to generate random numbers and populate ListBox on form
         private void generateRandoms()
         {
             randomList = new List<int>();
@@ -73,6 +75,13 @@ namespace Predicate
             fillListBox(listSelectedNumbers, sortedList);                                   // fill list on form
         }
 
+        // Using a lambda for a slightly cleaner method for sorting the list -- Don't have to pass in a Predicate
+        private void sortListLessThanTenLambda(List<int> listToBeSorted)
+        {
+            sortedList = listToBeSorted.FindAll(i => i < 10);
+            fillListBox(listSelectedNumbers, sortedList);
+        }
+
         // methods to be used with our predicate
         private bool isEven(int inputInt)
         {
@@ -86,6 +95,5 @@ namespace Predicate
             return isLessThanTen;
         }
 
-      
-    }
-}
+    }   // class end
+}   // namespace end
