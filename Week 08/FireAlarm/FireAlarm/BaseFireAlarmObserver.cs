@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FireAlarm
 {
+    // Base observer class which has abstract method FireAlarmHandlerMethod
     public abstract class BaseFireAlarmObserver
     {
         protected FireAlarmSubject subject;
