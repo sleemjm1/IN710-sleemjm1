@@ -14,6 +14,7 @@ namespace FireAlarm
     {
         FireAlarmSubject fireAlarmSubject;
         InstructionsObserver instructionsObserver;
+        BeepObserver beepObserver;
         EFireCategory currFireCategory;
         public Form1()
         {
@@ -21,6 +22,7 @@ namespace FireAlarm
             rbMinor.Checked = true;
             fireAlarmSubject = new FireAlarmSubject();
             instructionsObserver = new InstructionsObserver(fireAlarmSubject);
+            beepObserver = new BeepObserver(fireAlarmSubject);
         }
 
         private void button1_Click(object sender, EventArgs e)
