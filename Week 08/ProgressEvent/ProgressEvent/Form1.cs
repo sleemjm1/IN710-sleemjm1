@@ -19,7 +19,10 @@ namespace ProgressEvent
         public Form1()
         {
             InitializeComponent();
-            subject = new ProgressSubject();
+
+            // Create instance of subject first so that observers can subscribe
+            subject = new ProgressSubject(); 
+            // Instantiate our observers once subject exists
             progressBarObserver = new ProgressBarObserver(subject, progressBar1);
             trackBarObserver = new TrackBarObserver(subject, trackBar1);
             upDownObserver = new UpDownObserver(subject, numericUpDown1, this);
@@ -31,6 +34,7 @@ namespace ProgressEvent
             subject.SlowMethod();
         }
 
+        // Used for setting up and resetting controls
         private void setUpControls()
         {
             progressBar1.Maximum = 10;

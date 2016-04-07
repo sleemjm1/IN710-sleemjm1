@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProgressEvent
 {
+    // Our subject which all observers will subscribe to
     public class ProgressSubject
     {
-        public event EventHandler ProgressEvent;    // we can just use EventHandler cause no need to make our own delegate
+        // we can just use EventHandler cause no need to make our own delegate
+        public event EventHandler ProgressEvent; 
+        // SlowMethod will be called in the form
         public void SlowMethod()
         {
             for (int i = 0; i < 10; i++)
             {
-                System.Threading.Thread.Sleep(500);
-                OnUpDateEvent();
+                System.Threading.Thread.Sleep(500); // Sleep 0.5 seconds
+                OnUpDateEvent();                    // call OnUpdateEvent() below
             }
         }
 

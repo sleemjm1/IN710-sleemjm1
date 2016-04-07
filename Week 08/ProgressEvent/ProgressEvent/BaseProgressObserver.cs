@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace ProgressEvent
 {
+    // Our base progress observer, which all control observers will descend from
     public abstract class BaseProgressObserver
     {
-        protected ProgressSubject subject;
+        protected ProgressSubject subject;  // All observers will have a subject
 
-        public BaseProgressObserver(ProgressSubject subject)
+        public BaseProgressObserver(ProgressSubject subject)    // Subject is handed in via constructor
         {
-            this.subject = subject;
+            this.subject = subject;                             // Assign passed in subject to class member
 
-            EventHandler handler = new EventHandler(ProgressHandlerMethod);
+            // We can just use generic EventHandler because we don't need to pass any data
+            EventHandler handler = new EventHandler(ProgressHandlerMethod); 
 
             subject.ProgressEvent += handler;
         }
 
-        public abstract void ProgressHandlerMethod(object sender, EventArgs e);
+        // Abstract method that will be polymorphic for all of our children
+        public abstract void ProgressHandlerMethod(object sender, EventArgs e); 
     }
 }
