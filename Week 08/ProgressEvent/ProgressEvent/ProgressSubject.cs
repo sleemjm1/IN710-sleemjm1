@@ -8,7 +8,7 @@ namespace ProgressEvent
 {
     public class ProgressSubject
     {
-
+        public event EventHandler ProgressEvent;    // we can just use EventHandler cause no need to make our own delegate
         public void SlowMethod()
         {
             for (int i = 0; i < 10; i++)
@@ -20,7 +20,9 @@ namespace ProgressEvent
 
         private void OnUpDateEvent()
         {
-            throw new NotImplementedException();
+            EventArgs ea = new EventArgs();
+            if (ProgressEvent != null)
+                ProgressEvent(this, ea);
         }
     }
 }

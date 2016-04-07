@@ -65,6 +65,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Begin";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -76,7 +77,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.progressBar1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Progress Indicators ";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
