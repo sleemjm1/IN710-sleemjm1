@@ -9,25 +9,29 @@ namespace ShipBasic
 {
     public class PetrolBot
     {
-        Graphics botCanvas;
+        Graphics botsCanvas;
         Color botColor;
 
-        Ship botShip; // Implement Ship class...
+        Ship botsShip; // Implement Ship class...
 
         Point botCurrentLocation;
         Point botStartingLocation;
         Point shipLocation;
 
-        public PetrolBot()  // Const. Probably need params
+        // Constructor
+        public PetrolBot(Ship botsShip, Graphics botsCanvas)  
         {
-            throw new NotImplementedException();
+            this.botsShip = botsShip;
+            this.botsCanvas = botsCanvas;
         }
 
+        // Private method(s)
         public void drawBot()
         {
             throw new NotImplementedException();
         }
 
+        // Public method(s)
         public void FullOfFuelEventHandler()
         {
             throw new NotImplementedException();
