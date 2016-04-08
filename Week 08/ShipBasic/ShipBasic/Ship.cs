@@ -116,7 +116,6 @@ namespace ShipBasic
                 //shipVelocity = oldVelocity;
                 shipState = EShipState.wandering;
                 OnFullOfFuelEvent();
-
             }
         }
 

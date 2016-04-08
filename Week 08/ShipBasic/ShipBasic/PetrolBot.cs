@@ -21,7 +21,7 @@ namespace ShipBasic
         Point shipLocation;
 
         // Constructor
-        public PetrolBot(Ship botsShip, Graphics botsCanvas, int xPos)  
+        public PetrolBot(Ship botsShip, Graphics botsCanvas, int xPos, Random rGen)  
         {
             this.botsShip = botsShip;
             this.botsCanvas = botsCanvas;
@@ -29,6 +29,11 @@ namespace ShipBasic
             xPos = xPos * 30;
             botStartingLocation = new Point(xPos, 520);
             botCurrentLocation = botStartingLocation;
+           
+            int r = rGen.Next(255);
+            int g = rGen.Next(255);
+            int b = rGen.Next(255);
+            botColor = Color.FromArgb(r, g, b);
 
             Ship.OutOfFuelEventHandler outOfFuelHandler = new Ship.OutOfFuelEventHandler(OutOfFuelEventHandler);
             this.botsShip.OutOfFuelEvent += outOfFuelHandler;
@@ -39,8 +44,7 @@ namespace ShipBasic
 
         // Private method(s)
         public void drawBot()
-        {
-            botColor = Color.DarkOrange;
+        {           
             Brush botBrush = new SolidBrush(botColor);
             //botStartingLocation = new Point(xPos, 520);
             botsCanvas.FillEllipse(botBrush, botCurrentLocation.X, botCurrentLocation.Y, BOT_SIZE, BOT_SIZE);

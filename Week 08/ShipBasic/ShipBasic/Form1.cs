@@ -53,7 +53,7 @@ namespace ShipBasic
                 shipList.Add(new Ship(SHIP_SIZE, boundsRectangle, mainCanvas, rGen));
             }
             foreach (Ship s in shipList)
-                botList.Add(new PetrolBot(s, mainCanvas, shipList.IndexOf(s)));
+                botList.Add(new PetrolBot(s, mainCanvas, shipList.IndexOf(s), rGen));
             
             timer1.Start();
         }
