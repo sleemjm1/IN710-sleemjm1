@@ -23,7 +23,6 @@ namespace ShipBasic
         EShipState shipState;
         int shipSize;
         Point shipVelocity;
-        Point oldVelocity;
         Rectangle boundsRectangle;
 
         // Properties
@@ -83,8 +82,8 @@ namespace ShipBasic
             // Readjust velocity
             if (petrol > 0 && shipState == EShipState.wandering)
             {
-                // This code not quite right, ships will travel slightly too far right. Fix later?
-                if (shipLocation.X >= (boundsRectangle.Width - shipSize) || (shipLocation.X <= 0))  // if outside bounds rectangle
+                // This code not quite right, ships will travel slightly too far right. Fix later?  * 1.25 = hacky way of fixing this
+                if (shipLocation.X >= (boundsRectangle.Width - shipSize * 1.25) || (shipLocation.X <= 0))  // if outside bounds rectangle 
                     shipVelocity.X *= -1;   // invert our velocity - repeat below
 
                 else if (shipLocation.Y >= (boundsRectangle.Height - shipSize) || (shipLocation.Y <= 0))

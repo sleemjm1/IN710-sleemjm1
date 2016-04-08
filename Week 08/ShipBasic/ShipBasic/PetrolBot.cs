@@ -64,7 +64,6 @@ namespace ShipBasic
         public void OutOfFuelEventHandler(object o, ShipEventArgs e)
         {
             botCurrentLocation = e.ShipLocation;
-            //drawBot();
         }
     }
 

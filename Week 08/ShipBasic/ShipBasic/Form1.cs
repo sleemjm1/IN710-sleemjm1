@@ -22,7 +22,7 @@ namespace ShipBasic
         List<PetrolBot> botList;
         List<Ship> shipList;
         Graphics mainCanvas;
-        Graphics offScreenGraphics; // Don't need this unless flickering annoys me
+        //Graphics offScreenGraphics; // Don't need this unless flickering annoys me
 
         Brush seaBrush;
         Brush dockBrush;
@@ -34,7 +34,10 @@ namespace ShipBasic
         public Form1()
         {
             InitializeComponent();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
             numShips = 5;
             botList = new List<PetrolBot>();
             shipList = new List<Ship>();
@@ -42,11 +45,10 @@ namespace ShipBasic
             seaHeight = Height - 100;  // we need to give some room for our ship bots to dock
             //dockHeight = 100;
             boundsRectangle = new Rectangle(0, 0, Width, seaHeight);
-            dockRectangle = new Rectangle(0, 500, Width, 100); 
+            dockRectangle = new Rectangle(0, 500, Width, 100);
 
             seaBrush = new SolidBrush(Color.LightSeaGreen);
             dockBrush = new SolidBrush(Color.SaddleBrown);
-           
 
             for (int i = 0; i < numShips; i++)
             {
@@ -54,13 +56,8 @@ namespace ShipBasic
             }
             foreach (Ship s in shipList)
                 botList.Add(new PetrolBot(s, mainCanvas, shipList.IndexOf(s), rGen));
-            
-            timer1.Start();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
+            timer1.Start();            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
