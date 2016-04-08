@@ -11,6 +11,7 @@ namespace ShipBasic
     public class PetrolBot
     {
         const int BOT_SIZE = 20;
+        const int BOT_SPEED = 10;
 
         Graphics botsCanvas;
         Color botColor;
@@ -57,8 +58,8 @@ namespace ShipBasic
         private double calculateAngle()
         {
             // Use some maths to figure out where our ship is
-            int distX = shipLocation.X - botStartingLocation.X;
-            int distY = shipLocation.Y - botStartingLocation.Y;
+            int distX = shipLocation.X - botCurrentLocation.X;
+            int distY = shipLocation.Y - botCurrentLocation.Y;
 
             double angleRadians = Math.Atan2(distY + 25, distX + 25);
             return angleRadians;
@@ -69,8 +70,8 @@ namespace ShipBasic
         {
             double angleToShip = calculateAngle();
 
-            double xAxis = 3 * Math.Cos(angleToShip);
-            double yAxis = 3 * Math.Sin(angleToShip);
+            double xAxis = BOT_SPEED * Math.Cos(angleToShip);
+            double yAxis = BOT_SPEED * Math.Sin(angleToShip);
 
             botCurrentLocation.X += (int)xAxis;
             botCurrentLocation.Y += (int)yAxis;
