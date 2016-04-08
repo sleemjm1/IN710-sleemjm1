@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShipBasic
@@ -10,6 +11,10 @@ namespace ShipBasic
     public enum EShipState { wandering, refueling };
     public class Ship
     {
+        // Constants
+        const int MAX_PETROL = 300;
+        const int MAX_VELOCITY = 10;
+
         // Fields
         int petrol;
         Graphics shipCanvas;
@@ -18,6 +23,7 @@ namespace ShipBasic
         EShipState shipState;
         int shipSize;
         Point shipVelocity;
+        Point oldVelocity;
         Rectangle boundsRectangle;
 
         // Properties
@@ -35,8 +41,14 @@ namespace ShipBasic
             this.shipSize = shipSize;
             this.boundsRectangle = boundsRectangle;
             this.shipCanvas = shipCanvas;
+
             shipColor = Color.Red;  // could perhaps change this to be passed in -- leave for now
-            shipVelocity = new Point(5,5);
+
+            int velX = rGen.Next(MAX_VELOCITY);     // randomly generate our velocity 
+            int velY = rGen.Next(MAX_VELOCITY);
+            shipVelocity = new Point(velX,velY);
+      
+            petrol = rGen.Next(MAX_PETROL);    // randomly generate petrol
 
             // We will randomly generate the ship's starting location
 
@@ -50,38 +62,67 @@ namespace ShipBasic
         // private methods
         private void drawShip()
         {
-            SolidBrush brush = new SolidBrush(shipColor);   // Create a new brush that is the color of our ship
+            double petrolRatio = petrol / 300.00;
+            double redValue = 255 * petrolRatio;
+            shipColor = Color.FromArgb((int)redValue, 0, 0);
+            SolidBrush shipBrush = new SolidBrush(shipColor);
+
+            shipCanvas.FillRectangle(shipBrush, shipLocation.X, shipLocation.Y, shipSize, shipSize);
+
+            //SolidBrush brush = new SolidBrush(shipColor);   // Create a new brush that is the color of our ship
             // Pass the brush to shipCanvas' FillRectangle method, followed by X and Y location of ship, as well
             // as the width & height of the rectangle we wish to fill - can use shipSize as we are a square
-            shipCanvas.FillRectangle(brush, shipLocation.X, shipLocation.Y, shipSize, shipSize);
+            //shipCanvas.FillRectangle(brush, shipLocation.X, shipLocation.Y, shipSize, shipSize);
+
         }
 
         private void moveShip()
         {
             // Check if ship has enough fuel to move
             // Check that it is not going to be out of bounds
-            // Readjust velocity 
-            if (shipLocation.X >= (boundsRectangle.Width - shipSize) || (shipLocation.X <= 0))
+            // Readjust velocity
+            if (petrol > 0 && shipState == EShipState.wandering)
             {
-                shipVelocity.X *= -1;
-            }
-            else if (shipLocation.Y >= (boundsRectangle.Height - shipSize) || (shipLocation.Y <= 0))
-            {
-                shipVelocity.Y *= -1;
-            }
+                // This code not quite right, ships will travel slightly too far right. Fix later?
+                if (shipLocation.X >= (boundsRectangle.Width - shipSize) || (shipLocation.X <= 0))  // if outside bounds rectangle
+                    shipVelocity.X *= -1;   // invert our velocity - repeat below
 
-            shipLocation.X += shipVelocity.X;
-            shipLocation.Y += shipVelocity.Y;
+                else if (shipLocation.Y >= (boundsRectangle.Height - shipSize) || (shipLocation.Y <= 0))
+                    shipVelocity.Y *= -1;
+
+                shipLocation.X += shipVelocity.X;   // adjust ship velocity
+                shipLocation.Y += shipVelocity.Y;
+                usePetrol();    // decrement our gas
+            }
+            else
+            {
+                shipState = EShipState.refueling;
+            }
         }
 
         private void refuel()
         {
-            throw new NotImplementedException();
+           
+            if (petrol < 300)
+            {
+                shipState = EShipState.refueling;
+                
+                //shipVelocity = new Point(0, 0);
+                OnOutOfFuelEvent(shipLocation);
+                petrol += 10;
+            }
+            else // we have finished refueling
+            {
+                //shipVelocity = oldVelocity;
+                shipState = EShipState.wandering;
+                OnFullOfFuelEvent();
+
+            }
         }
 
        private void usePetrol()
         {
-            throw new NotImplementedException();
+            petrol -= 1;
         }
 
         // Public methods
@@ -101,10 +142,12 @@ namespace ShipBasic
 
        public void ShipCycle()
        {
-           //throw new NotImplementedException();
            // Assume most things will happen in this method
            drawShip();
-           moveShip();
+           if (shipState == EShipState.wandering)
+               moveShip();
+           else
+               refuel();
        }
     }
 }

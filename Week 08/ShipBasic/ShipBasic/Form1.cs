@@ -18,16 +18,19 @@ namespace ShipBasic
         // Properties
         int numShips;
         int seaHeight;              // Height of the sea
+   
         List<PetrolBot> botList;
         List<Ship> shipList;
         Graphics mainCanvas;
         Graphics offScreenGraphics; // Don't need this unless flickering annoys me
 
-        Brush bgBrush;
-        Brush fgBrush;
+        Brush seaBrush;
+        Brush dockBrush;
 
         Random rGen = new Random();
 
+        Rectangle boundsRectangle;
+        Rectangle dockRectangle;
         public Form1()
         {
             InitializeComponent();
@@ -37,16 +40,20 @@ namespace ShipBasic
             shipList = new List<Ship>();
             mainCanvas = CreateGraphics();
             seaHeight = Height - 100;  // we need to give some room for our ship bots to dock
-            Rectangle boundsRectangle = new Rectangle(0, 0, Width, seaHeight);
+            //dockHeight = 100;
+            boundsRectangle = new Rectangle(0, 0, Width, seaHeight);
+            dockRectangle = new Rectangle(0, 500, Width, 100); 
 
-            bgBrush = new SolidBrush(Color.Black);
+            seaBrush = new SolidBrush(Color.LightSeaGreen);
+            dockBrush = new SolidBrush(Color.SaddleBrown);
            
 
             for (int i = 0; i < numShips; i++)
             {
                 shipList.Add(new Ship(SHIP_SIZE, boundsRectangle, mainCanvas, rGen));
-                // add bots here too
             }
+            foreach (Ship s in shipList)
+                botList.Add(new PetrolBot(s, mainCanvas, shipList.IndexOf(s)));
             
             timer1.Start();
         }
@@ -58,11 +65,13 @@ namespace ShipBasic
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            mainCanvas.FillRectangle(bgBrush, 0, 0, Width, seaHeight);
+            mainCanvas.FillRectangle(seaBrush, boundsRectangle);
+            mainCanvas.FillRectangle(dockBrush, dockRectangle);
+
             foreach (Ship s in shipList)
-            {
                 s.ShipCycle();
-            }
+            foreach (PetrolBot pb in botList)
+                pb.CycleBot();
         }
     }
 }
