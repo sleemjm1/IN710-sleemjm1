@@ -17,11 +17,13 @@ namespace ShipBasic
 
         // Fields
         int petrol;
+        int shipSize;
+        public EPetrolBotState petrolBotState;
+        PetrolBot petrolBot;
         Graphics shipCanvas;
         Color shipColor;
         Point shipLocation;
         EShipState shipState;
-        int shipSize;
         Point shipVelocity;
         Rectangle boundsRectangle;
 
@@ -56,6 +58,12 @@ namespace ShipBasic
                                                                     // then minus shipSize so that it cannot overlap bounds
             // Then, we generate a point based on our two random numbers
             shipLocation = new Point(x, y);
+            petrolBotState = EPetrolBotState.docked;
+        }
+
+        public void AddPetrolBot(PetrolBot petrolBot)
+        {
+            this.petrolBot = petrolBot;
         }
 
         // private methods
@@ -101,21 +109,42 @@ namespace ShipBasic
 
         private void refuel()
         {
-           
-            if (petrol < 300)
+            OnOutOfFuelEvent(shipLocation);
+            if (petrolBotState == EPetrolBotState.refuelling)
             {
-                shipState = EShipState.refueling;
-                
-                //shipVelocity = new Point(0, 0);
-                OnOutOfFuelEvent(shipLocation);
-                petrol += 10;
+                petrolBot.botCurrentLocation = shipLocation;
+                if (petrol < 300)
+                {
+                    shipState = EShipState.refueling;
+
+                    //shipVelocity = new Point(0, 0);
+                    
+                    petrol += 10;
+                }
+                else // we have finished refueling
+                {
+                    //shipVelocity = oldVelocity;
+                    shipState = EShipState.wandering;
+                    petrolBotState = EPetrolBotState.docked;
+                    OnFullOfFuelEvent();
+                }
             }
-            else // we have finished refueling
+            else
+                checkIfPetrolBotHasArrived();
+        }
+
+        private void checkIfPetrolBotHasArrived()
+        {
+            Rectangle rect = new Rectangle(shipLocation.X, shipLocation.Y, shipSize, shipSize);
+            bool doesContain = rect.Contains(petrolBot.botCurrentLocation);
+
+            if (doesContain)
             {
-                //shipVelocity = oldVelocity;
-                shipState = EShipState.wandering;
-                OnFullOfFuelEvent();
+                petrolBotState = EPetrolBotState.refuelling;
             }
+            //else
+                //petrolBot.
+            //if (petrolBot.botCurrentLocation) 
         }
 
        private void usePetrol()
