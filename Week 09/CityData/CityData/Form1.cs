@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace CityData
 {
+    // Simple "database" to show the use of lambda expressions to search a list of objects
     public partial class Form1 : Form
     {
         List<City> cityList;
@@ -21,7 +22,24 @@ namespace CityData
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //Func<string, string, bool> CitySearch = city => city.Compare;
+            listCities.Items.Clear();
+            if (txtSearch.Text.Equals(""))
+                MessageBox.Show("Please enter a country to search");
+            else
+            {
+                listCities.Items.Add("City Name:\t Population:");
+                string countryToSearchFor = txtSearch.Text;
+
+                Func<string, string, bool> CitySearch = (a, b) => a.Equals(b);      // Delegate that uses a lambda to compare two strings
+
+                foreach (City c in cityList)
+                {
+                    if (CitySearch(countryToSearchFor, c.CountryName))              // Using the delegate lambda declared above
+                        listCities.Items.Add(c.ToString());
+                }
+                if (listCities.Items.Count == 1)
+                    MessageBox.Show("No Cities for that Country are currently in our database");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,10 +67,22 @@ namespace CityData
             City Melbourne = new City("Melbourne", "Australia", 4246375);
             City Brisbane = new City("Brisbane", "Australia", 2189878);
             City Perth = new City("Perth", "Australia", 1896548);
-            
+            // USA
+            City NewYork = new City("New York", "America", 8491079);
+            City LosAngeles = new City("Los Angeles", "America", 3928864);
+            City Chicago = new City("Chicago", "America", 2722389);
+            City Houston = new City("Houston", "America", 2239558);
+            // Finland
+            City Helsinki = new City("Helsinki", "Finland", 558475);
+            City Espoo = new City("Espoo", "Finland", 256760);
+            City Tampere = new City("Tampere", "Finland", 202687);
+            City Vantaa = new City("Vantaa", "Finland", 190058);
+
             // Countries -- Only need one city from each country in this list
             countryList.Add(Dunedin);
             countryList.Add(Sydney);
+            countryList.Add(NewYork);
+            countryList.Add(Helsinki);
 
             // NZ Cities
             cityList.Add(Dunedin);
@@ -65,6 +95,18 @@ namespace CityData
             cityList.Add(Melbourne);
             cityList.Add(Brisbane);
             cityList.Add(Perth);
+
+            // USA Cities
+            cityList.Add(NewYork);
+            cityList.Add(LosAngeles);
+            cityList.Add(Chicago);
+            cityList.Add(Houston);
+
+            // FIN Cities
+            cityList.Add(Helsinki);
+            cityList.Add(Espoo);
+            cityList.Add(Tampere);
+            cityList.Add(Vantaa);
         }
     }
 }

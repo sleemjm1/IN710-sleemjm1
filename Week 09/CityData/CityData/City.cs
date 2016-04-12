@@ -19,9 +19,9 @@ namespace CityData
             Population = population;
         }
 
-        //public override string ToString()
-        //{
-        //    return CityName + ": " + Population.ToString();
-        //}
+        public override string ToString()
+        {
+            return CityName + "       \t" + Population.ToString();
+        }
     }
 }
