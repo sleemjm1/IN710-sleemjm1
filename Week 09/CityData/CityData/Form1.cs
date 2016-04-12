@@ -42,6 +42,21 @@ namespace CityData
             }
         }
 
+        private void btnMultiply_Click(object sender, EventArgs e)
+        {
+            listCities.Items.Clear();
+            listCities.Items.Add("City Name:\t Population:");
+            multiplyCities();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            listCities.Items.Clear();
+            cityList.Clear();
+            countryList.Clear();
+            populateSeeds();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             cityList = new List<City>();
@@ -54,7 +69,22 @@ namespace CityData
         }
 
 
-        // Populate Seeds
+        // Methods
+
+        // Multiply Cities
+        // Use lambda expressions in combination with List<T>.ForEach in order to
+        // multiply each cities' population by 3 and print the new population to
+        // our list box
+        private void multiplyCities()
+        {
+            // Lambda to multiply each cities' population by 3
+            cityList.ForEach(c => c.Population *= 3);
+            // Lambda to print each city to the screen
+            cityList.ForEach(c => listCities.Items.Add(c.ToString()));
+        }
+
+
+        // Populate Seeds -- Hard coded
         private void populateSeeds()
         {
             // New Zealand
