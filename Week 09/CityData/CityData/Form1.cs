@@ -21,7 +21,7 @@ namespace CityData
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //Func<string, City> CitySearch = city => city.Equals
+            //Func<string, string, bool> CitySearch = city => city.Compare;
         }
 
         private void Form1_Load(object sender, EventArgs e)
