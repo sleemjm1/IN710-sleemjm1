@@ -31,7 +31,8 @@ namespace LambdaPredicate
             if (randomList == null)
                 MessageBox.Show("Please generate numbers before trying to sort");
             else
-                sortListEvenNumbers(randomList);
+                lambdaFilter(n => n % 2 == 0);
+                // sortListEvenNumbers(randomList); // Wrong, wrong, wrong
         }
 
         private void btnLessThanTen_Click(object sender, EventArgs e)
@@ -39,7 +40,8 @@ namespace LambdaPredicate
             if (randomList == null)
                 MessageBox.Show("Please generate numbers before trying to sort");
             else
-                sortListLessThanTen(randomList);
+                lambdaFilter(n => n < 10);
+               // sortListLessThanTen(randomList);
         }
 
         private void generateRandoms()
@@ -64,16 +66,26 @@ namespace LambdaPredicate
             }
         }
 
-        private void sortListLessThanTen(List<int> listToBeSorted)
-        {
-            sortedList = listToBeSorted.FindAll(i => i < 10);   // Lambda expression
-            fillListBox(listSortedNumbers, sortedList);
-        }
+        //private void sortListLessThanTen(List<int> listToBeSorted)
+        //{
+        //    sortedList = listToBeSorted.FindAll(i => i < 10);   // Lambda expression
+        //    fillListBox(listSortedNumbers, sortedList);
+        //}
 
-        private void sortListEvenNumbers(List<int> listToBeSorted)
+        //private void sortListEvenNumbers(List<int> listToBeSorted)
+        //{
+        //    sortedList = listToBeSorted.FindAll(i => (i % 2) == 0); // Lambda expression
+        //    fillListBox(listSortedNumbers, sortedList);
+        //}
+
+        private void lambdaFilter(Predicate<int> filter)
         {
-            sortedList = listToBeSorted.FindAll(i => (i % 2) == 0); // Lambda expression
-            fillListBox(listSortedNumbers, sortedList);
+            listSortedNumbers.Items.Clear();
+
+            List<int> filtered = randomList.FindAll(filter);
+
+            foreach (int i in filtered)
+                listSortedNumbers.Items.Add(i.ToString());
         }
 
        
