@@ -35,6 +35,10 @@
             this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.dgShowBandMembers = new System.Windows.Forms.DataGridView();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instrument = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBandSearch = new System.Windows.Forms.TextBox();
             this.btnListBandMembers = new System.Windows.Forms.Button();
             this.Bands = new System.Windows.Forms.GroupBox();
@@ -57,10 +61,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instrument = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShowBandMembers)).BeginInit();
             this.Bands.SuspendLayout();
@@ -80,7 +81,8 @@
             this.Venue});
             this.dataGridView1.Location = new System.Drawing.Point(141, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(572, 278);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(523, 278);
             this.dataGridView1.TabIndex = 0;
             // 
             // Date
@@ -125,8 +127,30 @@
             this.Role});
             this.dgShowBandMembers.Location = new System.Drawing.Point(248, 19);
             this.dgShowBandMembers.Name = "dgShowBandMembers";
-            this.dgShowBandMembers.Size = new System.Drawing.Size(766, 215);
+            this.dgShowBandMembers.RowHeadersVisible = false;
+            this.dgShowBandMembers.Size = new System.Drawing.Size(726, 215);
             this.dgShowBandMembers.TabIndex = 4;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            // 
+            // Instrument
+            // 
+            this.Instrument.HeaderText = "Instrument(s)";
+            this.Instrument.Name = "Instrument";
+            this.Instrument.Width = 400;
+            // 
+            // Role
+            // 
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
             // 
             // tbBandSearch
             // 
@@ -134,6 +158,7 @@
             this.tbBandSearch.Name = "tbBandSearch";
             this.tbBandSearch.Size = new System.Drawing.Size(144, 20);
             this.tbBandSearch.TabIndex = 5;
+            this.tbBandSearch.Text = "Alabama Shakes";
             // 
             // btnListBandMembers
             // 
@@ -197,7 +222,7 @@
             this.groupBox1.Controls.Add(this.Bands);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 315);
+            this.groupBox1.Size = new System.Drawing.Size(679, 315);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
@@ -212,6 +237,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.tbBandSearch);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnListBandMembers);
@@ -228,7 +254,7 @@
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Location = new System.Drawing.Point(12, 333);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1037, 262);
+            this.groupBox3.Size = new System.Drawing.Size(995, 262);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
@@ -245,9 +271,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(757, 12);
+            this.groupBox4.Location = new System.Drawing.Point(707, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(292, 315);
+            this.groupBox4.Size = new System.Drawing.Size(300, 315);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add New Gig";
@@ -342,32 +368,21 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Name:";
             // 
-            // FirstName
+            // button1
             // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            // 
-            // Instrument
-            // 
-            this.Instrument.HeaderText = "Instrument(s)";
-            this.Instrument.Name = "Instrument";
-            this.Instrument.Width = 400;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
+            this.button1.Location = new System.Drawing.Point(9, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "All Members";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 626);
+            this.ClientSize = new System.Drawing.Size(1020, 608);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -423,6 +438,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Instrument;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.Button button1;
     }
 }
 

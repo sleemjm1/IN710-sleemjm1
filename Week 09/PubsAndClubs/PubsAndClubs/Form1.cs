@@ -42,8 +42,15 @@ namespace PubsAndClubs
 
         private void btnListBandMembers_Click(object sender, EventArgs e)
         {
-            searchForBandMembers();
+            searchForBandMembers(false);
             clearAllControls();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BandGridRows.Clear();
+            foreach (XElement gig in doc.Element("Event_Guide").Elements("Gig"))
+                searchXMLForBandMember(gig);
         }
 
         private void btnAddGig_Click(object sender, EventArgs e)
@@ -94,9 +101,7 @@ namespace PubsAndClubs
             foreach (XElement gig in doc.Element("Event_Guide").Elements("Gig"))
             {
                 if (gig.Element("Band").Element("Genre").Value.Trim().Equals("Hard Rock"))
-                {
                     searchXMLForBand(gig);
-                }
             }
         }
 
@@ -112,16 +117,13 @@ namespace PubsAndClubs
                 string searchString = gig.Element("Date").Attribute("month").Value.Trim();  // Match the format of "thisMonth" string above
                 searchString += gig.Element("Date").Attribute("year").Value.Trim();         // so that we can compare the values       
                 if (searchString.Equals(thisMonth))
-                {
                     searchXMLForBand(gig);
-                }
             }
         }
 
-        private void searchForBandMembers()
+        private void searchForBandMembers(bool foundABand)
         {
             string bandToSearchFor = tbBandSearch.Text;
-            bool foundABand = false;
             foreach (XElement gig in doc.Element("Event_Guide").Elements("Gig"))
             {
                 string bandString = gig.Element("Band").Element("Name").Value.Trim();
@@ -219,6 +221,8 @@ namespace PubsAndClubs
             tbName.Clear();
             tbVenue.Clear();
         }
+
+       
 
     }
 }
