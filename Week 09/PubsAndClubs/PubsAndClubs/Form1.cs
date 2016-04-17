@@ -52,9 +52,12 @@ namespace PubsAndClubs
             string genre = tbGenre.Text;
             string venue = tbVenue.Text;
             DateTime date = dateTimePicker1.Value;
-            string time = tbTime.Text;              // Just letting them add it in as a text field
-
-            addNewGig(name, genre, venue, date, time);
+            string time = tbTime.Text;              // Just letting user add it in as a text field
+                                                    // Would have more checks in a real application
+            if (name.Equals(""))
+                MessageBox.Show("Please add a name at the very least");
+            else
+                addNewGig(name, genre, venue, date, time);
 
             clearAllControls();
         }
@@ -137,8 +140,8 @@ namespace PubsAndClubs
         // Add a new gig to the XML file
         private void addNewGig(string name, string genre, string venue, DateTime date, string time)
         {
-            string day = date.Day.ToString();       // ToString our passed in DateTime - Not sure if required..
-            string month = date.Month.ToString();   // maybe we can just use date.Dat inside the new XElement below
+            string day = date.Day.ToString();                       // ToString our passed in DateTime - Not sure if required..
+            string month = date.Month.ToString().PadLeft(2, '0');   // hacky way to force a leading zero 
             string year = date.Year.ToString(); 
             // Creating new XElement called newGig which will be a gig entry in our XML file
             XElement newGig = new XElement("Gig",

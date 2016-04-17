@@ -35,10 +35,6 @@
             this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.dgShowBandMembers = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instrument = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBandSearch = new System.Windows.Forms.TextBox();
             this.btnListBandMembers = new System.Windows.Forms.Button();
             this.Bands = new System.Windows.Forms.GroupBox();
@@ -61,6 +57,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instrument = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShowBandMembers)).BeginInit();
             this.Bands.SuspendLayout();
@@ -125,28 +125,8 @@
             this.Role});
             this.dgShowBandMembers.Location = new System.Drawing.Point(248, 19);
             this.dgShowBandMembers.Name = "dgShowBandMembers";
-            this.dgShowBandMembers.Size = new System.Drawing.Size(465, 215);
+            this.dgShowBandMembers.Size = new System.Drawing.Size(766, 215);
             this.dgShowBandMembers.TabIndex = 4;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            // 
-            // Instrument
-            // 
-            this.Instrument.HeaderText = "Instrument(s)";
-            this.Instrument.Name = "Instrument";
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
             // 
             // tbBandSearch
             // 
@@ -248,7 +228,7 @@
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Location = new System.Drawing.Point(12, 333);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(729, 262);
+            this.groupBox3.Size = new System.Drawing.Size(1037, 262);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
@@ -267,7 +247,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Location = new System.Drawing.Point(757, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(292, 218);
+            this.groupBox4.Size = new System.Drawing.Size(292, 315);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add New Gig";
@@ -362,6 +342,27 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Name:";
             // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            // 
+            // Instrument
+            // 
+            this.Instrument.HeaderText = "Instrument(s)";
+            this.Instrument.Name = "Instrument";
+            this.Instrument.Width = 400;
+            // 
+            // Role
+            // 
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,10 +399,6 @@
         private System.Windows.Forms.DataGridView dgShowBandMembers;
         private System.Windows.Forms.TextBox tbBandSearch;
         private System.Windows.Forms.Button btnListBandMembers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Instrument;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.GroupBox Bands;
         private System.Windows.Forms.RadioButton rbShowThisMonth;
         private System.Windows.Forms.RadioButton rbShowHardRock;
@@ -422,6 +419,10 @@
         private System.Windows.Forms.TextBox tbTime;
         private System.Windows.Forms.TextBox tbVenue;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Instrument;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
     }
 }
 
