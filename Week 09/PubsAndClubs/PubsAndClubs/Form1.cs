@@ -16,6 +16,7 @@ namespace PubsAndClubs
         XDocument doc;
         DataGridViewRowCollection VenueGridRows;
         DataGridViewRowCollection BandGridRows;
+        string fileName = "pubsAndClubs.xml";
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace PubsAndClubs
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            doc = XDocument.Load("pubsAndClubs.xml");
+            doc = XDocument.Load(fileName);
             VenueGridRows = dataGridView1.Rows;
             BandGridRows = dgShowBandMembers.Rows;
             rbShowAll.Checked = true;
@@ -99,14 +100,14 @@ namespace PubsAndClubs
         private void showThisMonthsGigs()
         {
             VenueGridRows.Clear();
-            string month = DateTime.Now.ToString("MM");
-            string year = DateTime.Now.ToString("yyyy");
+            string month = DateTime.Now.ToString("MM");     // We will search on both month & year even though it is unspecified
+            string year = DateTime.Now.ToString("yyyy");    // on whether or not the year matters.. Assuming it does for this task
             string thisMonth = month + year;
 
             foreach (XElement gig in doc.Element("Event_Guide").Elements("Gig"))
             {
-                string searchString = gig.Element("Date").Attribute("month").Value.Trim();
-                searchString += gig.Element("Date").Attribute("year").Value.Trim();
+                string searchString = gig.Element("Date").Attribute("month").Value.Trim();  // Match the format of "thisMonth" string above
+                searchString += gig.Element("Date").Attribute("year").Value.Trim();         // so that we can compare the values       
                 if (searchString.Equals(thisMonth))
                 {
                     searchXMLForBand(gig);
@@ -133,11 +134,13 @@ namespace PubsAndClubs
                 MessageBox.Show("No band found with that name");                
         }
 
+        // Add a new gig to the XML file
         private void addNewGig(string name, string genre, string venue, DateTime date, string time)
         {
-            string day = date.Day.ToString();
-            string month = date.Month.ToString();
-            string year = date.Year.ToString();
+            string day = date.Day.ToString();       // ToString our passed in DateTime - Not sure if required..
+            string month = date.Month.ToString();   // maybe we can just use date.Dat inside the new XElement below
+            string year = date.Year.ToString(); 
+            // Creating new XElement called newGig which will be a gig entry in our XML file
             XElement newGig = new XElement("Gig",
                                                 new XElement("Venue", venue),
                                                 new XElement("Date",
@@ -149,8 +152,11 @@ namespace PubsAndClubs
                                                     new XElement("Name", name),
                                                     new XElement("Genre", genre))
                                            );
+            // Add the new gig to our XDocument "doc" nested inside the root Element
             doc.Element("Event_Guide").Add(newGig);
-            doc.Save("pubsAndClubs.xml");
+            // Save and overwrite our xml file stored in fileName variable
+            doc.Save(fileName);
+            // Feedback to user
             MessageBox.Show("New entry added for: " + name + ".\n" + "At " + venue);
         }
 
@@ -164,23 +170,23 @@ namespace PubsAndClubs
             string date = day + "/" + month + "/" + year;
             // Name is an element within the Band element
             string bandName = gig.Element("Band").Element("Name").Value;
-
+            // Do the same for Genre and Venue
             string genre = gig.Element("Band").Element("Genre").Value;
 
             string venue = gig.Element("Venue").Value;
-
+            // Use our addRowToVenueGrid method which we created below
             addRowToVenueGrid(date, bandName, genre, venue);
         }
 
         private void searchXMLForBandMember(XElement gig)
         {
-            try
+            try         // Surround with try/catch incase there are no members in the band 
             {
                 foreach (XElement member in gig.Element("Band").Element("Band_Members").Elements("Member")) // null reference
                 {
                     string firstName = member.Element("First_Name").Value;
                     string lastName = member.Element("Last_Name").Value;
-                    // instruments
+                    // instruments - we need to loop because some artists can play multiple instruments
                     string instruments = "";
                     foreach (XElement inst in member.Element("Instruments").Elements("Instrument"))
                     {
@@ -188,11 +194,11 @@ namespace PubsAndClubs
                     }
 
                     string role = "";
-                    if (member.Element("Role") == null)
+                    if (member.Element("Role") == null)     // Some artists don't have a role so we check for that
                         role = "Not Specified";
                     else
                         role = member.Element("Role").Value;
-
+                    // Use addRowToBandGrid to add the found member to the data-grid-view
                     addRowToBandGrid(firstName, lastName, instruments, role);
                 }
             }
@@ -202,7 +208,7 @@ namespace PubsAndClubs
             }
         }
 
-        private void clearAllControls()
+        private void clearAllControls()     // Utility method used to clear controls
         {
             tbTime.Clear();
             tbBandSearch.Clear();
