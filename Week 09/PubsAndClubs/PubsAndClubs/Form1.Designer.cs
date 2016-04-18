@@ -48,6 +48,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tbVenue = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShowBandMembers)).BeginInit();
             this.Bands.SuspendLayout();
@@ -82,7 +82,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(141, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 278);
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(503, 278);
             this.dataGridView1.TabIndex = 0;
             // 
             // Date
@@ -128,7 +129,7 @@
             this.dgShowBandMembers.Location = new System.Drawing.Point(248, 19);
             this.dgShowBandMembers.Name = "dgShowBandMembers";
             this.dgShowBandMembers.RowHeadersVisible = false;
-            this.dgShowBandMembers.Size = new System.Drawing.Size(726, 215);
+            this.dgShowBandMembers.Size = new System.Drawing.Size(704, 215);
             this.dgShowBandMembers.TabIndex = 4;
             // 
             // FirstName
@@ -247,6 +248,16 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Band Members";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "All Members";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
@@ -367,16 +378,6 @@
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Name:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(9, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "All Members";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
