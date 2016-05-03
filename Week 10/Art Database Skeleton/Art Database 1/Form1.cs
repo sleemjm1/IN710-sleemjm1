@@ -161,7 +161,19 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button8_Click(object sender, EventArgs e)
         {
-                      
+            listBox1.Items.Clear();
+
+            var artistsGroupedByCountry = artists.GroupBy(a => a.Country);              // LINQ method syntax again
+
+            foreach (var group in artistsGroupedByCountry)
+            {
+                String countryName = group.Key;                                         // Key is still country name
+
+                listBox1.Items.Add(countryName + ":");                                  // Add the country name to our list box
+
+                foreach (Artist artist in group)                                        // Iterate through artists in our group
+                    listBox1.Items.Add("\t" + artist.FirstName + artist.LastName);      // Add the artist's first & last names to our list box
+            }
         }
 
         //------------------------------------------------------
