@@ -165,7 +165,7 @@ namespace Art_Database_1
 
             var artistsGroupedByCountry = artists.GroupBy(a => a.Country);              // LINQ method syntax again
 
-            foreach (var group in artistsGroupedByCountry)
+            foreach (var group in artistsGroupedByCountry)                              // Tterate through each group in our anonymous type (var)
             {
                 String countryName = group.Key;                                         // Key is still country name
 
@@ -181,7 +181,17 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button7_Click(object sender, EventArgs e)
         {
-          
+            listBox1.Items.Clear();
+
+            var artistsWhoAreDutch = artists.GroupBy(a => a.Country.Equals("Netherlands"));    // Find all artists who are dutch (from Netherlands)
+
+            foreach (var group in artistsWhoAreDutch)
+            {
+                IEnumerable<Painting> paintingsWithDutchArtists
+
+                foreach (Painting painting in paintingsWithDutchArtists)
+                    listBox1.Items.Add(painting.ToString());
+            }
         }
 
         //------------------------------------------------------
