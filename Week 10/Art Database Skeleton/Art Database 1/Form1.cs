@@ -125,11 +125,11 @@ namespace Art_Database_1
         {
             listBox1.Items.Clear();
 
-            String searchedArtist = textBox1.Text;
-
-            IEnumerable<String> searchResult = from p in paintings
-                                               where p.Artist.Equals(searchedArtist)
-                                               select p.ToString();
+            String searchedArtist = textBox1.Text;                                      // Pull string from text box
+                                                                                        
+            IEnumerable<String> searchResult = from p in paintings                      // Get stuff from paintings
+                                               where p.Artist.Equals(searchedArtist)    // Where the artist is equal to the searched artist
+                                               select p.ToString();                     // Select the painting's ToString()
 
             foreach (String p in searchResult)
                 listBox1.Items.Add(p);
@@ -141,7 +141,19 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void btnNbyCountry_Click(object sender, EventArgs e)
         {
-            
+            listBox1.Items.Clear();
+
+            var groupedByCountry = artists.GroupBy(a => a.Country);                     // Here we are using LINQ method syntax
+
+            foreach (var group in groupedByCountry)
+            {
+                String countryName = group.Key;                                         // We are grouping on country, so that is the key
+                int paintingCount = group.Count();                                      // Count up all the paintings in our current group
+                listBox1.Items.Add(paintingCount + " painting(s) from " + countryName); // Add to listbox and concat the string
+
+        
+            }
+
         }
 
         //------------------------------------------------------
