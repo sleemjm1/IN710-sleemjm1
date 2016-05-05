@@ -183,11 +183,15 @@ namespace Art_Database_1
         {
             listBox1.Items.Clear();
 
-            var artistsWhoAreDutch = artists.GroupBy(a => a.Country.Equals("Netherlands"));    // Find all artists who are dutch (from Netherlands)
+            IEnumerable<Artist> artistsWhoAreDutch = from a in artists                      
+                                                     where a.Country.Equals("Netherlands")      // Only country we're interested in is Netherlands
+                                                     select a;                                  // Grab the whole artist because we will need all properties, etc
 
-            foreach (var group in artistsWhoAreDutch)
+            foreach (Artist artist in artistsWhoAreDutch)                                       // Iterate through our list of artists
             {
-                IEnumerable<Painting> paintingsWithDutchArtists
+                IEnumerable<Painting> paintingsWithDutchArtists = from p in paintings           
+                                                                  where p.Artist.Equals(artist.LastName)    // Grab paintings where the last name = the last name
+                                                                  select p;                                 // of one of our Dutch artists
 
                 foreach (Painting painting in paintingsWithDutchArtists)
                     listBox1.Items.Add(painting.ToString());
