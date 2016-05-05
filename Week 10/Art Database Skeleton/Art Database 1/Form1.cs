@@ -112,10 +112,13 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void btnOldest_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Clear();
+            listBox1.Items.Clear();
 
-            //IEnumerable<String> oldestPainting;
-            //oldestPainting = paintings.Where(op, p => op.Year < p.Year);
+            //var oldestPainting = paintings.OrderBy(p => p.Year).First();                      // Look in to doing this with a predicate
+            var oldestPainting = paintings.First(p => p.Year == paintings.Min(y => y.Year));    // Same result, different way to do it
+
+
+            listBox1.Items.Add(oldestPainting);
         }
 
         //------------------------------------------------------
@@ -187,8 +190,8 @@ namespace Art_Database_1
                                                      where a.Country.Equals("Netherlands")      // Only country we're interested in is Netherlands
                                                      select a;                                  // Grab the whole artist because we will need all properties, etc
 
-            foreach (Artist artist in artistsWhoAreDutch)                                       // Iterate through our list of artists
-            {
+            foreach (Artist artist in artistsWhoAreDutch)                                       // Iterate through our list of artists - not sure if this is right
+            {                                                                                   // maybe better to do a join instead...
                 IEnumerable<Painting> paintingsWithDutchArtists = from p in paintings           
                                                                   where p.Artist.Equals(artist.LastName)    // Grab paintings where the last name = the last name
                                                                   select p;                                 // of one of our Dutch artists
@@ -203,7 +206,15 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button4_Click(object sender, EventArgs e)
         {
-          
+            listBox1.Items.Clear();
+
+            var paintingAndArtist = from p in paintings                             
+                                    join a in artists                                               // Joining artists
+                                    on p.Artist equals a.LastName                                   // On painting artist and artist last name
+                                    select new { a.Country, a.FirstName, a.LastName, p.Title };     // Create new "record" with artist country, first name
+                                                                                                    // last name and painting title
+            foreach (var record in paintingAndArtist)
+                listBox1.Items.Add(record.FirstName + " " + record.LastName + "\t\t" + record.Country + "\t\t" + record.Title);          
         }
 
         //------------------------------------------------------
@@ -211,7 +222,16 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button9_Click(object sender, EventArgs e)
         {
-          
+            listBox1.Items.Clear();
+
+            var frenchOrItalianPainters = from p in paintings
+                                          join a in artists                                             // Joining artists to paintings
+                                          on p.Artist equals a.LastName                                 // On painting artist and artist last name
+                                          where a.Country.Equals("Italy") || a.Country.Equals("France") // where the artist's country is either France or Italy
+                                          select new { a.LastName, a.Country, p.Title };                // Create new "record" with artist last name, country
+                                                                                                        // and painting title
+            foreach (var record in frenchOrItalianPainters)
+                listBox1.Items.Add(record.LastName + "\t\t" + record.Country + "\t\t" + record.Title);
         }
 
  
