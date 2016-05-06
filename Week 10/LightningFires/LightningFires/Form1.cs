@@ -33,7 +33,7 @@ namespace LightningFires
             reset();
 
             var averageIntensity = lsdbc.tblStrikes.Average(s => s.strikeIntensity);
-            MessageBox.Show(averageIntensity.ToString());
+            MessageBox.Show("The average intensity for all strikes is: " + averageIntensity.ToString());
         }
 
         // Three Largest Fires
@@ -90,10 +90,10 @@ namespace LightningFires
         {
             reset();
 
-            var fireCausingStrikes = from f in lsdbc.tblFires
-                                     join s in lsdbc.tblStrikes
-                                     on f.fireDate equals s.strikeDate
-                                     where f.fireLongitude == s.strikeLongitude && f.fireLatitude == s.strikeLatitude
+            var fireCausingStrikes = from f in lsdbc.tblFires                                                           // This is ugly
+                                     join s in lsdbc.tblStrikes                                                         // Join Strikes
+                                     on f.fireDate equals s.strikeDate                                                  // On Date (no FK)
+                                     where f.fireLongitude == s.strikeLongitude && f.fireLatitude == s.strikeLatitude   // Where lat & long are equal
                                      select f;
 
             dataGridView1.Columns.Add("Fire ID", "Fire ID");
