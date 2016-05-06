@@ -83,10 +83,37 @@ namespace LightningFires
 
         }
 
+        // Strikes that cause fires
+        // You can assume that a strike causes a fire when they have the same date, latitude and longitude.
+        // List all fires that were caused by a lightning strike.
+        private void button4_Click(object sender, EventArgs e)
+        {
+            reset();
+
+            var fireCausingStrikes = from f in lsdbc.tblFires
+                                     join s in lsdbc.tblStrikes
+                                     on f.fireDate equals s.strikeDate
+                                     where f.fireLongitude == s.strikeLongitude && f.fireLatitude == s.strikeLatitude
+                                     select f;
+
+            dataGridView1.Columns.Add("Fire ID", "Fire ID");
+            dataGridView1.Columns.Add("Fire Date", "Fire Date");
+            dataGridView1.Columns.Add("Fire Latitude", "Fire Latitude");
+            dataGridView1.Columns.Add("Fire Longitude", "Fire Longitude");
+            dataGridView1.Columns.Add("Fire Area", "Fire Area");   
+            
+            foreach (var f in fireCausingStrikes)
+            {
+                string[] newRowValues = { f.fireID.ToString(), f.fireDate.ToString(), f.fireLatitude.ToString(), f.fireLongitude.ToString(), f.fireArea.ToString() };
+                resultGridRows.Add(newRowValues);
+            }
+        }
         void reset()
         {
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
         }
+
+
     }
 }
