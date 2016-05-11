@@ -96,7 +96,15 @@ namespace AssignmentDatabaseADO
             string dueDate = DateTime.Now.AddDays(TwoWeeks).ToString("yyyy-MM-dd");
             string now = DateTime.Now.ToString("yyyy-MM-dd");
             string queryString = "Select * FROM dbo.tblAssignments WHERE dbo.tblAssignments.DueDate <= Convert(DATE, '" + dueDate + 
-                "' ) AND dbo.tblAssignments.DueDate >= Convert(DATE, '" + now + "');"; // Less than or equal to due date
+                "' ) AND dbo.tblAssignments.DueDate >= Convert(DATE, '" + now + "');"; 
+
+            selectQuery(queryString, dgv);
+        }
+
+        public void ListAverageGradeForCompletedAssignments(DataGridView dgv)
+        {
+            string queryString = "SELECT dbo.tblPapers.Name, AVG(dbo.tblAssignments.Grade) as Average FROM dbo.tblAssignments JOIN dbo.tblPapers " +
+                "ON dbo.tblAssignments.PaperID = dbo.tblPapers.PaperID WHERE dbo.tblAssignments.Submitted = 1 GROUP BY dbo.tblPapers.Name;";
 
             selectQuery(queryString, dgv);
         }
