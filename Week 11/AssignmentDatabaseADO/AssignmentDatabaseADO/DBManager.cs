@@ -36,6 +36,7 @@ namespace AssignmentDatabaseADO
             bitdevConnection.Open();
         }
 
+        // We will use this method to perform queries and output the result to a DataGridView
         void selectQuery(string queryString, DataGridView dgv)
         {
             dgv.Rows.Clear();
@@ -52,7 +53,7 @@ namespace AssignmentDatabaseADO
             SqlDataReader reader;
             reader = query.ExecuteReader();
             reader.Read();          // Loads reader up with selected record -- we will
-                                    //  use this to populate column headers
+                                    // use this to populate column headers
             int fieldCount = reader.FieldCount;
 
             var columns = Enumerable.Range(0, reader.FieldCount)        // Use some LINQ
@@ -64,14 +65,13 @@ namespace AssignmentDatabaseADO
                 dgv.Columns.Add(col, col);
             }
 
-            reader.Close();
-            reader = query.ExecuteReader();
+            reader.Close();                     // Close reader - This will act as a reset
+            reader = query.ExecuteReader();     // Start the reader from the beginning again
             while (reader.Read())
             {
                 string[] newRow = new string[fieldCount];
                 for (int i = 0; i < fieldCount; i++)
                 {
-                    //string currField = reader.GetName(i);
                     string currValue = reader.GetValue(i).ToString();
                     newRow[i] = currValue;
                 }
@@ -82,6 +82,13 @@ namespace AssignmentDatabaseADO
             bitdevConnection.Close();   // Close connection after we're done with the query
         }
 
+        //=========================================================================================================================================
+        //
+        //                                                          Query Methods
+        //
+        //=========================================================================================================================================
+
+        // List all your papers, each with the tutor and tutor's email
         public void ListAllPapers(DataGridView dgv)
         {
             string queryString = "SELECT dbo.tblPapers.Name, dbo.tblTutors.FirstName, dbo.tblTutors.LastName, dbo.tblTutors.Email " +
@@ -90,13 +97,14 @@ namespace AssignmentDatabaseADO
             selectQuery(queryString, dgv);
         }
 
+        // List all assignments due in the next two weeks
         public void ListPapersDueInTwoWeeks(DataGridView dgv)
         {
             int TwoWeeks = 14;  // NO STRING LITERALS IN CODE
-            string dueDate = DateTime.Now.AddDays(TwoWeeks).ToString("yyyy-MM-dd");
-            string now = DateTime.Now.ToString("yyyy-MM-dd");
+            string dueDate = DateTime.Now.AddDays(TwoWeeks).ToString("yyyy-MM-dd");     // Work out due date - .Now + two weeks
+            string now = DateTime.Now.ToString("yyyy-MM-dd");                           // Next two weeks = between now and next two weeks
             string queryString = "Select * FROM dbo.tblAssignments WHERE dbo.tblAssignments.DueDate <= Convert(DATE, '" + dueDate + 
-                "' ) AND dbo.tblAssignments.DueDate >= Convert(DATE, '" + now + "');"; 
+                "' ) AND dbo.tblAssignments.DueDate >= Convert(DATE, '" + now + "');";  // Just grab everything, prac spec doesn't specify
 
             selectQuery(queryString, dgv);
         }
