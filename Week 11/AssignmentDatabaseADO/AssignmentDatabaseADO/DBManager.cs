@@ -38,6 +38,9 @@ namespace AssignmentDatabaseADO
 
         void selectQuery(string queryString, DataGridView dgv)
         {
+            dgv.Rows.Clear();
+            dgv.Columns.Clear();
+            
             DataGridViewRowCollection resultGridRows = dgv.Rows;
 
             connect();
@@ -48,8 +51,8 @@ namespace AssignmentDatabaseADO
 
             SqlDataReader reader;
             reader = query.ExecuteReader();
-            reader.Read();          // Loads reader up with selected record
-
+            reader.Read();          // Loads reader up with selected record -- we will
+                                    //  use this to populate column headers
             int fieldCount = reader.FieldCount;
 
             var columns = Enumerable.Range(0, reader.FieldCount)        // Use some LINQ
@@ -61,21 +64,21 @@ namespace AssignmentDatabaseADO
                 dgv.Columns.Add(col, col);
             }
 
+            reader.Close();
+            reader = query.ExecuteReader();
             while (reader.Read())
             {
                 string[] newRow = new string[fieldCount];
                 for (int i = 0; i < fieldCount; i++)
                 {
-                    string currField = reader.GetName(i);
+                    //string currField = reader.GetName(i);
                     string currValue = reader.GetValue(i).ToString();
                     newRow[i] = currValue;
                 }
                 resultGridRows.Add(newRow);
 
             }
-
-            
-
+            reader.Close();
             bitdevConnection.Close();   // Close connection after we're done with the query
         }
 
@@ -83,6 +86,17 @@ namespace AssignmentDatabaseADO
         {
             string queryString = "SELECT dbo.tblPapers.Name, dbo.tblTutors.FirstName, dbo.tblTutors.LastName, dbo.tblTutors.Email " +
                 "FROM dbo.tblPapers JOIN dbo.tblTutors ON dbo.tblPapers.TutorID=dbo.tblTutors.TutorID;";
+
+            selectQuery(queryString, dgv);
+        }
+
+        public void ListPapersDueInTwoWeeks(DataGridView dgv)
+        {
+            int TwoWeeks = 14;  // NO STRING LITERALS IN CODE
+            string dueDate = DateTime.Now.AddDays(TwoWeeks).ToString("yyyy-MM-dd");
+            string now = DateTime.Now.ToString("yyyy-MM-dd");
+            string queryString = "Select * FROM dbo.tblAssignments WHERE dbo.tblAssignments.DueDate <= Convert(DATE, '" + dueDate + 
+                "' ) AND dbo.tblAssignments.DueDate >= Convert(DATE, '" + now + "');"; // Less than or equal to due date
 
             selectQuery(queryString, dgv);
         }

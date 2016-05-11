@@ -88,7 +88,7 @@ namespace AssignmentTrackingADO
                                         "PaperID INT, " +
                                         "Name VARCHAR(50)," +
                                         "Description VARCHAR(100), " +
-                                        "DueDate DATE, " +              // DATE - format YYYY-MM-DD
+                                        "DueDate DATE, " +              // DATE - format YY-MM-DD
                                         "Grade INT, " +
                                         "Submitted BIT, " +             // Bit is a 1 or 0, 0 = false, 1 = true -- SQL Booleans don't exist?
                                         "PRIMARY KEY (AssignmentID))";
@@ -157,7 +157,9 @@ namespace AssignmentTrackingADO
             insertAssignment(2, "Assignment One - Administer a cloud-based system", "Use a variety of tools to set-up and admin a small system",
                 2016, 07, 01, 0, false);
             insertAssignment(3, "Third Year Project - EMF", "Produce an asset management system based around Experience Management Framework",
-                2017, 06, 20, 0, false);
+                2016, 06, 20, 0, false);
+            insertAssignment(1, "Week 11 OOSD Lab", "Produce a Windows Forms application to track your assignments for the BIT",
+                2016, 05, 13, 0, false);
         }
 
 
