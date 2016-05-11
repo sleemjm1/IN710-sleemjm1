@@ -61,6 +61,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="LightningStrikesDB.dbml.layout">
       <DependentUpon>LightningStrikesDB.dbml</DependentUpon>
     </None>

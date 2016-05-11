@@ -25,7 +25,7 @@ namespace AssignmentDatabaseADO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dbMan.ListAllPapers(dataGridView1, bindingSource1);
+            dbMan.ListAllPapers(dataGridView1);
         }
 
         

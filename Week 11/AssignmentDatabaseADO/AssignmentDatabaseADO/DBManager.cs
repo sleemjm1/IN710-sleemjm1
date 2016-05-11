@@ -36,48 +36,55 @@ namespace AssignmentDatabaseADO
             bitdevConnection.Open();
         }
 
-        void selectQuery(string queryString, DataGridView dgv, BindingSource bs)
+        void selectQuery(string queryString, DataGridView dgv)
         {
+            DataGridViewRowCollection resultGridRows = dgv.Rows;
+
             connect();
             SqlCommand query = new SqlCommand();
             query.Connection = bitdevConnection;
             query.CommandText = queryString;
             
+
             SqlDataReader reader;
             reader = query.ExecuteReader();
-            //reader.Read();
+            reader.Read();          // Loads reader up with selected record
 
-            // Set up data grid view
-            dgv.Dock = DockStyle.Fill;
+            int fieldCount = reader.FieldCount;
 
-            // Automatically generate the DataGridView columns
-            dgv.AutoGenerateColumns = true;
+            var columns = Enumerable.Range(0, reader.FieldCount)        // Use some LINQ
+                                    .Select(reader.GetName)
+                                    .ToList();
 
-            // Set up data source
-            bs.DataSource = reader.Read();
-            dgv.DataSource = bs;
+            foreach (var col in columns)
+            {
+                dgv.Columns.Add(col, col);
+            }
 
-            // Automatically resize the visable rows
-            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            while (reader.Read())
+            {
+                string[] newRow = new string[fieldCount];
+                for (int i = 0; i < fieldCount; i++)
+                {
+                    string currField = reader.GetName(i);
+                    string currValue = reader.GetValue(i).ToString();
+                    newRow[i] = currValue;
+                }
+                resultGridRows.Add(newRow);
 
-            //int fieldCount = reader.FieldCount;
-            //for (int i = 0; i < fieldCount; i++)
-            //{
-            //    string currentField = reader.GetName(i);
-            //    string currentValue = reader.GetValue(i).ToString();
+            }
 
-            //    // Code here to add to dataGridView
-            //}
+            
 
             bitdevConnection.Close();   // Close connection after we're done with the query
         }
 
-        public void ListAllPapers(DataGridView dgv, BindingSource bs)
+        public void ListAllPapers(DataGridView dgv)
         {
             string queryString = "SELECT dbo.tblPapers.Name, dbo.tblTutors.FirstName, dbo.tblTutors.LastName, dbo.tblTutors.Email " +
-                "FROM dbo.tblPapers JOIN dbo.tblTutors ON dbo.Papers.TutorID=dbo.tblTutors.TutorID;";
+                "FROM dbo.tblPapers JOIN dbo.tblTutors ON dbo.tblPapers.TutorID=dbo.tblTutors.TutorID;";
 
-            selectQuery(queryString, dgv, bs);
+            selectQuery(queryString, dgv);
         }
     }
 }
