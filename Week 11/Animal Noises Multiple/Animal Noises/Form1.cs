@@ -19,6 +19,8 @@ namespace Animal_Noises
 
         private List<Animal> animalList;
         private List<Thread> threadList;
+        // Make some sort of object to lock on which all threads will have access to:
+        private String sharedLockString;        
       
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,17 +32,18 @@ namespace Animal_Noises
         {
             animalList = new List<Animal>();
             threadList = new List<Thread>();
+            sharedLockString = "Shared lock string";    // Doesn't matter what the string is.
 
-            animalList.Add(new Animal("frog.wav"));
-            animalList.Add(new Animal("duck.wav"));
-            animalList.Add(new Animal("meow.wav"));
+            // Pass sharedLockString in to all objects so that they have a reference to it
+            animalList.Add(new Animal("frog.wav", sharedLockString));
+            animalList.Add(new Animal("duck.wav", sharedLockString));
+            animalList.Add(new Animal("meow.wav", sharedLockString));
 
             for (int i = 0; i < animalList.Count; i++)
-                threadList.Add(new Thread(animalList[i].speak)); 
-            
+                threadList.Add(new Thread(animalList[i].speak));
+
             for (int i = 0; i < animalList.Count; i++)
-                threadList[i].Start();
-           
+                    threadList[i].Start();
         }
 
         private void button3_Click(object sender, EventArgs e)
