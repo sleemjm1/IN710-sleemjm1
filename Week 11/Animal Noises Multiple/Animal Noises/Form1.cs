@@ -19,7 +19,9 @@ namespace Animal_Noises
 
         private List<Animal> animalList;
         private List<Thread> threadList;
-        // Make some sort of object to lock on which all threads will have access to:
+        // Make some sort of object to lock on which all threads will have access to..
+        // In this case, we can use a string, we could also use a class if we wanted to.
+        // Just has to be an object. 
         private String sharedLockString;        
       
 
@@ -51,7 +53,5 @@ namespace Animal_Noises
             for (int i = 0; i < animalList.Count; i++)
                 threadList[i].Abort();
         }
-
-
     }
 }
