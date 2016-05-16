@@ -54,6 +54,7 @@ namespace metronome
     public class Counter : MetronomeObserver
     {
         private NumericUpDown spinBox;
+        delegate void updateSpinBox();  // delegate to update spin box
 
         public Counter(Metronome metronome, NumericUpDown spinBox)
             : base(metronome)
@@ -61,9 +62,22 @@ namespace metronome
             this.spinBox = spinBox;
         }
 
+        void incrementSpinBox()         // method which matches our delegate method signature
+        {
+            spinBox.Value++;
+        }
+
         public override void onMetronomeEvent(object sender, metronomeEventArgs e)
         {
-                spinBox.Value++;  
+            if (spinBox.InvokeRequired) // if invoke required
+            {
+                updateSpinBox spinDelegate = new updateSpinBox(incrementSpinBox);
+                spinBox.Invoke(spinDelegate);
+                // we will use invoke to ensure the code we are calling will run on the thread
+                // that the control lives on so that we are "thread safe"
+            }
+            else    // otherwise we are on the thread the control lives on so we can increment
+                incrementSpinBox();     // from this thread
         }
     } // end TCounter
 
@@ -72,17 +86,29 @@ namespace metronome
     public class TimeDisplay : MetronomeObserver
     {
         private ListBox listBox;
-
+        delegate void updateListBox(DateTime dt);
         public TimeDisplay(Metronome metronome, ListBox listBox)
             : base(metronome)
         {
             this.listBox = listBox;
         }
 
+        void changeDateTime(DateTime dt)
+        {
+            listBox.Items.Add(dt.ToString());
+        }
+
         public override void onMetronomeEvent(object sender, metronomeEventArgs e)
         {
-            DateTime currDateTime = e.currentTime;
-            listBox.Items.Add(currDateTime.ToString());         
+            //DateTime currDateTime = e.currentTime;
+            //listBox.Items.Add(currDateTime.ToString());
+            if (listBox.InvokeRequired)
+            {
+                updateListBox listDelegate = new updateListBox(changeDateTime);
+                listBox.Invoke(listDelegate, e.currentTime);
+            }
+            else
+                changeDateTime(e.currentTime);
         }
     }
 

@@ -18,6 +18,7 @@ namespace metronome
         private Beeper mainBeeper;
         private Counter mainCounter;
         private TimeDisplay mainTimeDisplay;
+        private Thread thread;
 
 
         public Form1()
@@ -35,9 +36,12 @@ namespace metronome
 
         private void button1_Click(object sender, EventArgs e)
         {
-           int currInterval = Convert.ToInt16(textBox1.Text);
-           mainMetronome.Interval = currInterval;
-           mainMetronome.start();
+            int currInterval = Convert.ToInt16(textBox1.Text);
+            mainMetronome.Interval = currInterval;
+            thread = new Thread(mainMetronome.start);   // shortcut syntax
+            thread.Start();                             // start thread
+
+            //mainMetronome.start();
         }
 
         public void clearBuffer()
@@ -47,7 +51,7 @@ namespace metronome
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Code needed here to stop the metronome
+            thread.Abort(); // abort when we want to stop
         }
 
     }
