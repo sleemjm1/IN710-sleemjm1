@@ -38,7 +38,7 @@ namespace HolidayMVC.Controllers
             Holiday queensBirthday = new Holiday
             {
                 Name = "Queens Birthday",
-                Date = new DateTime(year, 4, 21),
+                Date = new DateTime(year, 6, 6),
                 ImageFileName = "/Images/Holidays/queens_birthday.PNG"
             };
 
