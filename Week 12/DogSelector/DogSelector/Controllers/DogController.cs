@@ -33,7 +33,11 @@ namespace DogSelector.Controllers
                 IntelligenceLevel = intelligenceLevel,
                 Size = size
             };
-            return View("DogRecommendation", requestedDog);
+            Dog returnDog = findDogRecommendation(requestedDog);
+            if (returnDog.BreedName != null)
+                return View("DogRecommendation", returnDog);
+            else
+                return View("NoDogRecommendation");
         }
 
 
@@ -44,6 +48,52 @@ namespace DogSelector.Controllers
             return View(allDogs);
         }
 
+
+        private Dog findDogRecommendation(Dog requestedDog)
+        {
+            allDogs = makeDatabase();
+            List<Dog> potentialDogs = new List<Dog>();
+
+            foreach (Dog dog in allDogs)    
+            {
+                // Make sure that the dog meets both of our bool requirements
+                if (dog.GoodWithChildren == requestedDog.GoodWithChildren && dog.Drools == requestedDog.Drools)
+                    potentialDogs.Add(dog);
+            }
+
+            foreach (Dog dog in potentialDogs)
+            {
+                if (DogCompatibility(requestedDog, dog))
+                    requestedDog = dog;
+            }
+
+            return requestedDog;
+        }
+
+        private bool DogCompatibility(Dog requestedDog, Dog dogFromList)
+        {
+            bool compatible = false;
+            int compatibilityCutOff = 4;
+            int compatibilityScore = 0;
+
+            if (requestedDog.ActivityLevel == dogFromList.ActivityLevel || requestedDog.ActivityLevel == EScale.NoPreference)
+                compatibilityScore++;
+            if (requestedDog.SheddingLevel == dogFromList.SheddingLevel || requestedDog.SheddingLevel == EScale.NoPreference)
+                compatibilityScore++;
+            if (requestedDog.GroomingLevel == dogFromList.GroomingLevel || requestedDog.GroomingLevel == EScale.NoPreference)
+                compatibilityScore++;
+            if (requestedDog.IntelligenceLevel == dogFromList.IntelligenceLevel || requestedDog.GroomingLevel == EScale.NoPreference)
+                compatibilityScore++;
+            if (requestedDog.Coatlength == dogFromList.Coatlength)
+                compatibilityScore++;
+            if (requestedDog.Size == dogFromList.Size)
+                compatibilityScore++;
+
+            if (compatibilityScore >= compatibilityCutOff)
+                compatible = true;
+
+            return compatible;
+        }
 
 
         // Patricia's Method -- will make a list to act as a database
