@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DogSelector.Models.Dog>  
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayAll</title>
+</head>
+<body>
+    <div>
+        <h1>All Dogs</h1>
+        <table>
+            <tr><td><strong>Breed Name</strong></td><td><strong>Display Name</strong></td><td><strong>Size</strong></td></tr>
+
+            @foreach (var dog in Model)
+            {
+                <tr><td>@dog.BreedName</td><td>@dog.DisplayName</td><td>@dog.Size</td></tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
