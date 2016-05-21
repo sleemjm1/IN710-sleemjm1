@@ -40,6 +40,11 @@ namespace DogSelector.Controllers
                 return View("NoDogRecommendation");
         }
 
+        public ActionResult DogRecommendation()
+        {
+            return View("Index");
+        }
+
 
         // Display all dogs -- Just use to check list
         public ActionResult DisplayAll()
@@ -52,47 +57,72 @@ namespace DogSelector.Controllers
         private Dog findDogRecommendation(Dog requestedDog)
         {
             allDogs = makeDatabase();
-            List<Dog> potentialDogs = new List<Dog>();
+            Dog topDog = null;
 
-            foreach (Dog dog in allDogs)    
+            double topDogScore = 0;
+
+            foreach (Dog dog in allDogs)
             {
-                // Make sure that the dog meets both of our bool requirements
-                if (dog.GoodWithChildren == requestedDog.GoodWithChildren && dog.Drools == requestedDog.Drools)
-                    potentialDogs.Add(dog);
+                double dogScore = DogCompatibility(requestedDog, dog);
+                if (dogScore > topDogScore)
+                {
+                    topDog = dog;
+                    topDogScore = dogScore;
+                }
+       
             }
 
-            foreach (Dog dog in potentialDogs)
-            {
-                if (DogCompatibility(requestedDog, dog))
-                    requestedDog = dog;
-            }
-
-            return requestedDog;
+            return topDog; 
         }
 
-        private bool DogCompatibility(Dog requestedDog, Dog dogFromList)
+        private double DogCompatibility(Dog requestedDog, Dog dogFromList)
         {
-            bool compatible = false;
-            int compatibilityCutOff = 4;
-            int compatibilityScore = 0;
+            double returnValue = 0;
 
-            if (requestedDog.ActivityLevel == dogFromList.ActivityLevel || requestedDog.ActivityLevel == EScale.NoPreference)
-                compatibilityScore++;
-            if (requestedDog.SheddingLevel == dogFromList.SheddingLevel || requestedDog.SheddingLevel == EScale.NoPreference)
-                compatibilityScore++;
-            if (requestedDog.GroomingLevel == dogFromList.GroomingLevel || requestedDog.GroomingLevel == EScale.NoPreference)
-                compatibilityScore++;
-            if (requestedDog.IntelligenceLevel == dogFromList.IntelligenceLevel || requestedDog.GroomingLevel == EScale.NoPreference)
-                compatibilityScore++;
-            if (requestedDog.Coatlength == dogFromList.Coatlength)
-                compatibilityScore++;
-            if (requestedDog.Size == dogFromList.Size)
-                compatibilityScore++;
+            if (requestedDog.Drools == dogFromList.Drools && requestedDog.GoodWithChildren == dogFromList.GoodWithChildren)    // We are good enough
+            {
+                List<int> scores = new List<int>();
+                scores.Add(calculateFeatureCompatibility((int)dogFromList.Coatlength, (int)requestedDog.Coatlength));
+                scores.Add(calculateFeatureCompatibility((int)dogFromList.Size, (int)requestedDog.Size));
 
-            if (compatibilityScore >= compatibilityCutOff)
-                compatible = true;
+                scores.Add(calculateLevelFeatures((int)dogFromList.ActivityLevel, (int)requestedDog.ActivityLevel));
+                scores.Add(calculateLevelFeatures((int)dogFromList.SheddingLevel, (int)requestedDog.SheddingLevel));
+                scores.Add(calculateLevelFeatures((int)dogFromList.GroomingLevel, (int)requestedDog.GroomingLevel));
+                scores.Add(calculateLevelFeatures((int)dogFromList.IntelligenceLevel, (int)requestedDog.IntelligenceLevel));
 
-            return compatible;
+                returnValue = scores.Average();
+            }
+            else
+                returnValue = 0;
+
+
+            return returnValue;
+
+        }
+
+        private int calculateLevelFeatures(int feature1, int feature2)
+        {
+            if (feature1 == 0 && feature2 == 0)
+                return 10;
+            else
+                return calculateFeatureCompatibility(feature1, feature2);
+        }
+
+        // Returns value 0, 5 or 10 based on how compatible two ints are
+
+        private int calculateFeatureCompatibility(int feature1, int feature2)
+        {
+            int returnValue = 0;
+            int compatibilityScore = Math.Abs(feature1 - feature2);
+
+            if (compatibilityScore == 0)
+                returnValue = 10;
+            else if (compatibilityScore > 1)
+                returnValue = 0;
+            else
+                returnValue = 5;
+
+            return returnValue;
         }
 
 
