@@ -53,21 +53,21 @@ namespace DogSelector.Controllers
             return View(allDogs);
         }
 
-
+        // Return a Dog that is closest to the features of the requested dog
         private Dog findDogRecommendation(Dog requestedDog)
         {
-            allDogs = makeDatabase();
-            Dog topDog = null;
+            allDogs = makeDatabase();       // Fake Database
 
-            double topDogScore = 0;
+            Dog topDog = null;              // Dog instance that we will store our current best candidate in
+            double topDogScore = 0;         // Score that this dog has - The current top score
 
             foreach (Dog dog in allDogs)
             {
-                double dogScore = DogCompatibility(requestedDog, dog);
-                if (dogScore > topDogScore)
+                double dogScore = DogCompatibility(requestedDog, dog);  // Get dog compatibility score
+                if (dogScore > topDogScore)                             // If we score higher than current top dog
                 {
-                    topDog = dog;
-                    topDogScore = dogScore;
+                    topDog = dog;                                       // We ar the top dog
+                    topDogScore = dogScore;                             // And hold the new high score
                 }
        
             }
@@ -79,33 +79,40 @@ namespace DogSelector.Controllers
         {
             double returnValue = 0;
 
-            if (requestedDog.Drools == dogFromList.Drools && requestedDog.GoodWithChildren == dogFromList.GoodWithChildren)    // We are good enough
+            // Dogs need to pass both boolean tests before being considered a match
+            if (requestedDog.Drools == dogFromList.Drools && requestedDog.GoodWithChildren == dogFromList.GoodWithChildren)   
             {
+                // Create a list to store the dog scores 
+                // We will populate this list by using two methods to compute a score for each feature
                 List<int> scores = new List<int>();
+
+                // For the fields without a NoPreference Enum, we can just use calculateFeaturreCompatibility
                 scores.Add(calculateFeatureCompatibility((int)dogFromList.Coatlength, (int)requestedDog.Coatlength));
                 scores.Add(calculateFeatureCompatibility((int)dogFromList.Size, (int)requestedDog.Size));
 
+                // With the fields using a NoPreference Enum, we need to use another method that will filter first
                 scores.Add(calculateLevelFeatures((int)dogFromList.ActivityLevel, (int)requestedDog.ActivityLevel));
                 scores.Add(calculateLevelFeatures((int)dogFromList.SheddingLevel, (int)requestedDog.SheddingLevel));
                 scores.Add(calculateLevelFeatures((int)dogFromList.GroomingLevel, (int)requestedDog.GroomingLevel));
                 scores.Add(calculateLevelFeatures((int)dogFromList.IntelligenceLevel, (int)requestedDog.IntelligenceLevel));
 
+                // Because we use a list, we can use .Average()
                 returnValue = scores.Average();
             }
             else
-                returnValue = 0;
-
+                returnValue = 0;    // If we don't pass boolean test, we're not compatible at all
 
             return returnValue;
 
         }
 
-        private int calculateLevelFeatures(int feature1, int feature2)
+        // CalculateLevelFeatures is used only on features that have a NoPreference Enum
+        private int calculateLevelFeatures(int ourFeature, int requestedFeature)
         {
-            if (feature1 == 0 && feature2 == 0)
-                return 10;
-            else
-                return calculateFeatureCompatibility(feature1, feature2);
+            if (requestedFeature == 0)  // NoPreference is 0, check for that - Not sure how to compare to actual Enum
+                return 10;              // If they have no preference for this feature, return 10
+            else                        // Else we will pass our features through calculateFeatureCompatibility method
+                return calculateFeatureCompatibility(ourFeature, requestedFeature);
         }
 
         // Returns value 0, 5 or 10 based on how compatible two ints are
@@ -113,14 +120,17 @@ namespace DogSelector.Controllers
         private int calculateFeatureCompatibility(int feature1, int feature2)
         {
             int returnValue = 0;
+            int full = 0;
+            int close = 1;
+
             int compatibilityScore = Math.Abs(feature1 - feature2);
 
-            if (compatibilityScore == 0)
-                returnValue = 10;
-            else if (compatibilityScore > 1)
-                returnValue = 0;
-            else
-                returnValue = 5;
+            if (compatibilityScore == full)         // If we are fully compatible
+                returnValue = 10;                   // Ten points for you
+            else if (compatibilityScore > close)    // If we are outside the threshold
+                returnValue = 0;                    // We get nothing
+            else                                    // Otherwise we were close
+                returnValue = 5;                    // So we get five points
 
             return returnValue;
         }
