@@ -3,100 +3,123 @@
 @{
     Layout = null;
 }
-
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dog Selector Index</title>
 </head>
 <body>
     <div> 
-        <!-- Form Start -->
-        <form action="Index" method="post"> 
-            <p>
-                Good with children:
-                <select name="GoodWithChildren">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
-            </p>
+        <div class="page-header text-center">
+            <h1>Dog Picker <small>Find the dog for you!</small></h1>
+        </div>
+        <div class="col-md-3">
+        </div>
+            <form action="Index" method="post" class="col-md-6">
+                <div class="form-group row">
+                    <label class="col-md-3">Good with Children:</label>
+                    <div class="col-md-6">
+                        <select name="GoodWithChildren" class="form-control">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+            <!--</form>-->
+                <div class="form-group row">       
+                    <label class="col-md-3">Drools:</label>
+                    <div class="col-md-6">
+                        <select name="Drools" class="form-control">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-md-3">Coat Length:</label>
+                    <div class="col-md-6">
+                        <select name="Coatlength" class="form-control">
+                            @foreach (var length in Enum.GetValues(typeof(@DogSelector.Models.ELength)))
+                            {
+                                var name = Enum.GetName(typeof(@DogSelector.Models.ELength), length);
+                                <option value="@length.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-md-3">Activity Level:</label>
+                    <div class="col-md-6">
+                        <select name="ActivityLevel" class="form-control">
+                            @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
+                            {
+                                var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
+                                <option value="@scale.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div> 
+                
+                <div class="form-group row">
+                    <label class="col-md-3">Shedding Level:</label>
+                    <div class="col-md-6">
+                        <select name="SheddingLevel" class="form-control">
+                            @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
+                            {
+                                var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
+                                <option value="@scale.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
 
-            <p>
-                Drools:
-                <select name="Drools">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
-            </p>
-
-            <p>
-                Coat Length:
-                <select name="Coatlength">
-                    @foreach (var length in Enum.GetValues(typeof(@DogSelector.Models.ELength)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.ELength), length);
-                        <option value="@length.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-
-            <p>
-                Activity Level:
-                <select name="ActivityLevel">
-                    @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
-                        <option value="@scale.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-
-            <p>
-                Shedding Level:
-                <select name="SheddingLevel">
-                    @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
-                        <option value="@scale.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-
-            <p>
-                Grooming Level:
-                <select name="GroomingLevel">
-                    @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
-                        <option value="@scale.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-
-            <p>
-                Intelligence Level:
-                <select name="IntelligenceLevel">
-                    @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
-                        <option value="@scale.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-
-            <p>
-                Size:
-                <select name="Size">
-                    @foreach (var size in Enum.GetValues(typeof(@DogSelector.Models.ESize)))
-                    {
-                        var name = Enum.GetName(typeof(@DogSelector.Models.ESize), size);
-                        <option value="@size.ToString()">@name</option>
-                    }
-                </select>
-            </p>
-            <button type="submit">Find My Dog</button>
+                <div class="form-group row">
+                    <label class="col-md-3">Grooming Level:</label>
+                    <div class="col-md-6">
+                        <select name="GroomingLevel" class="form-control">
+                            @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
+                            {
+                                var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
+                                <option value="@scale.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-md-3">Intelligence Level:</label>
+                    <div class="col-md-6">
+                        <select name="IntelligenceLevel" class="form-control">
+                            @foreach (var scale in Enum.GetValues(typeof(@DogSelector.Models.EScale)))
+                            {
+                                var name = Enum.GetName(typeof(@DogSelector.Models.EScale), scale);
+                                <option value="@scale.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-md-3">Size:</label>
+                    <div class="col-md-6">
+                        <select name="Size" class="form-control">
+                            @foreach (var size in Enum.GetValues(typeof(@DogSelector.Models.ESize)))
+                            {
+                            var name = Enum.GetName(typeof(@DogSelector.Models.ESize), size);
+                            <option value="@size.ToString()">@name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Find My Dog</button>
+                </div>
         </form>
         <!-- Form End-->
     </div>

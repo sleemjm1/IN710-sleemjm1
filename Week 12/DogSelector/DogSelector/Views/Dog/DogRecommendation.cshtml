@@ -3,30 +3,66 @@
 @{
     Layout = null;
 }
-
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>DogRecommendation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Results</title>
 </head>
 <body>
-    <div> 
-        <h1>Requested Dog:</h1>
-        <p>Breed Name: @Model.BreedName</p>
-        <p>Display Name: @Model.DisplayName</p>
-        <p>Activity Level: @Model.ActivityLevel</p>
-        <p>Shedding Level: @Model.SheddingLevel</p>
-        <p>Grooming Level: @Model.GroomingLevel</p>
-        <p>Intelligence Level: @Model.IntelligenceLevel</p>
-        <p>Good With Children: @Model.GoodWithChildren</p>
-        <p>Drools: @Model.Drools</p>
-        <p>Coat Length: @Model.Coatlength</p>
-        <p>Size: @Model.Size</p>
-        <form>
-            <button type="submit">Back</button>
-        </form>
+    <div class="page-header text-center">
+        <h1>@Model.DisplayName!<small> Is this the dog for you?</small></h1>
     </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <img src="/Content/Images/@Model.ImageName" class="img-responsive"/>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-6">Activity Level:</td>
+                        <td>@Model.ActivityLevel</td>
+                    </tr>
+                    <tr>
+                        <td>Shedding Level</td>
+                        <td>@Model.SheddingLevel</td>
+                    </tr>
+                    <tr>
+                        <td>Grooming Level</td>
+                        <td>@Model.GroomingLevel</td>
+                    </tr>
+                    <tr>
+                        <td>Intelligence Level</td>
+                        <td>@Model.IntelligenceLevel</td>
+                    </tr>
+                    <tr>
+                        <td>Good With Children</td>
+                        <td>@Model.GoodWithChildren</td>
+                    </tr>
+                    <tr>
+                        <td>Drools</td>
+                        <td>@Model.Drools</td>
+                    </tr>
+                    <tr>
+                        <td>Coat Length</td>
+                        <td>@Model.Coatlength</td>
+                    </tr>
+                    <tr>
+                        <td>Size</td>
+                        <td>@Model.Size</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+        <form>
+            <button type="submit" class="btn btn-primary">Back to dog picker</button>
+        </form>
 </body>
 </html>
